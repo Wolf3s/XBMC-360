@@ -21,6 +21,7 @@ public:
 	static int ExecBuiltIn(const CStdString& execString);
 	static bool GetParentPath(const CStdString& strPath, CStdString& strParent);
 	static bool HasSlashAtEnd(const CStdString& strFile);
+    static void GetHomePath(CStdString& strPath);
 	static void AddSlashAtEnd(CStdString& strFolder);
 	static const CStdString GetExtension(const CStdString& strFileName);
 	static void GetExtension(const CStdString& strFile, CStdString& strExtension);

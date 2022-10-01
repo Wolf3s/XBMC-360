@@ -1,5 +1,6 @@
-#ifndef CFTPFILEWRITER_H
-#define CFTPFILEWRITER_H
+#ifndef CFTPFILE_H
+#define CFTPFILE_H
+
 #include <cstdio> //Both Stdio´s??
 #include <stdio.h>
 #include "..\..\utils\Thread.h"

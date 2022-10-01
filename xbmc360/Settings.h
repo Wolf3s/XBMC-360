@@ -8,6 +8,7 @@
 #include "Profile.h"
 #include "filesystem/Directory.h"
 #include "guilib/LocalizeStrings.h"
+#include "filesystem/SpecialProtocol.h"
 
 #define DEFAULT_SKIN "Project Mayhem III"
 
@@ -19,10 +20,15 @@ public:
 
 	void Initialize();
 	void LoadExtensions();
-	bool LoadSettings(const CStdString& strSettingsFile);
 	bool Load();
+	bool LoadSettings(const CStdString& strSettingsFile);
+	bool Reset();
 	bool SaveSettings(const CStdString& strSettingsFile) const;
 	void Save() const;
+	// skin activated settings
+	void LoadSkinSettings(const TiXmlElement* pElement);
+	void SaveSkinSettings(TiXmlNode *pElement) const;
+
 	void ClearSources();
 	bool AddShare(const CStdString &type, const CMediaSource &share);
 	VECSOURCES *GetSourcesFromType(const CStdString &type);
@@ -56,12 +62,14 @@ public:
 
 	//uses HasSlashAtEnd to determine if a directory or file was meant
 	CStdString GetUserDataItem(const CStdString& strFile) const;
-#ifdef WIP
+
 	CStdString GetDatabaseFolder() const;
+#ifdef WIP
 	CStdString GetCDDBFolder() const;
+	CStdString GetLastFMThumbFolder() const;
+#endif	
 	CStdString GetThumbnailsFolder() const;
 	CStdString GetMusicThumbFolder() const;
-	CStdString GetLastFMThumbFolder() const;
 	CStdString GetMusicArtistThumbFolder() const;
 	CStdString GetVideoThumbFolder() const;
 	CStdString GetBookmarksThumbFolder() const;
@@ -69,6 +77,7 @@ public:
 	CStdString GetProgramsThumbFolder() const;
 	CStdString GetGameSaveThumbFolder() const;
 	CStdString GetProfilesThumbFolder() const;
+#ifdef WIP
 	CStdString GetScriptsFolder() const;
 	CStdString GetVideoFanartFolder() const;
 	CStdString GetMusicFanartFolder() const;
@@ -99,6 +108,8 @@ protected:
 	bool GetSource(const CStdString &category, const TiXmlNode *source, CMediaSource &share);
 	bool SetSources(TiXmlNode *root, const char *section, const VECSOURCES &shares);
 	bool SaveSources();
+
+
 
 	void GetInteger(const TiXmlElement* pRootElement, const CStdString& strTagName, int& iValue, const int iDefault, const int iMin, const int iMax);
 

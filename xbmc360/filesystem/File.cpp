@@ -94,6 +94,71 @@ unsigned int CFile::Read(void *lpBuf, unsigned int uiBufSize, unsigned flags)
     return 0;
 }
 
+bool CFile::Delete(const CStdString& strFileName)
+{
+  try
+  {
+    CURL url(strFileName);
+
+    std::auto_ptr<CFileBase> pFile(CFileFactory::CreateLoader(url));
+    if (!pFile.get())
+      return false;
+#ifdef WIP
+    if(pFile->Delete(&url))
+    {
+
+      g_directoryCache.ClearFile(strFileName);  
+	  return true;
+    }
+#endif
+  }
+  catch(...)
+  {
+    CLog::Log(LOGERROR, "%s - Unhandled exception", __FUNCTION__);
+  }
+  if (Exists(strFileName))
+    CLog::Log(LOGERROR, "%s - Error deleting file %s", __FUNCTION__, strFileName.c_str());
+  return false;
+}
+
+bool CFile::Rename(const CStdString& strFileName, const CStdString& strNewFileName)
+{
+  try
+  {
+    CURL url(strFileName);
+    CURL urlnew(strNewFileName);
+
+    std::auto_ptr<CFileBase> pFile(CFileFactory::CreateLoader(url));
+    if (!pFile.get())
+      return false;
+#ifdef WIP
+    if(pFile->Rename(url, urlnew))
+    {
+      g_directoryCache.ClearFile(strFileName);
+      g_directoryCache.ClearFile(strNewFileName);      
+	  return true;
+    }
+#endif
+  }
+/*
+#ifndef _LINUX
+  catch (const win32_exception &e)
+  {
+    e.writelog(__FUNCTION__);
+  }
+#endif
+*/
+  catch(...)
+  {
+    CLog::Log(LOGERROR, "%s - Unhandled exception ", __FUNCTION__);
+  }
+
+#ifdef WIP
+  CLog::Log(LOGERROR, "%s - Error renaming file %s", __FUNCTION__, strFileName.c_str());
+#endif  
+  return false;
+}
+
 int CFile::Write(const void* lpBuf, int64_t uiBufSize)
 {
 	try
@@ -170,7 +235,6 @@ int CFile::Stat(const CStdString& strFileName, struct __stat64* buffer)
 	try
 	{
 		CFileBase* pFile = CFileFactory::CreateLoader(url);
-
 		int iResult = 0;
 
 		if(pFile)

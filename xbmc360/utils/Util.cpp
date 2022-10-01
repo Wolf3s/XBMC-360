@@ -26,7 +26,7 @@ namespace MathUtils
 		MathUtils::rint(0.0);
 	}
 
-} // CMathUtils namespace
+} //namespace CMathUtils
 
 typedef struct
 {
@@ -210,6 +210,17 @@ int CUtil::ExecBuiltIn(const CStdString& execString)
 		}
 	}
 	return 0;
+}
+
+void CUtil::GetHomePath(CStdString& strPath)
+{
+  char szXBEFileName[1024];
+#ifdef WIP
+  CIoSupport::GetXbePath(szXBEFileName);
+#endif  
+  char *szFileName = strrchr(szXBEFileName, '\\');
+  *szFileName = 0;
+  strPath = szXBEFileName;
 }
 
 bool CUtil::GetParentPath(const CStdString& strPath, CStdString& strParent)

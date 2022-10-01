@@ -371,6 +371,9 @@
     <ClInclude Include="filesystem\IFileDirectory.h" />
     <ClInclude Include="filesystem\MultiPathDirectory.h" />
     <ClInclude Include="filesystem\SMBDirectory.h" />
+    <ClInclude Include="filesystem\SpecialProtocol.h" />
+    <ClInclude Include="filesystem\SpecialProtocolDirectory.h" />
+    <ClInclude Include="filesystem\SpecialProtocolFile.h" />
     <ClInclude Include="filesystem\VirtualDirectory.h" />
     <ClInclude Include="filesystem\XBFS_Wrap\EmuFileWrapper.h" />
     <ClInclude Include="filesystem\XBFS_Wrap\XBFS_Wrap.h" />
@@ -566,6 +569,9 @@
     <ClCompile Include="filesystem\IDirectory.cpp" />
     <ClCompile Include="filesystem\MultiPathDirectory.cpp" />
     <ClCompile Include="filesystem\SMBDirectory.cpp" />
+    <ClCompile Include="filesystem\SpecialProtocol.cpp" />
+    <ClCompile Include="filesystem\SpecialProtocolDirectory.cpp" />
+    <ClCompile Include="filesystem\SpecialProtocolFile.cpp" />
     <ClCompile Include="filesystem\VirtualDirectory.cpp" />
     <ClCompile Include="filesystem\XBFS_Wrap\XBFS_Wrap.cpp" />
     <ClCompile Include="guilib\AudioContext.cpp" />
