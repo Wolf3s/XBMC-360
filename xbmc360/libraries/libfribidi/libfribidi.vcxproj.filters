@@ -9,66 +9,167 @@
       <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
       <Extensions>h;hpp;hxx;hm;inl;inc;xsd</Extensions>
     </Filter>
+    <Filter Include="Preprocessors files">
+      <UniqueIdentifier>{97e0222a-69ba-4f89-a503-df8a7ca48ec1}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="packtab.c">
-      <Filter>Source Files</Filter>
-    </ClCompile>
+    <ClInclude Include="bidi-types.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="common.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="config.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="debug.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="fribidi.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="fribidi-arabic.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="fribidi-begindecls.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="fribidi-bidi.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="fribidi-bidi-types.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="fribidi-bidi-types-list.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="fribidi-brackets.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="fribidi-char-sets.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="fribidi-char-sets-cap-rtl.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="fribidi-char-sets-cp1255.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="fribidi-char-sets-cp1256.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="fribidi-char-sets-iso8859-6.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="fribidi-char-sets-iso8859-8.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="fribidi-char-sets-list.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="fribidi-char-sets-utf8.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="fribidi-common.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="fribidi-deprecated.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="fribidi-enddecls.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="fribidi-flags.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="fribidi-joining.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="fribidi-joining-types.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="fribidi-joining-types-list.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="fribidi-mirroring.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="fribidi-shape.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="fribidi-types.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="fribidi-unicode.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="fribidi-unicode-version.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="joining-types.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="run.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="getopt.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
     <ClCompile Include="fribidi.c">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="fribidi_char_sets.c">
+    <ClCompile Include="fribidi-arabic.c">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="fribidi_char_sets_cap_rtl.c">
+    <ClCompile Include="fribidi-bidi.c">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="fribidi_char_sets_cp1255.c">
+    <ClCompile Include="fribidi-bidi-types.c">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="fribidi_char_sets_cp1256.c">
+    <ClCompile Include="fribidi-brackets.c">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="fribidi_char_sets_isiri_3342.c">
+    <ClCompile Include="fribidi-char-sets.c">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="fribidi_char_sets_iso8859_6.c">
+    <ClCompile Include="fribidi-char-sets-cap-rtl.c">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="fribidi_char_sets_iso8859_8.c">
+    <ClCompile Include="fribidi-char-sets-cp1255.c">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="fribidi_char_sets_utf8.c">
+    <ClCompile Include="fribidi-char-sets-cp1256.c">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="fribidi_char_type.c">
+    <ClCompile Include="fribidi-char-sets-iso8859-6.c">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="fribidi_create_char_types.c">
+    <ClCompile Include="fribidi-char-sets-iso8859-8.c">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="fribidi_create_mirroring.c">
+    <ClCompile Include="fribidi-char-sets-utf8.c">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="fribidi_main.c">
+    <ClCompile Include="fribidi-deprecated.c">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="fribidi_mem.c">
+    <ClCompile Include="fribidi-joining.c">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="fribidi_mirroring.c">
+    <ClCompile Include="fribidi-joining-types.c">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="fribidi_types.c">
+    <ClCompile Include="fribidi-mirroring.c">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="fribidi_utils.c">
+    <ClCompile Include="fribidi-run.c">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="fribidi_wcwidth.c">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="getopt1.c">
+    <ClCompile Include="fribidi-shape.c">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="getopt.c">
@@ -76,59 +177,26 @@
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="packtab.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="acconfig.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="fribidi.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="fribidi_char_sets.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="fribidi_char_sets_cap_rtl.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="fribidi_char_sets_cp1255.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="fribidi_char_sets_cp1256.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="fribidi_char_sets_isiri_3342.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="fribidi_char_sets_iso8859_6.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="fribidi_char_sets_iso8859_8.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="fribidi_char_sets_utf8.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="fribidi_config.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="fribidi_mem.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="fribidi_types.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="fribidi_unicode.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="getopt.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="..\libiconv\iconv.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="..\libiconv\export.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
+    <None Include="arabic-misc.tab.i">
+      <Filter>Preprocessors files</Filter>
+    </None>
+    <None Include="arabic-shaping.tab.i">
+      <Filter>Preprocessors files</Filter>
+    </None>
+    <None Include="bidi-type.tab.i">
+      <Filter>Preprocessors files</Filter>
+    </None>
+    <None Include="brackets.tab.i">
+      <Filter>Preprocessors files</Filter>
+    </None>
+    <None Include="brackets-type.tab.i">
+      <Filter>Preprocessors files</Filter>
+    </None>
+    <None Include="joining-type.tab.i">
+      <Filter>Preprocessors files</Filter>
+    </None>
+    <None Include="mirroring.tab.i">
+      <Filter>Preprocessors files</Filter>
+    </None>
   </ItemGroup>
 </Project>

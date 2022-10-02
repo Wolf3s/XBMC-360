@@ -1,263 +1,129 @@
-/* FriBidi - Library of BiDi algorithm
- * Copyright (C) 1999,2000 Dov Grobgeld, and
- * Copyright (C) 2001,2002 Behdad Esfahbod. 
+/* FriBidi
+ * fribidi.h - Unicode bidirectional and Arabic joining/shaping algorithms
+ *
+ * Author:
+ *   Behdad Esfahbod, 2004
+ *
+ * Copyright (C) 2004 Sharif FarsiWeb, Inc
  * 
- * This library is free software; you can redistribute it and/or 
- * modify it under the terms of the GNU Lesser General Public 
- * License as published by the Free Software Foundation; either 
- * version 2.1 of the License, or (at your option) any later version. 
+ * This library is free software; you can redistribute it and/or
+ * modify it under the terms of the GNU Lesser General Public
+ * License as published by the Free Software Foundation; either
+ * version 2.1 of the License, or (at your option) any later version.
  * 
- * This library is distributed in the hope that it will be useful, 
- * but WITHOUT ANY WARRANTY; without even the implied warranty of 
- * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU 
- * Lesser General Public License for more details. 
+ * This library is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+ * Lesser General Public License for more details.
  * 
- * You should have received a copy of the GNU Lesser General Public License 
- * along with this library, in a file named COPYING; if not, write to the 
- * Free Software Foundation, Inc., 59 Temple Place, Suite 330, 
- * Boston, MA 02111-1307, USA  
+ * You should have received a copy of the GNU Lesser General Public License
+ * along with this library, in a file named COPYING; if not, write to the
+ * Free Software Foundation, Inc., 51 Franklin Street, Fifth Floor,
+ * Boston, MA 02110-1301, USA
  * 
- * For licensing issues, contact <dov@imagic.weizmann.ac.il> and 
- * <fwpg@sharif.edu>. 
+ * For licensing issues, contact <fribidi.license@gmail.com>.
  */
+#ifndef _FRIBIDI_H
+#define _FRIBIDI_H
 
-#ifndef FRIBIDI_H
-#define FRIBIDI_H
+#include "fribidi-common.h"
 
-#include "fribidi_config.h"
-#include "fribidi_unicode.h"
-#include "fribidi_mem.h"
-#include "fribidi_types.h"
-#ifndef FRIBIDI_NO_CHARSETS
-#include "fribidi_char_sets.h"
-#endif
+#include "fribidi-unicode.h"
+#include "fribidi-types.h"
+#include "fribidi-flags.h"
+#include "fribidi-bidi-types.h"
+#include "fribidi-bidi.h"
+#include "fribidi-joining-types.h"
+#include "fribidi-joining.h"
+#include "fribidi-mirroring.h"
+#include "fribidi-brackets.h"
+#include "fribidi-arabic.h"
+#include "fribidi-shape.h"
+#include "fribidi-char-sets.h"
 
-#ifdef __cplusplus
-extern "C"
-{
-#endif
+#include "fribidi-begindecls.h"
 
-  fribidi_boolean fribidi_log2vis (	/* input */
-				    FriBidiChar *str, FriBidiStrIndex len,
-				    FriBidiCharType *pbase_dirs,
-				    /* output */
-				    FriBidiChar *visual_str,
-				    FriBidiStrIndex *position_L_to_V_list,
-				    FriBidiStrIndex *position_V_to_L_list,
-				    FriBidiLevel *embedding_level_list);
-
-  fribidi_boolean fribidi_log2vis_get_embedding_levels (	/* input */
-							 FriBidiChar *str,
-							 FriBidiStrIndex len,
-							 FriBidiCharType
-							 *pbase_dir,
-							 /* output */
-							 FriBidiLevel
-							 *embedding_level_list);
-
-/*======================================================================
- *  fribidi_remove_bidi_marks() removes bidirectional marks, and returns
- *  the new length, also updates each of other inputs if not NULL.
- *----------------------------------------------------------------------*/
-  FriBidiStrIndex fribidi_remove_bidi_marks (FriBidiChar *str,
-					     FriBidiStrIndex length,
-					     FriBidiStrIndex
-					     *position_to_this_list,
-					     FriBidiStrIndex
-					     *position_from_this_list,
-					     FriBidiLevel
-					     *embedding_level_list);
-
-/*======================================================================
- *  fribidi_get_type() returns bidi type of a character.
- *----------------------------------------------------------------------*/
-  FriBidiCharType fribidi_get_type_internal (FriBidiChar uch);
- 
-#define fribidi_get_type(uch) fribidi_get_type_internal(uch)
-
-/*======================================================================
- *  fribidi_get_types() returns bidi type of a string.
- *----------------------------------------------------------------------*/
-  void fribidi_get_types (	/* input */
-			   FriBidiChar *str, FriBidiStrIndex len,
-			   /* output */
-			   FriBidiCharType *type);
-
-/*======================================================================
- *  fribidi_get_mirror_char() returns the mirrored character, if input
- *  character has a mirror, or the input itself.
- *  if mirrored_ch is NULL, just returns if character has a mirror or not.
- *----------------------------------------------------------------------*/
-  fribidi_boolean fribidi_get_mirror_char (	/* Input */
-					    FriBidiChar ch,
-					    /* Output */
-					    FriBidiChar *mirrored_ch);
-
-/*======================================================================
- *  fribidi_mirroring_status() returns whether mirroring is on or off,
- *  default is on.
- *----------------------------------------------------------------------*/
-  fribidi_boolean fribidi_mirroring_status (void);
-
-/*======================================================================
- *  fribidi_set_mirroring() sets mirroring on or off.
- *----------------------------------------------------------------------*/
-  void fribidi_set_mirroring (fribidi_boolean mirror);
-
-/*======================================================================
- *  fribidi_reorder_nsm_status() returns whether reordering of NSM
- *  sequences is on or off, default is off.
- *----------------------------------------------------------------------*/
-  fribidi_boolean fribidi_reorder_nsm_status (void);
-
-/*======================================================================
- *  fribidi_set_reorder_nsm() sets reordering of NSM characters on or off.
- *----------------------------------------------------------------------*/
-  void fribidi_set_reorder_nsm (fribidi_boolean);
-
-/*======================================================================
- *  fribidi_set_debug() turn on or off debugging, default is off, return
- *  false is fribidi is not compiled with debug enabled.
- *----------------------------------------------------------------------*/
-  fribidi_boolean fribidi_set_debug (fribidi_boolean debug);
-
-/* fribidi_utils.c */
-
-/*======================================================================
- *  fribidi_find_string_changes() finds the bounding box of the section
- *  of characters that need redrawing. It returns the start and the
- *  length of the section in the new string that needs redrawing.
- *----------------------------------------------------------------------*/
-  void fribidi_find_string_changes (	/* input */
-				     FriBidiChar *old_str,
-				     FriBidiStrIndex old_len,
-				     FriBidiChar *new_str,
-				     FriBidiStrIndex new_len,
-				     /* output */
-				     FriBidiStrIndex *change_start,
-				     FriBidiStrIndex *change_len);
-
-
-/*======================================================================
- *  The find_visual_ranges() function is used to convert between a
- *  continous span in either logical or visual space to a one, two or
- *  three discontinous spans in the other space. The function outputs
- *  the number of ranges needed to display the mapped range as
- *  well as the resolved ranges.
+/* fribidi_remove_bidi_marks - remove bidi marks out of an string
  *
- *  The variable is_v2l_map indicates whether the position map is
- *  is in the direction of visual-to-logical. This information is
- *  needed in order to look up the correct character from the
- *  embedding_level_list which is assumed to be in logical order.
+ * This function removes the bidi and boundary-neutral marks out of an string
+ * and the accompanying lists.  It implements rule X9 of the Unicode
+ * Bidirectional Algorithm available at
+ * http://www.unicode.org/reports/tr9/#X9, with the exception that it removes
+ * U+200E LEFT-TO-RIGHT MARK and U+200F RIGHT-TO-LEFT MARK too.
  *
- *  This function is typically used to resolve a logical range to visual
- *  ranges e.g. to display the selection.
+ * If any of the input lists are NULL, the list is skipped.  If str is the
+ * visual string, then positions_to_this is  positions_L_to_V and
+ * position_from_this_list is positions_V_to_L;  if str is the logical
+ * string, the other way. Moreover, the position maps should be filled with
+ * valid entries.
+ * 
+ * A position map pointing to a removed character is filled with \(mi1. By the
+ * way, you should not use embedding_levels if str is visual string.
+ * 
+ * For best results this function should be run on a whole paragraph, not
+ * lines; but feel free to do otherwise if you know what you are doing.
  *
- *  Example:
- *     The selection is between logical characters 10 to 45. Calculate
- *     the corresponding visual selection(s):
- *
- *     FriBidiStrIndex sel_span[2] = {10,45};
- *
- *     fribidi_map_range(sel_span,
- *                       TRUE,
- *                       length,
- *                       vis2log_map,
- *                       embedding_levels,
- *                       // output
- *                       &num_vis_ranges, *vis_ranges);
- **----------------------------------------------------------------------*/
-  void fribidi_map_range (FriBidiStrIndex span[2], FriBidiStrIndex len,
-			  fribidi_boolean is_v2l_map,
-			  FriBidiStrIndex *position_map,
-			  FriBidiLevel *embedding_level_list,
-			  /* output */
-			  int *num_mapped_spans, FriBidiStrIndex spans[3][2]);
-
-/*======================================================================
- *  fribidi_is_char_rtl() answers the question whether a character
- *  was resolved in the rtl direction. This simply involves asking
- *  if the embedding level for the character is odd.
- *----------------------------------------------------------------------*/
-  fribidi_boolean fribidi_is_char_rtl (FriBidiLevel *embedding_level_list,
-				       FriBidiCharType base_dir,
-				       FriBidiStrIndex idx);
-
-/*======================================================================
- *  fribidi_xpos_resolve() does the complicated translation of
- *  an x-coordinate, e.g. as received through a mouse press event,
- *  to the logical and the visual position the xcoordinate is closest
- *  to. It will also resolve the direction of the cursor according
- *  to the embedding level of the closest character.
- *
- *  It does this through the following logics:
- *  Here are the different possibilities:
- *
- *        Pointer              =>          Log Pos         Vis pos
- *  
- *     Before first vis char             log_pos(vis=0)L       0
- *     After last vis char               log_pos(vis=n-1)R     n
- *     Within 1/2 width of vis char i    log_pos(vis=i)L       i
- *     Within last 1/2 width of vchar i  log_pos(vis=i)R       i+1
- *     Border between vis chars i,i+1       resolve!           i+1
- *
- *  Input:
- *     x_pos        The pixel position to be resolved measured in pixels.
- *     x_offset     The x_offset is the pixel position of the left side
- *                  of the leftmost visual character. 
- *     len          The length of the embedding level, the vis2log and
- *                  the char width arrays.
- *     base_dir     The resolved base direction of the line.
- *     vis2log      The vis2log mapping.
- *                  x_position and the character widths. The position
- *                  (x_pos-x_offset) is number of pixels from the left
- *                  of logical character 0.
- *     char_widths  Width in pixels of each character. Note that the
- *                  widths should be provided in logical order.
- *
- *  Output:
- *     res_log_pos  Resolved logical position.
- *     res_vis_pos  Resolved visual position
- *     res_cursor_x_pos   The resolved pixel position to the left or
- *                  the right of the character position x_pos.
- *     res_cursor_dir_is_rtl   Whether the resolved dir of the character
- *                  at position x_pos is rtl.
- *     res_attach_before  Whether the x_pos is cutting the bounding
- *                  box in such a way that the visual cursor should be
- *                  be positioned before the following logical character.
- *                  Note that in the bidi context, the positions "after
- *                  a logical character" and "before the following logical
- *                  character" is not necessarily the same. If x_pos is
- *                  beyond the end of the line, res_attach_before is true.
- *
- *----------------------------------------------------------------------*/
-  void fribidi_xpos_resolve (int x_pos, int x_offset,
-			     FriBidiStrIndex len,
-			     FriBidiLevel *embedding_level_list,
-			     FriBidiCharType base_dir,
-			     FriBidiStrIndex *vis2log, int *char_widths,
-			     /* output */
-			     FriBidiStrIndex *res_log_pos,
-			     FriBidiStrIndex *res_vis_pos,
-			     int *res_cursor_x_pos,
-			     fribidi_boolean * res_cursor_dir_is_rtl,
-			     fribidi_boolean * res_attach_before);
-
-/*======================================================================
- *  fribidi_runs_log2vis takes a list of logical runs and returns a
- *  a list of visual runs. A run is defined as a sequence that has
- *  the same attributes.
- *----------------------------------------------------------------------*/
-  void fribidi_runs_log2vis (	/* input */
-			      FriBidiList *logical_runs,	/* List of FriBidiRunType */
-			      FriBidiStrIndex len, FriBidiStrIndex *log2vis,
-			      FriBidiCharType base_dir,
-			      /* output */
-			      FriBidiList **visual_runs);
+ * Returns: New length of the string, or \(mi1 if an error occurred (memory
+ * allocation failure most probably).
+ */
+FRIBIDI_ENTRY FriBidiStrIndex
+fribidi_remove_bidi_marks (
+  FriBidiChar *str,		/* input string to clean */
+  const FriBidiStrIndex len,	/* input string length */
+  FriBidiStrIndex *positions_to_this,	/* list mapping positions to the
+					   order used in str */
+  FriBidiStrIndex *position_from_this_list,	/* list mapping positions from the
+						   order used in str */
+  FriBidiLevel *embedding_levels	/* list of embedding levels */
+);
 
 
-#ifdef	__cplusplus
-}
-#endif
+/* fribidi_log2vis - get visual string
+ *
+ * This function converts the logical input string to the visual output
+ * strings as specified by the Unicode Bidirectional Algorithm.  As a side
+ * effect it also generates mapping lists between the two strings, and the
+ * list of embedding levels as defined by the algorithm.
+ *
+ * If NULL is passed as any of the the lists, the list is ignored and not
+ * filled.
+ *
+ * Note that this function handles one-line paragraphs. For multi-
+ * paragraph texts it is necessary to first split the text into
+ * separate paragraphs and then carry over the resolved pbase_dir
+ * between the subsequent invocations.
+ *
+ * Returns: Maximum level found plus one, or zero if any error occurred
+ * (memory allocation failure most probably).
+ */
+FRIBIDI_ENTRY FriBidiLevel fribidi_log2vis (
+  const FriBidiChar *str,	/* input logical string */
+  const FriBidiStrIndex len,	/* input string length */
+  FriBidiParType *pbase_dir,	/* requested and resolved paragraph
+				 * base direction */
+  FriBidiChar *visual_str,	/* output visual string */
+  FriBidiStrIndex *positions_L_to_V,	/* output mapping from logical to 
+					 * visual string positions */
+  FriBidiStrIndex *positions_V_to_L,	/* output mapping from visual string
+					 * back to the logical string
+					 * positions */
+  FriBidiLevel *embedding_levels	/* output list of embedding levels */
+);
 
-#endif				/* FRIBIDI_H */
+/* End of functions */
+
+#ifdef FRIBIDI_NO_DEPRECATED
+#else
+# include "fribidi-deprecated.h"
+#endif				/* !FRIBIDI_NO_DEPRECATED */
+
+
+/* An string containing the version information of the library. */
+FRIBIDI_ENTRY FRIBIDI_EXTERN const char *fribidi_version_info;
+
+#include "fribidi-enddecls.h"
+
+#endif /* !_FRIBIDI_H */
+/* Editor directions:
+ * vim:textwidth=78:tabstop=8:shiftwidth=2:autoindent:cindent
+ */

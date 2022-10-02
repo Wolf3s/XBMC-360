@@ -1,191 +1,79 @@
+##                                               -*- Automake -*-
+## Process this file with automake to produce Makefile.in
 
-AUTOMAKE_OPTIONS = gnu 
+ACLOCAL_AMFLAGS = -I m4
 
-noinst_PROGRAMS = fribidi_benchmark	\
-		fribidi_create_char_types	\
-		fribidi_create_mirroring
+## The order of subdirs is important, don't change without a reason.
+SUBDIRS = gen.tab lib bin doc test
 
-libfribidi_charsets =	\
-	fribidi_char_sets.c	\
-	fribidi_char_sets_utf8.c
-
-libfribidi_charsets_extra =	\
-	fribidi_char_sets_cap_rtl.c	\
-	fribidi_char_sets_iso8859_6.c	\
-	fribidi_char_sets_iso8859_8.c	\
-	fribidi_char_sets_cp1255.c	\
-	fribidi_char_sets_cp1256.c	\
-	fribidi_char_sets_isiri_3342.c
-
-libfribidi_charsets_h =	\
-	fribidi_char_sets.h	\
-	fribidi_char_sets_utf8.h
-libfribidi_charsets_extra_h =	\
-	fribidi_char_sets_cap_rtl.h	\
-	fribidi_char_sets_cp1255.h	\
-	fribidi_char_sets_cp1256.h	\
-	fribidi_char_sets_isiri_3342.h	\
-	fribidi_char_sets_iso8859_6.h	\
-	fribidi_char_sets_iso8859_8.h
-
-lib_LTLIBRARIES = libfribidi.la
-
-libfribidi_la_SOURCES =	\
-	fribidi.c	\
-	fribidi_types.c		\
-	fribidi_mem.c	\
-	fribidi_mirroring.c	\
-	fribidi_char_type.c	\
-	fribidi_wcwidth.c	\
-	fribidi_utils.c	\
-	$(libfribidi_charsets)	\
-	$(libfribidi_charsets_extra)
-
-libfribidi_la_LIBADD = 
-
-libfribidiincdir = $(includedir)/fribidi
-
-libfribidiinc_HEADERS =	\
-	fribidi.h	\
-	fribidi_types.h	\
-	fribidi_mem.h	\
-	fribidi_unicode.h	\
-	$(libfribidi_charsets_h)	\
-	$(libfribidi_charsets_extra_h)	\
-	fribidi_config.h
-
-GETOPT_SRC =	\
-	getopt.c	\
-	getopt1.c
-
-GETOPT_HDR =	\
-	getopt.h
-
-TEST_FILES =	\
-	tests/test_CapRTL_explicit.input	\
-	tests/test_CapRTL_explicit.reference	\
-	tests/test_CapRTL_implicit.input	\
-	tests/test_CapRTL_implicit.reference	\
-	tests/test_ISO8859-8_hebrew.input	\
-	tests/test_ISO8859-8_hebrew.reference	\
-	tests/test_UTF-8_persian.input	\
-	tests/test_UTF-8_persian.reference
-
-TABLE_FILES =	\
-	fribidi_tab_mirroring.i	\
-	fribidi_tab_char_type_2.i	\
-	fribidi_tab_char_type_9.i
-
-UNIDATA_FILES =	\
-	unidata/README	\
-	unidata/UnicodeData.txt	\
-	unidata/BidiMirroring.txt
-
-OTHER_FILES =	\
-	fribidi_wcwidth.i
-
-EXTRA_HEADERS =	\
-	packtab.h	\
-	$(GETOPT_HDR)
-
-EXTRA_DIST =	\
-	bootstrap \
-	run.tests	\
-	ANNOUNCE	\
-	acinclude.m4	\
-	fribidi_config.h.in	\
-	fribidi.pc.in	\
-	fribidi.spec.in	\
-	fribidi.spec	\
-	$(TEST_FILES)	\
-	$(TABLE_FILES)	\
-	$(UNIDATA_FILES)	\
-	$(OTHER_FILES)	\
-	$(EXTRA_HEADERS)
-
-fribidi_benchmark_SOURCES = fribidi_benchmark.c $(GETOPT_SRC)
-fribidi_benchmark_LDADD = libfribidi.la
-
-fribidi_create_char_types_SOURCES = fribidi_create_char_types.c packtab.c
-
-fribidi_create_mirroring_SOURCES = fribidi_create_mirroring.c
-
-bin_PROGRAMS = fribidi
-fribidi_SOURCES = fribidi_main.c $(GETOPT_SRC)
-fribidi_LDADD = libfribidi.la
-
-
-fribidi_tab_mirroring.i: $(fribidi_create_mirroring_SOURCES)	\
-		unidata/BidiMirroring.txt
-	$(MAKE) fribidi_create_mirroring
-	if test -d unidata; then UNIDATA=unidata;	\
-	else UNIDATA="$(srcdir)/unidata"; fi &&	\
-	./fribidi_create_mirroring "$$UNIDATA" ||	\
-	($(RM) "$@"; false)
-
-
-$(srcdir)/fribidi_mirroring.c: fribidi_tab_mirroring.i
-	touch "$@" || $(MAKE) clean
-
-fribidi_tab_char_type_small:
-	$(MAKE) fribidi_tab_char_type_9.i
-
-fribidi_tab_char_type_large:
-	$(MAKE) fribidi_tab_char_type_2.i
-
-fribidi_tab_char_type_%.i: $(fribidi_create_char_types_SOURCES)	\
-		unidata/UnicodeData.txt
-	$(MAKE) fribidi_create_char_types
-	if test -d unidata; then UNIDATA=unidata;	\
-	else UNIDATA="$(srcdir)/unidata"; fi &&	\
-	./fribidi_create_char_types "`echo "$@"	\
-	  | $(SED) 's/[^0-9]*//g'`" "$$UNIDATA" ||	\
-	($(RM) "$@"; false)
-	$(RM) fribidi_tab_char_type_stamp
-	$(MAKE) fribidi_tab_char_type_stamp
-
-fribidi_tab_char_type_stamp:
-	touch "$(srcdir)/fribidi_char_type.c" || $(MAKE) clean
-	touch "$@"
-
-config.h: fribidi_tab_char_type_stamp
-	./config.status --recheck
-	./config.status
-	touch "$@"
-
-$(srcdir)/fribidi_char_type.c: config.h
-
-tests/test_%.reference: tests/test_%.input $(libfribidi_la_SOURCES)
-	$(MAKE) fribidi
-	(test -d tests || mkdir tests) &&	\
-	testcase="$@" && 	\
-	charset="`echo "$@" | $(SED) 's/_[^_]*$$//;s/.*_//'`" &&	\
-	./fribidi --test --charset "$$charset" "$<" > "$@" || \
-	($(RM) "$@"; false)
-
-test.reference:
-	for testcase in "$(srcdir)"/tests/test_*.input; do	\
-		test="`echo "$$testcase"	\
-		  | $(SED) 's/\.input$$/.reference/i; s|.*/||;'`" &&	\
-		$(MAKE) "tests/$$test" ||	\
-		exit 1;	\
-	done
-
-test: fribidi
-	"$(srcdir)/run.tests"
-
-.PHONY: test test.reference	\
-		fribidi_tab_char_type_small fribidi_tab_char_type_large
-
-TESTS = run.tests
-
-bin_SCRIPTS = fribidi-config
+EXTRA_DIST = autogen.sh ChangeLog.old \
+	meson.build meson_options.txt bin/meson.build doc/meson.build \
+	gen.tab/meson.build lib/meson.build test/meson.build \
+	test/test-runner.py test/unicode-conformance/meson.build \
+        README.md
 
 pkgconfigdir = $(libdir)/pkgconfig
-pkgconfig_DATA = fribidi.pc
+pkgconfig_DATA = @PACKAGE@.pc
 
-CLEANFILES = 
+BUILT_SOURCES = lib/fribidi-unicode-version.h
+lib/fribidi-unicode-version.h:
+	(cd lib && $(MAKE) $(AM_MAKEFLAGS) fribidi-unicode-version.h)
 
-DISTCLEANFILES = fribidi_tab_char_type_stamp
+MAINTAINERCLEANFILES = \
+	INSTALL \
+	$(GITIGNORE_MAINTAINERCLEANFILES_TOPLEVEL) \
+	$(GITIGNORE_MAINTAINERCLEANFILES_MAKEFILE_IN) \
+	$(GITIGNORE_MAINTAINERCLEANFILES_M4_LIBTOOL)
 
-MAINTAINERCLEANFILES = Makefile.in configure aclocal.m4 config.h.in
+# Indent all C source and header files, using indent(1):
+
+indent: $(srcdir)/.indent.pro
+	cd "$(srcdir)" && \
+	find . -mindepth 2 -type f -name "*.[ch]" -print | \
+	  xargs ./missing --run indent
+
+.PHONY: indent
+
+#
+# ChangeLog generation
+#
+CHANGELOG_RANGE =
+ChangeLog:
+	$(AM_V_GEN) if test -d "$(top_srcdir)/.git"; then \
+	  (GIT_DIR=$(top_srcdir)/.git $(top_srcdir)/missing --run \
+	   git log $(CHANGELOG_RANGE) --stat) | fmt --split-only > $@.tmp \
+	  && mv -f $@.tmp "$(srcdir)/ChangeLog" \
+	  || ($(RM) $@.tmp; \
+	      echo Failed to generate ChangeLog, your ChangeLog may be outdated >&2; \
+	      (test -f $@ || echo git-log is required to generate this file >> "$(srcdir)/$@")); \
+	else \
+	  test -f $@ || \
+	  (echo A git checkout and git-log is required to generate ChangeLog >&2 && \
+	  echo A git checkout and git-log is required to generate this file >> "$(srcdir)/$@"); \
+	fi
+.PHONY: $(srcdir)/ChangeLog
+
+#
+# Release engineering
+#
+
+TAR_OPTIONS = --owner=0 --group=0
+dist-hook: dist-clear-sticky-bits
+# Clean up any sticky bits we may inherit from parent dir
+dist-clear-sticky-bits:
+	chmod -R a-s $(distdir)
+
+
+tar_file = $(PACKAGE_TARNAME)-$(VERSION).tar.bz2
+sha256_file = $(tar_file).sha256
+gpg_file = $(sha256_file).asc
+$(sha256_file): $(tar_file)
+	sha256sum $^ > $@
+$(gpg_file): $(sha256_file)
+	@echo "Please enter your GPG password to sign the checksum."
+	gpg --armor --sign $^
+
+release-files: $(tar_file) $(sha256_file) $(gpg_file)
+
+
+-include $(top_srcdir)/git.mk

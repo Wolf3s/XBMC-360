@@ -257,7 +257,7 @@
       <ExceptionHandling>false</ExceptionHandling>
       <BufferSecurityCheck>false</BufferSecurityCheck>
       <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
-      <PreprocessorDefinitions>NDEBUG;_XBOX;TIXML_USE_STL;USE_XBMC_FILESYSTEM</PreprocessorDefinitions>
+      <PreprocessorDefinitions>NDEBUG;_XBOX;TIXML_USE_STL;USE_XBMC_FILESYSTEM;DONT_HAVE_FRIBIDI_CONFIG_H</PreprocessorDefinitions>
       <AdditionalIncludeDirectories>..\xbmc360;..\xbmc360\libraries\libffmpeg;..\xbmc360\libraries\libfribidi;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <BasicRuntimeChecks>Default</BasicRuntimeChecks>
       <InlineAssemblyOptimization>true</InlineAssemblyOptimization>
@@ -876,6 +876,7 @@
     <ClCompile Include="utils\BitstreamStats.cpp" />
     <ClCompile Include="utils\CharsetConverter.cpp">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|Xbox 360'">true</ExcludedFromBuild>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Release|Xbox 360'">CompileAsC</CompileAs>
     </ClCompile>
     <ClCompile Include="utils\CRC_32.cpp" />
     <ClCompile Include="utils\CriticalSection.cpp" />
