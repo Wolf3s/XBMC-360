@@ -164,7 +164,7 @@ bool CApplication::Create()
 	return CXBApplicationEX::Create();
 }
 
-// This function doesn´t return!
+// This function doesnÂ´t return!
 void CApplication::FatalErrorHandler(bool InitD3D)
 {
 	// XBMC couldn't start for some reason...
@@ -1081,7 +1081,8 @@ void CApplication::Stop()
 		g_settings.m_iSystemTimeTotalUp = g_settings.m_iSystemTimeTotalUp + (int)(CTimeUtils::GetFrameTime() / 60000);
 		
 		// Update the settings information (volume, uptime etc. need saving)
-		if(XFILE::CFile::Exists("D:\\settings.xml"))
+                // Test this later ASAP.
+		if(XFILE::CFile::Exists(g_settings.GetSettingsFile()))
 		{
 			CLog::Log(LOGNOTICE, "Saving settings");
 			g_settings.Save();
