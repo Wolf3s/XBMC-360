@@ -35,7 +35,7 @@ void CSettings::LoadExtensions()
 
 void CSettings::Initialize()
 {
-	CSettings::LoadExtensions();
+	LoadExtensions();
 	m_iSystemTimeTotalUp = 0;
 	m_logFolder = "D:\\";
 }
@@ -61,7 +61,7 @@ bool CSettings::Load()
 		return false;
 	}
 
-	CSettings::ClearSources();
+	ClearSources();
 
 	CStdString strXMLFile = SOURCES_FILE; //GetSourcesFile(); // TODO
 

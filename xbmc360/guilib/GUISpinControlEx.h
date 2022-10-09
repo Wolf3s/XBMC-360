@@ -3,7 +3,7 @@
 
 #include "GUISpinControl.h"
 #include "GUIButtonControl.h"
-#include "GUITextureD3D.h"
+#include "utils\log.h"
 
 class CGUISpinControlEx : public CGUISpinControl
 {

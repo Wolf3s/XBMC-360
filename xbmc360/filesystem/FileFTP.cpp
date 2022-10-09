@@ -27,7 +27,7 @@ bool CFileFTP::Open(const CURL &strURL, bool bBinarry)
 	}
 
 	//Only Open For Write!!!
-	else if(bBinarry == 1)
+	if(bBinarry == 1)
 	{
 		xbftp_w->Open(strURL.Get());
 		xbftp_w->Process();
@@ -58,7 +58,7 @@ int CFileFTP::Stat(const CURL &strURL, struct __stat64* buffer)
 unsigned int CFileFTP::Read(void* lpBuf, int64_t uiBufSize)
 {
     xbftp_r->Process();
-	return NULL;
+	return 0;
 }
 
 int CFileFTP::Write(const void* lpBuf, int64_t uiBufSize)
@@ -69,6 +69,7 @@ int CFileFTP::Write(const void* lpBuf, int64_t uiBufSize)
 
 __int64 CFileFTP::Seek(__int64 iFilePosition, int iWhence)
 {
+	fseek(m_pFile, NULL, iWhence);
 	if(iFilePosition == NULL)
 	{
 		return 0;
@@ -77,13 +78,12 @@ __int64 CFileFTP::Seek(__int64 iFilePosition, int iWhence)
 	{
 		fseek(m_pFile, NULL, iWhence);	
 	}
-	
 	return 0;
 }
 
 int64_t CFileFTP::GetLength()
 {
-  return 0; //WIP
+  return 0; 
 }
 
 int64_t CFileFTP::GetPosition()

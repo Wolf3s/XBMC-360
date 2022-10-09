@@ -5,7 +5,7 @@
 #include "utils\Util.h"
 #include "utils\CRC_32.h"
 #include <direct.h>
-
+using XFILE::CFile;
 CFTPServerConn::CFTPServerConn()
 {
 	m_iID = -1;
