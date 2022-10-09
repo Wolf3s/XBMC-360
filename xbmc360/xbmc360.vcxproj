@@ -257,7 +257,7 @@
       <ExceptionHandling>false</ExceptionHandling>
       <BufferSecurityCheck>false</BufferSecurityCheck>
       <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
-      <PreprocessorDefinitions>NDEBUG;_XBOX;TIXML_USE_STL;USE_XBMC_FILESYSTEM</PreprocessorDefinitions>
+      <PreprocessorDefinitions>NDEBUG;_XBOX;TIXML_USE_STL;USE_XBMC_FILESYSTEM;HAVE_TIXML2</PreprocessorDefinitions>
       <AdditionalIncludeDirectories>..\xbmc360;..\xbmc360\libraries\libffmpeg;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <BasicRuntimeChecks>Default</BasicRuntimeChecks>
       <InlineAssemblyOptimization>true</InlineAssemblyOptimization>
@@ -423,6 +423,7 @@
     <ClInclude Include="guilib\screensavers\ScreensaverPlasma.h" />
     <ClInclude Include="guilib\SkinInfo.h" />
     <ClInclude Include="guilib\TextureManager.h" />
+    <ClInclude Include="guilib\tinyxml2\tinyxml2.h" />
     <ClInclude Include="guilib\tinyxml\tinystr.h" />
     <ClInclude Include="guilib\tinyxml\tinyxml.h" />
     <ClInclude Include="guilib\viewstates\GUIViewState.h" />
@@ -609,6 +610,7 @@
     <ClCompile Include="guilib\screensavers\ScreensaverPlasma.cpp" />
     <ClCompile Include="guilib\SkinInfo.cpp" />
     <ClCompile Include="guilib\TextureManager.cpp" />
+    <ClCompile Include="guilib\tinyxml2\tinyxml2.cpp" />
     <ClCompile Include="guilib\tinyxml\tinystr.cpp" />
     <ClCompile Include="guilib\tinyxml\tinyxml.cpp" />
     <ClCompile Include="guilib\tinyxml\tinyxmlerror.cpp" />

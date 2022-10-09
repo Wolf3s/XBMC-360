@@ -26,7 +26,11 @@ bool CButtonTranslator::Load()
 	// Load the config file
 	if (!xmlDoc.LoadFile("D:\\keymap.xml"))
 	{
+#ifdef HAVE_TIXML1
 		g_LoadErrorStr.Format("D:\\keymap.xml, Line %d\n%s", xmlDoc.ErrorRow(), xmlDoc.ErrorDesc());
+#elif HAVE_TIXML2
+		g_LoadErrorStr.Format("D:\\keymap.xml, Line %d\n%s", xmlDoc.ErrorLineNum(), xmlDoc.ErrorStr());
+#endif
 		return false;
 	}
 
@@ -67,7 +71,11 @@ void CButtonTranslator::MapWindowActions(TiXmlNode *pWindow, WORD wWindowID)
 	buttonMap map;
 	
 	TiXmlNode* pDevice;
+#ifdef HAVE_TIXML1
 	if ((pDevice = pWindow->FirstChild("gamepad")) != NULL)
+#elif HAVE_TIXML2
+	if ((pDevice = pWindow->FirstChild()))
+#endif
 	{
 		// map gamepad actions
 		TiXmlElement *pButton = pDevice->FirstChildElement();

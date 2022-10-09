@@ -1,7 +1,12 @@
 #include "GUIFontManager.h"
 #include "..\utils\Log.h"
+#ifdef HAVE_TIXML1
 #include "tinyxml\tinyxml.h"
-
+#elif HAVE_TIXML2
+#include "tinyxml2\tinyxml2.h"
+using namespace tinyxml2;
+#include "XMLUtils.h"
+#endif
 GUIFontManager g_fontManager;
 
 GUIFontManager::GUIFontManager(void)
@@ -36,23 +41,38 @@ void GUIFontManager::LoadFonts(const CStdString& strFilename)
 		string strValue=pChild->Value();
 		if(strValue=="font")
 		{  
+#ifdef HAVE_TIXML1
 			const TiXmlNode *pNode = pChild->FirstChild("name");
+#elif HAVE_TIXML2
+			const TiXmlNode *pNode = pChild->FirstChild();
+#endif
 			if (pNode)
 			{
 				strFontName=pNode->FirstChild()->Value();
-
+#ifdef HAVE_TIXML1
 				const TiXmlNode *pNode = pChild->FirstChild("filename");	
+#elif HAVE_TIXML2
+				const TiXmlNode *pNode = pChild->FirstChild();
+#endif
 				if (pNode)
 					strFontFileName=pNode->FirstChild()->Value();
 
+#ifdef HAVE_TIXML1
 				const TiXmlNode *pNode2 = pChild->FirstChild("size");
+#elif HAVE_TIXML2
+				const TiXmlNode *pNode2 = pChild->FirstChild();
+#endif
 				if (pNode2)
 				{
 					iSize = atol(pNode2->FirstChild()->Value());
 					if (iSize <= 0) iSize = 20;
 				}
 
+#ifdef HAVE_TIXML1
 				pNode = pNode->FirstChild("style");
+#elif HAVE_TIXML2
+				pNode = pNode->FirstChild();
+#endif
 				if(pNode)
 				{
 					string style = pNode->FirstChild()->Value();

@@ -3,7 +3,13 @@
 
 #include "utils\Stdafx.h"
 #include "utils\StdString.h"
+#ifdef HAVE_TIXML1
 #include "guilib\tinyxml\tinyxml.h"
+#elif HAVE_TIXML2
+#include "guilib\tinyxml2\tinyxml2.h"
+using namespace tinyxml2;
+#include "guilib\XMLUtils.h"
+#endif
 #include "guilib\Key.h"
 #include <map>
 

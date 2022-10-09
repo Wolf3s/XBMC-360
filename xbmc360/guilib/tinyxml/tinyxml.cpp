@@ -22,6 +22,7 @@ must not be misrepresented as being the original software.
 distribution.
 */
 
+#ifndef HAVE_TIXML2
 #include <ctype.h>
 
 #ifdef TIXML_USE_STL
@@ -1211,6 +1212,7 @@ bool TiXmlDocument::SaveFile( const char *filename ) const
 	}
 	return false;
 }
+
 bool TiXmlDocument::SaveFile(CFile* file) const
 {
 	TiXmlPrinter print;
@@ -2158,3 +2160,4 @@ bool TiXmlPrinter::Visit( const TiXmlUnknown& unknown )
 	return true;
 }
 
+#endif

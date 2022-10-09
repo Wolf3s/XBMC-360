@@ -1,7 +1,12 @@
 #include "LocalizeStrings.h"
 #include "..\utils\Log.h"
+#ifdef HAVE_TIXML1
 #include "tinyxml\tinyxml.h"
-
+#elif HAVE_TIXML2
+#include "tinyxml2\tinyxml2.h"
+using namespace tinyxml2;
+#include "XMLUtils.h"
+#endif
 CLocalizeStrings g_localizeStrings;
 
 extern CStdString g_LoadErrorStr;
@@ -21,8 +26,14 @@ bool CLocalizeStrings::Load(const CStdString& strFileName)
 	TiXmlDocument xmlDoc;
     if (!xmlDoc.LoadFile(strFileName.c_str()))
     {
+#ifdef HAVE_TIXML1
 		CLog::Log(LOGERROR, "unable to load %s: %s at line %d", strFileName.c_str(), xmlDoc.ErrorDesc(), xmlDoc.ErrorRow());
-		g_LoadErrorStr.Format("%s, Line %d\n%s", strFileName.c_str(), xmlDoc.ErrorRow(), xmlDoc.ErrorDesc());
+	    g_LoadErrorStr.Format("%s, Line %d\n%s", strFileName.c_str(), xmlDoc.ErrorRow(), xmlDoc.ErrorDesc());
+
+#elif HAVE_TIXML2
+		CLog::Log(LOGERROR, "unable to load %s: %s at line %d", strFileName.c_str(), xmlDoc.ErrorStr(), xmlDoc.ErrorStr());
+		g_LoadErrorStr.Format("%s, Line %d\n%s", strFileName.c_str(), xmlDoc.ErrorLineNum(), xmlDoc.ErrorStr());
+#endif
 		return false;
     }
 
@@ -41,8 +52,14 @@ bool CLocalizeStrings::Load(const CStdString& strFileName)
 		CStdString strValue = pChild->Value();
 		if (strValue == "string")
 		{
+#ifdef HAVE_TIXML1
 			const TiXmlNode *pChildID = pChild->FirstChild("id");
 			const TiXmlNode *pChildText = pChild->FirstChild("value");
+#elif HAVE_TIXML2
+			const TiXmlNode *pChildID = pChild->FirstChild();
+			const TiXmlNode *pChildText = pChild->FirstChild();
+
+#endif
 			DWORD dwID = atoi(pChildID->FirstChild()->Value());
 			CStdString utf8String;
 			

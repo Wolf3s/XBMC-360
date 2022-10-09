@@ -22,7 +22,7 @@ must not be misrepresented as being the original software.
 distribution.
 */
 
-
+#ifndef HAVE_TIXML2
 #ifndef TINYXML_INCLUDED
 #define TINYXML_INCLUDED
 
@@ -37,8 +37,6 @@ distribution.
 #include <stdlib.h>
 #include <string.h>
 #include <assert.h>
-
-//#define USE_XBMC_FILESYSTEM
 
 // Help out windows:
 #if defined( _DEBUG ) && !defined( DEBUG )
@@ -1440,7 +1438,6 @@ public:
 	bool LoadFile( FILE*, TiXmlEncoding encoding = TIXML_DEFAULT_ENCODING );
 	/// Save a file using the given FILE*. Returns true if successful.
 	bool SaveFile( FILE* ) const;
-
 #endif
 
 	#ifdef TIXML_USE_STL
@@ -1817,4 +1814,5 @@ private:
 #pragma warning( pop )
 #endif
 
+#endif
 #endif

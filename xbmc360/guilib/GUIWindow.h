@@ -2,7 +2,13 @@
 #define GUILIB_GUIWINDOW_H
 
 #include "utils\StdString.h"
+#ifdef HAVE_TIXML1
 #include "tinyXML\tinyxml.h"
+#elif HAVE_TIXML2
+#include "tinyxml2\tinyxml2.h"
+using namespace tinyxml2;
+#endif
+#include "XMLUtils.h"
 #include "GUIControl.h"
 #include "GUIControlGroup.h"
 #include "GUIMessage.h"

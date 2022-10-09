@@ -1,5 +1,10 @@
 #include "AdvancedSettings.h"
+#ifdef HAVE_TIXML1
 #include "guilib\tinyxml\tinyxml.h"
+#elif HAVE_TIXML2
+#include "guilib\tinyxml2\tinyxml2.h"
+using namespace tinyxml2;
+#endif
 #include "utils\Log.h"
 #include "guilib\XMLUtils.h"
 
@@ -41,14 +46,18 @@ bool CAdvancedSettings::Load()
 
 	if(!advancedXML.LoadFile(advancedSettingsXML))
 	{
+#ifdef HAVE_TIXML1
 		CLog::Log(LOGERROR, "Error loading %s, Line %d\n%s", advancedSettingsXML.c_str(), advancedXML.ErrorRow(), advancedXML.ErrorDesc());
+#elif HAVE_TIXML2
+		CLog::Log(LOGERROR, "Error loading %s, Line %d\n%s", advancedSettingsXML.c_str(), advancedXML.ErrorLineNum(), advancedXML.ErrorStr());
+#endif
 		return false;
 	}
 
 	TiXmlElement *pRootElement = advancedXML.RootElement();
 	if(!pRootElement || strcmpi(pRootElement->Value(),"advancedsettings") != 0)
 	{
-		CLog::Log(LOGERROR, "Error loading %s, no <advancedsettings> node", advancedSettingsXML.c_str());
+		CLog::Log(LOGERROR, "Error loading %s, no <advancedsettings> node", advancedSettingsXML.c_str());		
 		return false;
 	}
 

@@ -1,6 +1,6 @@
 #include "GUIControlFactory.h"
-#include "XMLUtils.h"
 #include "SkinInfo.h"
+#include "XMLUtils.h"
 #include "LocalizeStrings.h"
 #include "..\utils\StringUtils.h"
 #include "GUIImage.h"
@@ -404,8 +404,11 @@ CGUIControl* CGUIControlFactory::Create(int parentID, const FRECT &rect, TiXmlEl
 
 bool CGUIControlFactory::GetFloat(const TiXmlNode* pRootNode, const char* strTag, float& value)
 {
+#ifdef HAVE_TIXML1
 	const TiXmlNode* pNode = pRootNode->FirstChild(strTag );
-	
+#elif HAVE_TIXML2
+	const TiXmlNode* pNode = pRootNode->FirstChild();
+#endif
 	if(!pNode || !pNode->FirstChild()) return false;
 
 	return g_SkinInfo.ResolveConstant(pNode->FirstChild()->Value(), value);
@@ -462,18 +465,23 @@ bool CGUIControlFactory::GetTexture(const TiXmlNode* pRootNode, const char* strT
 	if(background && strnicmp(background, "true", 4) == 0)
 		image.useLarge = true;
 
+#ifdef HAVE_TIXML1
 	image.filename = (pNode->FirstChild() && pNode->FirstChild()->ValueStr() != "-") ? pNode->FirstChild()->Value() : "";
-
-	return true;
+#elif HAVE_TIXML2
+// WIP	image.filename = (pNode->FirstChild() && pNode->FirstChild()->GetText() != "-") ? pNode->FirstChild()->Value() : "";
+#endif
 }
 
 bool CGUIControlFactory::GetAlignment(const TiXmlNode* pRootNode, const char* strTag, DWORD& alignment)
 {
+#ifdef HAVE_TIXML1
 	const TiXmlNode* pNode = pRootNode->FirstChild(strTag);
+#elif HAVE_TIXML2
+	const TiXmlNode* pNode = pRootNode->FirstChild();
+#endif
 	if(!pNode || !pNode->FirstChild()) return false;
 
 	CStdString strAlign = pNode->FirstChild()->Value();
-
 	if(strAlign == "right" )alignment = XUI_FONT_STYLE_RIGHT_ALIGN;
 	else if(strAlign == "center") alignment = XUI_FONT_STYLE_CENTER_ALIGN;
 //	else if(strAlign == "justify") alignment = XBFONT_JUSTIFIED; // TODO
@@ -484,8 +492,11 @@ bool CGUIControlFactory::GetAlignment(const TiXmlNode* pRootNode, const char* st
 
 bool CGUIControlFactory::GetAlignmentY(const TiXmlNode* pRootNode, const char* strTag, DWORD& alignment)
 {
+#ifdef HAVE_TIXML1
 	const TiXmlNode* pNode = pRootNode->FirstChild(strTag );
-
+#elif HAVE_TIXML2
+	const TiXmlNode* pNode = pRootNode->FirstChild();
+#endif
 	if(!pNode || !pNode->FirstChild())
 		return false;
 
@@ -554,8 +565,11 @@ void CGUIControlFactory::GetInfoLabels(const TiXmlNode *pControlNode, const CStd
 		labelNode = labelNode->NextSiblingElement(labelTag);
 	}
 
+#ifdef HAVE_TIXML1
 	const TiXmlNode *infoNode = pControlNode->FirstChild("info");
-	
+#elif HAVE_TIXML2
+	const TiXmlNode *infoNode = pControlNode->FirstChild();
+#endif
 	if(infoNode)
 	{ 
 		// <info> nodes override <label>'s (backward compatibility)
@@ -574,7 +588,11 @@ void CGUIControlFactory::GetInfoLabels(const TiXmlNode *pControlNode, const CStd
 				info.Format("$INFO[%s]", infoNode->FirstChild()->Value());
 				infoLabels.push_back(CGUIInfoLabel(info, fallback, parentID));
 			}
+#ifdef HAVE_TIXML1
 			infoNode = infoNode->NextSibling("info");
+#elif HAVE_TIXML2
+			infoNode = infoNode->NextSibling();
+#endif		
 		}
 	}
 }
@@ -655,7 +673,11 @@ bool CGUIControlFactory::GetString(const TiXmlNode* pRootNode, const char *strTa
 
 bool CGUIControlFactory::GetMultipleString(const TiXmlNode* pRootNode, const char* strTag, vector<CStdString>& vecStringValue)
 {
+#ifdef HAVE_TIXML1
 	const TiXmlNode* pNode = pRootNode->FirstChild( strTag );
+#elif HAVE_TIXML2
+	const TiXmlNode* pNode = pRootNode->FirstChild();
+#endif
 	if(!pNode) return false;
 
 	vecStringValue.clear();
@@ -669,7 +691,11 @@ bool CGUIControlFactory::GetMultipleString(const TiXmlNode* pRootNode, const cha
 			vecStringValue.push_back(pChild->Value());
 			bFound = true;
 		}
+#ifdef HAVE_TIXML1
 		pNode = pNode->NextSibling(strTag);
+#elif HAVE_TIXML2
+		pNode = pNode->NextSibling();
+#endif
 	}
 	return bFound;
 }

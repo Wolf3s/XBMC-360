@@ -21,7 +21,7 @@ must not be misrepresented as being the original software.
 distribution.
 */
 
-
+#ifndef HAVE_TIXML2
 #ifndef TIXML_USE_STL
 
 #include "tinystr.h"
@@ -109,3 +109,4 @@ TiXmlString operator + (const char* a, const TiXmlString & b)
 
 
 #endif	// TIXML_USE_STL
+#endif //HAVE_TIXML2

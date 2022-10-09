@@ -5,6 +5,11 @@
 #include "xbox\XBKernalExports.h"
 #include "Application.h"
 
+#ifdef HAVE_TIXML2
+#include <string>
+#include <iostream>
+#include <sstream>
+#endif
 const long JAN_1ST_1900 = 2415021;
 const double NTP_TO_SECOND = (((double)1.0) / 0xFFFFFFFF);
 const double NTP_FRACTIONAL_TO_MS = (((double)1000.0) / 0xFFFFFFFF);

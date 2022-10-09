@@ -23,8 +23,17 @@
 
 #include "../utils/StdString.h"
 
-class TiXmlDocument;
+#ifdef HAVE_TIXML2
+#include "tinyxml2\tinyxml2.h"
+using namespace tinyxml2;
+typedef XMLDocument TiXmlDocument;
+typedef XMLNode TiXmlNode;
+typedef XMLElement TiXmlElement;
+typedef XMLText TiXmlText;
+#elif HAVE_TIXML1
 class TiXmlNode;
+class TiXmlDocument;
+#endif
 
 class XMLUtils
 {

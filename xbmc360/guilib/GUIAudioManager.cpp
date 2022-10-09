@@ -36,10 +36,13 @@ bool CGUIAudioManager::Load()
 	// Load the config file
 	if (!xmlDoc.LoadFile(strSoundsXml))
 	{
+#ifdef HAVE_TIXML1
 		CLog::Log(LOGNOTICE, "%s, Line %d\n%s", strSoundsXml.c_str(), xmlDoc.ErrorRow(), xmlDoc.ErrorDesc());
+#elif HAVE_TIXML2
+		CLog::Log(LOGNOTICE, "%s, Line %d\n%s", strSoundsXml.c_str(), xmlDoc.ErrorLineNum(), xmlDoc.ErrorStr());
+#endif
 		return false;
 	}
-
 	TiXmlElement* pRoot = xmlDoc.RootElement();
 	CStdString strValue = pRoot->Value();
 
@@ -49,6 +52,7 @@ bool CGUIAudioManager::Load()
 		return false;
 	}
 
+#ifdef HAVE_TIXML1
 	// Load sounds for actions
 	TiXmlElement* pActions = pRoot->FirstChildElement("actions");
 
@@ -108,7 +112,73 @@ bool CGUIAudioManager::Load()
 			pWindow = pWindow->NextSibling();
 		}
 	}
+#elif HAVE_TIXML2
+	TiXmlElement* pActions = pRoot->FirstChildElement("actions");
 
+	if (pActions)
+	{
+		TiXmlDocument doc;
+		XMLHandle handledoc(&doc);
+		TiXmlNode* pAction = handledoc.FirstChild().ToNode();
+
+		while (pAction)
+		{
+			TiXmlDocument doc;
+			XMLHandle handledoc(&doc);
+			TiXmlNode* pIdNode = handledoc.FirstChild().ToNode();
+			int id = 0; // Action identity
+			
+			if (pIdNode && pIdNode->FirstChild())
+			{
+				g_buttonTranslator.TranslateActionString(pIdNode->FirstChild()->Value(), id);
+			}
+
+			TiXmlNode* pFileNode = handledoc.FirstChild().ToNode();
+			CStdString strFile;
+
+			if (pFileNode && handledoc.FirstChild().ToNode())
+				strFile+=pFileNode->FirstChild()->Value();
+
+			if (id > 0 && !strFile.IsEmpty())
+				m_actionSoundMap.insert(pair<int, CStdString>(id, strFile));
+
+			pAction = pAction->NextSibling();
+		}
+	}
+
+	TiXmlElement* pWindows = pRoot->FirstChildElement("windows");
+
+	if (pWindows)
+	{
+		TiXmlDocument doc;
+		XMLHandle handledoc(&doc);
+		TiXmlNode* pWindow = handledoc.FirstChild().ToNode();
+
+		while (pWindow)
+		{
+			int id = 0;
+
+			TiXmlDocument doc;
+			XMLHandle handledoc(&doc);
+			TiXmlNode* pIdNode = handledoc.FirstChild().ToNode();
+			
+			if (pIdNode)
+			{
+				if (pIdNode->FirstChild())
+					id = g_buttonTranslator.TranslateWindowString(pIdNode->FirstChild()->Value());
+			}
+
+			CWindowSounds sounds;
+			LoadWindowSound(pWindow, "activate", sounds.strInitFile);
+			LoadWindowSound(pWindow, "deactivate", sounds.strDeInitFile);
+
+			if(id > 0)
+				m_windowSoundMap.insert(pair<int, CWindowSounds>(id, sounds));
+
+			pWindow = pWindow->NextSibling();
+		}
+	}
+#endif
 	return true;
 }
 
@@ -117,9 +187,13 @@ bool CGUIAudioManager::LoadWindowSound(TiXmlNode* pWindowNode, const CStdString&
 {
 	if (!pWindowNode)
 		return false;
-
+#ifdef HAVE_TIXML1
 	TiXmlNode* pFileNode = pWindowNode->FirstChild(strIdentifier);
-	
+#elif HAVE_TIXML2
+	TiXmlDocument doc;
+	XMLHandle handledoc(&doc);
+	TiXmlNode* pFileNode = handledoc.FirstChild().ToNode();
+#endif
 	if (pFileNode && pFileNode->FirstChild())
 	{
 		strFile = pFileNode->FirstChild()->Value();
