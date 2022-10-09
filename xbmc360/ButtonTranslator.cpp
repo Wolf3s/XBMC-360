@@ -74,7 +74,7 @@ void CButtonTranslator::MapWindowActions(TiXmlNode *pWindow, WORD wWindowID)
 #ifdef HAVE_TIXML1
 	if ((pDevice = pWindow->FirstChild("gamepad")) != NULL)
 #elif HAVE_TIXML2
-	if ((pDevice = pWindow->FirstChild()))
+	if ((pDevice = pWindow->FirstChildElement("gamepad")) != NULL)
 #endif
 	{
 		// map gamepad actions

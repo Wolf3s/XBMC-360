@@ -44,7 +44,7 @@ void GUIFontManager::LoadFonts(const CStdString& strFilename)
 #ifdef HAVE_TIXML1
 			const TiXmlNode *pNode = pChild->FirstChild("name");
 #elif HAVE_TIXML2
-			const TiXmlNode *pNode = pChild->FirstChild();
+			const TiXmlNode *pNode = pChild->FirstChildElement("name");
 #endif
 			if (pNode)
 			{
@@ -52,7 +52,7 @@ void GUIFontManager::LoadFonts(const CStdString& strFilename)
 #ifdef HAVE_TIXML1
 				const TiXmlNode *pNode = pChild->FirstChild("filename");	
 #elif HAVE_TIXML2
-				const TiXmlNode *pNode = pChild->FirstChild();
+				const TiXmlNode *pNode = pChild->FirstChildElement("filename");
 #endif
 				if (pNode)
 					strFontFileName=pNode->FirstChild()->Value();
@@ -60,7 +60,7 @@ void GUIFontManager::LoadFonts(const CStdString& strFilename)
 #ifdef HAVE_TIXML1
 				const TiXmlNode *pNode2 = pChild->FirstChild("size");
 #elif HAVE_TIXML2
-				const TiXmlNode *pNode2 = pChild->FirstChild();
+				const TiXmlNode *pNode2 = pChild->FirstChildElement("size");
 #endif
 				if (pNode2)
 				{
@@ -71,7 +71,7 @@ void GUIFontManager::LoadFonts(const CStdString& strFilename)
 #ifdef HAVE_TIXML1
 				pNode = pNode->FirstChild("style");
 #elif HAVE_TIXML2
-				pNode = pNode->FirstChild();
+				pNode = pNode->FirstChildElement("style");
 #endif
 				if(pNode)
 				{

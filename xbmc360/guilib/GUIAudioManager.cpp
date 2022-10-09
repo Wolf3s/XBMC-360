@@ -117,15 +117,11 @@ bool CGUIAudioManager::Load()
 
 	if (pActions)
 	{
-		TiXmlDocument doc;
-		XMLHandle handledoc(&doc);
-		TiXmlNode* pAction = handledoc.FirstChild().ToNode();
+		TiXmlNode* pAction = pActions->FirstChildElement("action");
 
 		while (pAction)
 		{
-			TiXmlDocument doc;
-			XMLHandle handledoc(&doc);
-			TiXmlNode* pIdNode = handledoc.FirstChild().ToNode();
+			TiXmlNode* pIdNode = pAction->FirstChildElement("name");
 			int id = 0; // Action identity
 			
 			if (pIdNode && pIdNode->FirstChild())
@@ -133,10 +129,10 @@ bool CGUIAudioManager::Load()
 				g_buttonTranslator.TranslateActionString(pIdNode->FirstChild()->Value(), id);
 			}
 
-			TiXmlNode* pFileNode = handledoc.FirstChild().ToNode();
+			TiXmlNode* pFileNode = pAction->FirstChildElement("file");
 			CStdString strFile;
 
-			if (pFileNode && handledoc.FirstChild().ToNode())
+			if (pFileNode && pFileNode->FirstChild())
 				strFile+=pFileNode->FirstChild()->Value();
 
 			if (id > 0 && !strFile.IsEmpty())
@@ -150,17 +146,13 @@ bool CGUIAudioManager::Load()
 
 	if (pWindows)
 	{
-		TiXmlDocument doc;
-		XMLHandle handledoc(&doc);
-		TiXmlNode* pWindow = handledoc.FirstChild().ToNode();
+		TiXmlNode* pWindow = pWindows->FirstChildElement("window");
 
 		while (pWindow)
 		{
 			int id = 0;
 
-			TiXmlDocument doc;
-			XMLHandle handledoc(&doc);
-			TiXmlNode* pIdNode = handledoc.FirstChild().ToNode();
+			TiXmlNode* pIdNode = pWindow->FirstChildElement("name");
 			
 			if (pIdNode)
 			{
@@ -190,9 +182,7 @@ bool CGUIAudioManager::LoadWindowSound(TiXmlNode* pWindowNode, const CStdString&
 #ifdef HAVE_TIXML1
 	TiXmlNode* pFileNode = pWindowNode->FirstChild(strIdentifier);
 #elif HAVE_TIXML2
-	TiXmlDocument doc;
-	XMLHandle handledoc(&doc);
-	TiXmlNode* pFileNode = handledoc.FirstChild().ToNode();
+	TiXmlNode* pFileNode = pWindowNode->FirstChildElement(strIdentifier);
 #endif
 	if (pFileNode && pFileNode->FirstChild())
 	{

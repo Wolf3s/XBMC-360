@@ -155,8 +155,7 @@ bool CSettings::SaveSettings(const CStdString& strSettingsFile) const
 	TiXmlElement xmlRootElement("settings");
 	TiXmlNode *pRoot = xmlDoc.InsertEndChild(xmlRootElement);
 #elif HAVE_TIXML2
-	TiXmlDocument doc;
-	auto *xmlRootElement = doc.NewElement("settings");
+	auto *xmlRootElement = xmlDoc.NewElement("settings");
 	TiXmlNode *pRoot = xmlDoc.InsertEndChild(xmlRootElement);
 #endif
 	if(!pRoot) return false;
@@ -168,7 +167,7 @@ bool CSettings::SaveSettings(const CStdString& strSettingsFile) const
 	TiXmlElement generalNode("general");
 	TiXmlNode *pNode = pRoot->InsertEndChild(generalNode);
 #elif HAVE_TIXML2
-	auto *generalNode =  doc.NewElement("general");
+	auto *generalNode =  xmlDoc.NewElement("general");
 	TiXmlNode *pNode = pRoot->InsertEndChild(generalNode);
 #endif	
 	if(!pNode) return false;
@@ -250,10 +249,7 @@ void CSettings::GetSources(const TiXmlElement* pRootElement, const CStdString& s
 #ifdef HAVE_TIXML1
 	const TiXmlNode *pChild = pRootElement->FirstChild(strTagName.c_str());
 #elif HAVE_TIXML2
-	TiXmlDocument doc;
-	XMLHandle handledoc(&doc);
-	//pRootElement->FirstChild = handledoc.FirstChild().ToNode();
-	const TiXmlNode *pChild = handledoc.FirstChild().ToNode();
+	const TiXmlNode *pChild = pRootElement->FirstChildElement(strTagName.c_str());
 #endif
 	if(pChild)
 	{
@@ -356,10 +352,7 @@ bool CSettings::GetSource(const CStdString &category, const TiXmlNode *source, C
 #ifdef HAVE_TIXML1
 	const TiXmlNode *pNodeName = source->FirstChild("name");
 #elif HAVE_TIXML2
-	TiXmlDocument doc;
-	XMLHandle handledoc(&doc);
-	//pRootElement->FirstChild = handledoc.FirstChild().ToNode();
-	const TiXmlNode *pNodeName = handledoc.FirstChild().ToNode();
+	const TiXmlNode *pNodeName = source->FirstChildElement("name");
 #endif
 	CStdString strName;
 	if(pNodeName && pNodeName->FirstChild())
@@ -397,7 +390,7 @@ bool CSettings::GetSource(const CStdString &category, const TiXmlNode *source, C
 #ifdef HAVE_TIXML1
 	const TiXmlNode *pThumbnailNode = source->FirstChild("thumbnail");
 #elif HAVE_TIXML2
-	const TiXmlNode *pThumbnailNode = handledoc.FirstChild().ToNode();
+	const TiXmlNode *pThumbnailNode = source->FirstChildElement("thumbnail");
 #endif
 	if(!strName.IsEmpty() && vecPaths.size() > 0)
 	{
@@ -456,9 +449,7 @@ void CSettings::GetInteger(const TiXmlElement* pRootElement, const CStdString& s
 #ifdef HAVE_TIXML1
 	const TiXmlNode *pChild = pRootElement->FirstChild(strTagName.c_str());
 #elif HAVE_TIXML2
-	TiXmlDocument doc;
-	XMLHandle handledoc(&doc);
-	const TiXmlNode *pChild = handledoc.FirstChild().ToNode();
+	const TiXmlNode *pChild = pRootElement->FirstChildElement(strTagName.c_str());
 #endif
 	if(pChild)
 	{

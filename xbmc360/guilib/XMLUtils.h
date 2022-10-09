@@ -30,6 +30,7 @@ typedef XMLDocument TiXmlDocument;
 typedef XMLNode TiXmlNode;
 typedef XMLElement TiXmlElement;
 typedef XMLText TiXmlText;
+typedef XMLHandle TiXmlHandle;
 #elif HAVE_TIXML1
 class TiXmlNode;
 class TiXmlDocument;

@@ -56,8 +56,8 @@ bool CLocalizeStrings::Load(const CStdString& strFileName)
 			const TiXmlNode *pChildID = pChild->FirstChild("id");
 			const TiXmlNode *pChildText = pChild->FirstChild("value");
 #elif HAVE_TIXML2
-			const TiXmlNode *pChildID = pChild->FirstChild();
-			const TiXmlNode *pChildText = pChild->FirstChild();
+			const TiXmlNode *pChildID = pChild->FirstChildElement("id");
+			const TiXmlNode *pChildText = pChild->FirstChildElement("value");
 
 #endif
 			DWORD dwID = atoi(pChildID->FirstChild()->Value());

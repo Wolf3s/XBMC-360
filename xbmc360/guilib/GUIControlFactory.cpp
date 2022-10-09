@@ -407,7 +407,7 @@ bool CGUIControlFactory::GetFloat(const TiXmlNode* pRootNode, const char* strTag
 #ifdef HAVE_TIXML1
 	const TiXmlNode* pNode = pRootNode->FirstChild(strTag );
 #elif HAVE_TIXML2
-	const TiXmlNode* pNode = pRootNode->FirstChild();
+	const TiXmlNode* pNode = pRootNode->FirstChildElement(strTag);
 #endif
 	if(!pNode || !pNode->FirstChild()) return false;
 
@@ -468,7 +468,7 @@ bool CGUIControlFactory::GetTexture(const TiXmlNode* pRootNode, const char* strT
 #ifdef HAVE_TIXML1
 	image.filename = (pNode->FirstChild() && pNode->FirstChild()->ValueStr() != "-") ? pNode->FirstChild()->Value() : "";
 #elif HAVE_TIXML2
-// WIP	image.filename = (pNode->FirstChild() && pNode->FirstChild()->GetText() != "-") ? pNode->FirstChild()->Value() : "";
+    image.filename = (pNode->FirstChild() && pNode->FirstChildElement()->GetText() != "-") ? pNode->FirstChildElement()->Value() : "";
 #endif
 }
 
@@ -477,7 +477,7 @@ bool CGUIControlFactory::GetAlignment(const TiXmlNode* pRootNode, const char* st
 #ifdef HAVE_TIXML1
 	const TiXmlNode* pNode = pRootNode->FirstChild(strTag);
 #elif HAVE_TIXML2
-	const TiXmlNode* pNode = pRootNode->FirstChild();
+	const TiXmlNode* pNode = pRootNode->FirstChildElement(strTag);
 #endif
 	if(!pNode || !pNode->FirstChild()) return false;
 
@@ -495,7 +495,7 @@ bool CGUIControlFactory::GetAlignmentY(const TiXmlNode* pRootNode, const char* s
 #ifdef HAVE_TIXML1
 	const TiXmlNode* pNode = pRootNode->FirstChild(strTag );
 #elif HAVE_TIXML2
-	const TiXmlNode* pNode = pRootNode->FirstChild();
+	const TiXmlNode* pNode = pRootNode->FirstChildElement(strTag );
 #endif
 	if(!pNode || !pNode->FirstChild())
 		return false;
@@ -568,7 +568,7 @@ void CGUIControlFactory::GetInfoLabels(const TiXmlNode *pControlNode, const CStd
 #ifdef HAVE_TIXML1
 	const TiXmlNode *infoNode = pControlNode->FirstChild("info");
 #elif HAVE_TIXML2
-	const TiXmlNode *infoNode = pControlNode->FirstChild();
+	const TiXmlNode *infoNode = pControlNode->FirstChildElement("info");
 #endif
 	if(infoNode)
 	{ 
@@ -591,7 +591,7 @@ void CGUIControlFactory::GetInfoLabels(const TiXmlNode *pControlNode, const CStd
 #ifdef HAVE_TIXML1
 			infoNode = infoNode->NextSibling("info");
 #elif HAVE_TIXML2
-			infoNode = infoNode->NextSibling();
+			infoNode = infoNode->NextSiblingElement("info");
 #endif		
 		}
 	}
@@ -676,7 +676,7 @@ bool CGUIControlFactory::GetMultipleString(const TiXmlNode* pRootNode, const cha
 #ifdef HAVE_TIXML1
 	const TiXmlNode* pNode = pRootNode->FirstChild( strTag );
 #elif HAVE_TIXML2
-	const TiXmlNode* pNode = pRootNode->FirstChild();
+	const TiXmlNode* pNode = pRootNode->FirstChildElement( strTag );
 #endif
 	if(!pNode) return false;
 
@@ -694,7 +694,7 @@ bool CGUIControlFactory::GetMultipleString(const TiXmlNode* pRootNode, const cha
 #ifdef HAVE_TIXML1
 		pNode = pNode->NextSibling(strTag);
 #elif HAVE_TIXML2
-		pNode = pNode->NextSibling();
+		pNode = pNode->NextSiblingElement(strTag);
 #endif
 	}
 	return bFound;

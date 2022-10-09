@@ -45,7 +45,7 @@ bool XMLUtils::GetDWORD(const TiXmlNode* pRootNode, const char* strTag, DWORD& d
 #ifdef HAVE_TIXML1
 	const TiXmlNode* pNode = pRootNode->FirstChild(strTag);
 #elif HAVE_TIXML2
-	const TiXmlNode* pNode = pRootNode->FirstChild();
+	const TiXmlNode* pNode = pRootNode->FirstChildElement(strTag);
 #endif
 	if(!pNode || !pNode->FirstChild())
 		return false;
@@ -59,7 +59,7 @@ bool XMLUtils::GetInt(const TiXmlNode* pRootNode, const char* strTag, int& iIntV
 #ifdef HAVE_TIXML1
 	const TiXmlNode* pNode = pRootNode->FirstChild(strTag);
 #elif HAVE_TIXML2
-	const TiXmlNode* pNode = pRootNode->FirstChild();
+	const TiXmlNode* pNode = pRootNode->FirstChildElement(strTag);
 #endif
 	if(!pNode || !pNode->FirstChild())
 		return false;
@@ -85,7 +85,7 @@ bool XMLUtils::GetHex(const TiXmlNode* pRootNode, const char* strTag, DWORD& dwH
 #ifdef HAVE_TIXML1
 	const TiXmlNode* pNode = pRootNode->FirstChild(strTag );
 #elif HAVE_TIXML2
-	const TiXmlNode* pNode = pRootNode->FirstChild();
+	const TiXmlNode* pNode = pRootNode->FirstChildElement(strTag);
 #endif
 	if (!pNode || !pNode->FirstChild()) return false;
 	sscanf(pNode->FirstChild()->Value(), "%x", &dwHexValue );
@@ -97,7 +97,7 @@ bool XMLUtils::GetBoolean(const TiXmlNode* pRootNode, const char* strTag, bool& 
 #ifdef HAVE_TIXML1
 	const TiXmlNode* pNode = pRootNode->FirstChild(strTag );
 #elif HAVE_TIXML2
-	const TiXmlNode* pNode = pRootNode->FirstChild();
+	const TiXmlNode* pNode = pRootNode->FirstChildElement(strTag );
 #endif
 	if (!pNode || !pNode->FirstChild()) return false;
 	CStdString strEnabled = pNode->FirstChild()->Value();

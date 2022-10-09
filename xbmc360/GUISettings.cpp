@@ -202,14 +202,14 @@ void CGUISettings::LoadXML(TiXmlElement *pRootElement)
 #ifdef HAVE_TIXML1
 			const TiXmlNode *pChild = pRootElement->FirstChild(strSplit[0].c_str());
 #elif HAVE_TIXML2
-			const TiXmlNode *pChild = pRootElement->FirstChild();
+			const TiXmlNode *pChild = pRootElement->FirstChildElement(strSplit[0].c_str());
 #endif
 			if (pChild)
 			{
 #ifdef HAVE_TIXML1
 				const TiXmlNode *pGrandChild = pChild->FirstChild(strSplit[1].c_str());
 #elif HAVE_TIXML2
-				const TiXmlNode *pGrandChild = pChild->FirstChild();
+				const TiXmlNode *pGrandChild = pChild->FirstChildElement(strSplit[1].c_str());
 #endif
 				if (pGrandChild && pGrandChild->FirstChild())
 				{
@@ -241,7 +241,7 @@ void CGUISettings::SaveXML(TiXmlNode *pRootNode)
 #ifdef HAVE_TIXML1
 			TiXmlNode *pChild = pRootNode->FirstChild(strSplit[0].c_str());
 #elif HAVE_TIXML2
-			TiXmlNode *pChild = pRootNode->FirstChild();
+			TiXmlNode *pChild = pRootNode->FirstChildElement(strSplit[0].c_str());
 #endif
 			if (!pChild)
 			{
