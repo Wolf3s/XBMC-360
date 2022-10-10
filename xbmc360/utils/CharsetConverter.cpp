@@ -25,8 +25,10 @@
 #include "SingleLock.h"
 #include "log.h"
 
+using namespace std;
+
 #ifndef _LINUX
-#include "libraries/libiconv/iconv.h"
+#include "libraries/libiconv/include/iconv.h"
 #else
 #include <iconv.h>
 #endif
@@ -139,7 +141,7 @@ static void convert(iconv_t& type, int multiplier, const CStdString& strFromChar
     strDest = strSource;
 }
 
-using namespace std;
+
 
 static void logicalToVisualBiDi(const CStdStringA& strSource, CStdStringA& strDest, FriBidiCharSet fribidiCharset, FriBidiCharType base = FRIBIDI_TYPE_LTR, bool* bWasFlipped =NULL)
 {
@@ -147,7 +149,9 @@ static void logicalToVisualBiDi(const CStdStringA& strSource, CStdStringA& strDe
   CSingleLock lock(m_critSection);
 
   vector<CStdString> lines;
+#ifdef WIP
   CUtil::Tokenize(strSource, lines, "\n");
+#endif  
   CStdString resultString;
 
   if (bWasFlipped)

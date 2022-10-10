@@ -11,7 +11,7 @@
 #include "guilib/GUIInfoManager.h"
 #include "guilib/GUIWindowManager.h"
 #include "LangInfo.h"
-
+#include "utils\CharsetConverter.h"
 using namespace DIRECTORY;
 using namespace XFILE;
 
@@ -442,10 +442,8 @@ bool CSettings::LoadProfile(unsigned int index)
   if (Load())
   {
     CreateProfileFolders();
-#ifdef WIP
     // initialize our charset converter
     g_charsetConverter.reset();
-#endif
     // Load the langinfo to have user charset <-> utf-8 conversion
     CStdString strLanguage = g_guiSettings.GetString("locale.language");
     strLanguage[0] = toupper(strLanguage[0]);
