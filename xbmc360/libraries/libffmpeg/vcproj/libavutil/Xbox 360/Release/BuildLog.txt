@@ -1,9 +1,179 @@
-﻿Build started 19/09/2022 22:19:07.
-     1>Project "C:\Users\andre\Downloads\XBMC-360\xbmc360\libraries\libffmpeg\vcproj\libavutil\libavutil.vcxproj" on node 2 (clean target(s)).
-     1>_PrepareForClean:
-         Deleting file "Xbox 360\Release\libavutil.lastbuildstate".
-     1>Done Building Project "C:\Users\andre\Downloads\XBMC-360\xbmc360\libraries\libffmpeg\vcproj\libavutil\libavutil.vcxproj" (clean target(s)).
+﻿Build started 11/10/2022 14:44:55.
+     1>Project "C:\Users\andre\Downloads\XBMC-360\xbmc360\libraries\libffmpeg\vcproj\libavutil\libavutil.vcxproj" on node 3 (build target(s)).
+     1>InitializeBuildStatus:
+         Creating "Xbox 360\Release\libavutil.unsuccessfulbuild" because "AlwaysCreate" was specified.
+       ClCompile:
+         C:\Program Files (x86)\Microsoft Xbox 360 SDK\bin\win32\CL.exe /c /I..\external\include /I..\.. /Zi /nologo /W3 /WX- /O2 /Ob0 /D WIN32 /D NDEBUG /D _WINDOWS /D _USRDLL /D _XBOX /D HAVE_AV_CONFIG_H /GF /Gm- /EHsc /MT /GS /Gy- /fp:fast /fp:except- /Zc:wchar_t /Zc:forScope /GR- /openmp- /Fo"Xbox 360\Release\\" /Fd"Xbox 360\Release\vc100.pdb" /TC /wd4305 /FIconfig.h ..\..\libavutil\adler32.c ..\..\libavutil\aes.c ..\..\libavutil\avstring.c ..\..\libavutil\base64.c ..\..\libavutil\crc.c ..\..\libavutil\des.c ..\external\DllEntry.c ..\..\libavutil\error.c ..\..\libavutil\eval.c ..\..\libavutil\fifo.c ..\..\libavutil\intfloat_readwrite.c ..\..\libavutil\lfg.c ..\..\libavutil\lls.c ..\..\libavutil\log.c ..\..\libavutil\lzo.c ..\..\libavutil\mathematics.c ..\..\libavutil\md5.c ..\..\libavutil\mem.c ..\..\libavutil\pixdesc.c ..\..\libavutil\random_seed.c ..\..\libavutil\rational.c ..\..\libavutil\rc4.c ..\..\libavutil\sha.c ..\..\libavutil\tree.c ..\..\libavutil\utils.c ..\..\libavutil\audioconvert.c ..\..\libavutil\imgutils.c ..\..\libavutil\inverse.c ..\..\libavutil\opt.c ..\..\libavutil\parseutils.c ..\..\libavutil\samplefmt.c /Ou /Oz /FI"C:\Program Files (x86)\Microsoft Xbox 360 SDK\\include\xbox\xbox_intellisense_platform.h"
+         adler32.c
+         aes.c
+     1>c:\users\andre\downloads\xbmc-360\xbmc360\libraries\libffmpeg\libavutil\libm.h(81): warning C4244: 'return' : conversion from 'double' to 'long', possible loss of data
+     1>c:\users\andre\downloads\xbmc-360\xbmc360\libraries\libffmpeg\libavutil\libm.h(102): warning C4244: 'return' : conversion from 'double' to 'float', possible loss of data
+     1>..\..\libavutil\aes.c(174): warning C4133: 'function' : incompatible types - from 'uint32_t [256]' to 'uint8_t *'
+     1>..\..\libavutil\aes.c(175): warning C4133: 'function' : incompatible types - from 'uint32_t [256]' to 'uint8_t *'
+         avstring.c
+     1>c:\users\andre\downloads\xbmc-360\xbmc360\libraries\libffmpeg\libavutil\libm.h(81): warning C4244: 'return' : conversion from 'double' to 'long', possible loss of data
+     1>c:\users\andre\downloads\xbmc-360\xbmc360\libraries\libffmpeg\libavutil\libm.h(102): warning C4244: 'return' : conversion from 'double' to 'float', possible loss of data
+     1>..\..\libavutil\avstring.c(55): warning C4090: 'return' : different 'const' qualifiers
+     1>..\..\libavutil\avstring.c(59): warning C4090: 'return' : different 'const' qualifiers
+     1>..\..\libavutil\avstring.c(89): warning C4018: '>' : signed/unsigned mismatch
+         base64.c
+     1>c:\users\andre\downloads\xbmc-360\xbmc360\libraries\libffmpeg\libavutil\libm.h(81): warning C4244: 'return' : conversion from 'double' to 'long', possible loss of data
+     1>c:\users\andre\downloads\xbmc-360\xbmc360\libraries\libffmpeg\libavutil\libm.h(102): warning C4244: 'return' : conversion from 'double' to 'float', possible loss of data
+         crc.c
+     1>c:\users\andre\downloads\xbmc-360\xbmc360\libraries\libffmpeg\libavutil\libm.h(81): warning C4244: 'return' : conversion from 'double' to 'long', possible loss of data
+     1>c:\users\andre\downloads\xbmc-360\xbmc360\libraries\libffmpeg\libavutil\libm.h(102): warning C4244: 'return' : conversion from 'double' to 'float', possible loss of data
+     1>..\..\libavutil\crc.c(79): warning C4146: unary minus operator applied to unsigned type, result still unsigned
+         des.c
+     1>c:\users\andre\downloads\xbmc-360\xbmc360\libraries\libffmpeg\libavutil\libm.h(81): warning C4244: 'return' : conversion from 'double' to 'long', possible loss of data
+     1>c:\users\andre\downloads\xbmc-360\xbmc360\libraries\libffmpeg\libavutil\libm.h(102): warning C4244: 'return' : conversion from 'double' to 'float', possible loss of data
+     1>..\..\libavutil\des.c(277): warning C4244: 'function' : conversion from 'uint64_t' to 'uint32_t', possible loss of data
+         DllEntry.c
+     1>..\external\DllEntry.c(36): warning C4101: 'pomS' : unreferenced local variable
+         error.c
+     1>c:\users\andre\downloads\xbmc-360\xbmc360\libraries\libffmpeg\libavutil\libm.h(81): warning C4244: 'return' : conversion from 'double' to 'long', possible loss of data
+     1>c:\users\andre\downloads\xbmc-360\xbmc360\libraries\libffmpeg\libavutil\libm.h(102): warning C4244: 'return' : conversion from 'double' to 'float', possible loss of data
+         eval.c
+     1>c:\users\andre\downloads\xbmc-360\xbmc360\libraries\libffmpeg\libavutil\libm.h(81): warning C4244: 'return' : conversion from 'double' to 'long', possible loss of data
+     1>c:\users\andre\downloads\xbmc-360\xbmc360\libraries\libffmpeg\libavutil\libm.h(102): warning C4244: 'return' : conversion from 'double' to 'float', possible loss of data
+     1>..\..\libavutil\eval.c(215): warning C4244: 'function' : conversion from 'double' to 'int', possible loss of data
+     1>..\..\libavutil\eval.c(242): warning C4244: 'function' : conversion from 'double' to 'int', possible loss of data
+         fifo.c
+     1>c:\users\andre\downloads\xbmc-360\xbmc360\libraries\libffmpeg\libavutil\libm.h(81): warning C4244: 'return' : conversion from 'double' to 'long', possible loss of data
+     1>c:\users\andre\downloads\xbmc-360\xbmc360\libraries\libffmpeg\libavutil\libm.h(102): warning C4244: 'return' : conversion from 'double' to 'float', possible loss of data
+         intfloat_readwrite.c
+     1>..\..\libavutil\intfloat_readwrite.c(42): warning C4244: 'function' : conversion from 'int64_t' to 'double', possible loss of data
+     1>..\..\libavutil\intfloat_readwrite.c(50): warning C4244: 'return' : conversion from 'double' to 'float', possible loss of data
+     1>..\..\libavutil\intfloat_readwrite.c(52): warning C4244: 'return' : conversion from 'double' to 'float', possible loss of data
+     1>..\..\libavutil\intfloat_readwrite.c(72): warning C4146: unary minus operator applied to unsigned type, result still unsigned
+     1>..\..\libavutil\intfloat_readwrite.c(73): warning C4244: 'function' : conversion from 'uint64_t' to 'double', possible loss of data
+     1>..\..\libavutil\intfloat_readwrite.c(88): warning C4244: '=' : conversion from 'double' to 'float', possible loss of data
+     1>..\..\libavutil\intfloat_readwrite.c(89): warning C4244: 'return' : conversion from 'int64_t' to 'int32_t', possible loss of data
+     1>..\..\libavutil\intfloat_readwrite.c(103): warning C4244: '=' : conversion from 'uint64_t' to 'uint8_t', possible loss of data
+         lfg.c
+         lls.c
+         log.c
+     1>c:\users\andre\downloads\xbmc-360\xbmc360\libraries\libffmpeg\libavutil\libm.h(81): warning C4244: 'return' : conversion from 'double' to 'long', possible loss of data
+     1>c:\users\andre\downloads\xbmc-360\xbmc360\libraries\libffmpeg\libavutil\libm.h(102): warning C4244: 'return' : conversion from 'double' to 'float', possible loss of data
+     1>..\..\libavutil\log.c(131): warning C4013: 'isatty' undefined; assuming extern returning int
+         lzo.c
+     1>c:\users\andre\downloads\xbmc-360\xbmc360\libraries\libffmpeg\libavutil\libm.h(81): warning C4244: 'return' : conversion from 'double' to 'long', possible loss of data
+     1>c:\users\andre\downloads\xbmc-360\xbmc360\libraries\libffmpeg\libavutil\libm.h(102): warning C4244: 'return' : conversion from 'double' to 'float', possible loss of data
+         mathematics.c
+     1>..\..\libavutil\mathematics.c(75): warning C4090: 'return' : different 'const' qualifiers
+     1>..\..\libavutil\mathematics.c(80): warning C4090: 'return' : different 'const' qualifiers
+     1>..\..\libavutil\mathematics.c(85): warning C4090: 'return' : different 'const' qualifiers
+     1>..\..\libavutil\mathematics.c(123): warning C4018: '<' : signed/unsigned mismatch
+     1>..\..\libavutil\mathematics.c(129): warning C4018: '<=' : signed/unsigned mismatch
+     1>..\..\libavutil\mathematics.c(166): warning C4018: '>' : signed/unsigned mismatch
+         md5.c
+         mem.c
+     1>c:\users\andre\downloads\xbmc-360\xbmc360\libraries\libffmpeg\libavutil\libm.h(81): warning C4244: 'return' : conversion from 'double' to 'long', possible loss of data
+     1>c:\users\andre\downloads\xbmc-360\xbmc360\libraries\libffmpeg\libavutil\libm.h(102): warning C4244: 'return' : conversion from 'double' to 'float', possible loss of data
+     1>..\..\libavutil\mem.c(81): warning C4244: '=' : conversion from 'long' to 'char', possible loss of data
+         pixdesc.c
+     1>..\..\libavutil\pixdesc.c(107): warning C4244: '=' : conversion from 'uint16_t' to 'uint8_t', possible loss of data
+         random_seed.c
+     1>c:\users\andre\downloads\xbmc-360\xbmc360\libraries\libffmpeg\libavutil\libm.h(81): warning C4244: 'return' : conversion from 'double' to 'long', possible loss of data
+     1>c:\users\andre\downloads\xbmc-360\xbmc360\libraries\libffmpeg\libavutil\libm.h(102): warning C4244: 'return' : conversion from 'double' to 'float', possible loss of data
+     1>..\..\libavutil\random_seed.c(77): warning C4244: 'return' : conversion from 'uint64_t' to 'uint32_t', possible loss of data
+         Generating Code...
+         Compiling...
+         rational.c
+     1>c:\users\andre\downloads\xbmc-360\xbmc360\libraries\libffmpeg\libavutil\libm.h(81): warning C4244: 'return' : conversion from 'double' to 'long', possible loss of data
+     1>c:\users\andre\downloads\xbmc-360\xbmc360\libraries\libffmpeg\libavutil\libm.h(102): warning C4244: 'return' : conversion from 'double' to 'float', possible loss of data
+     1>..\..\libavutil\rational.c(49): warning C4244: '=' : conversion from 'int64_t' to 'int', possible loss of data
+     1>..\..\libavutil\rational.c(49): warning C4244: '=' : conversion from 'int64_t' to 'int', possible loss of data
+     1>..\..\libavutil\rational.c(62): warning C4018: '>' : signed/unsigned mismatch
+     1>..\..\libavutil\rational.c(64): warning C4018: '>' : signed/unsigned mismatch
+     1>..\..\libavutil\rational.c(68): warning C4244: 'function' : conversion from 'uint64_t' to 'int', possible loss of data
+     1>..\..\libavutil\rational.c(68): warning C4244: 'function' : conversion from 'uint64_t' to 'int', possible loss of data
+     1>..\..\libavutil\rational.c(77): warning C4244: '=' : conversion from 'int64_t' to 'int', possible loss of data
+     1>..\..\libavutil\rational.c(78): warning C4244: '=' : conversion from 'int64_t' to 'int', possible loss of data
+         rc4.c
+     1>c:\users\andre\downloads\xbmc-360\xbmc360\libraries\libffmpeg\libavutil\libm.h(81): warning C4244: 'return' : conversion from 'double' to 'long', possible loss of data
+     1>c:\users\andre\downloads\xbmc-360\xbmc360\libraries\libffmpeg\libavutil\libm.h(102): warning C4244: 'return' : conversion from 'double' to 'float', possible loss of data
+         sha.c
+     1>c:\users\andre\downloads\xbmc-360\xbmc360\libraries\libffmpeg\libavutil\libm.h(81): warning C4244: 'return' : conversion from 'double' to 'long', possible loss of data
+     1>c:\users\andre\downloads\xbmc-360\xbmc360\libraries\libffmpeg\libavutil\libm.h(102): warning C4244: 'return' : conversion from 'double' to 'float', possible loss of data
+     1>..\..\libavutil\sha.c(192): warning C4101: 'T2' : unreferenced local variable
+         tree.c
+     1>c:\users\andre\downloads\xbmc-360\xbmc360\libraries\libffmpeg\libavutil\libm.h(81): warning C4244: 'return' : conversion from 'double' to 'long', possible loss of data
+     1>c:\users\andre\downloads\xbmc-360\xbmc360\libraries\libffmpeg\libavutil\libm.h(102): warning C4244: 'return' : conversion from 'double' to 'float', possible loss of data
+         utils.c
+     1>c:\users\andre\downloads\xbmc-360\xbmc360\libraries\libffmpeg\libavutil\libm.h(81): warning C4244: 'return' : conversion from 'double' to 'long', possible loss of data
+     1>c:\users\andre\downloads\xbmc-360\xbmc360\libraries\libffmpeg\libavutil\libm.h(102): warning C4244: 'return' : conversion from 'double' to 'float', possible loss of data
+         audioconvert.c
+     1>c:\users\andre\downloads\xbmc-360\xbmc360\libraries\libffmpeg\libavutil\libm.h(81): warning C4244: 'return' : conversion from 'double' to 'long', possible loss of data
+     1>c:\users\andre\downloads\xbmc-360\xbmc360\libraries\libffmpeg\libavutil\libm.h(102): warning C4244: 'return' : conversion from 'double' to 'float', possible loss of data
+     1>..\..\libavutil\audioconvert.c(106): warning C4334: '<<' : result of 32-bit shift implicitly converted to 64 bits (was 64-bit shift intended?)
+         imgutils.c
+     1>c:\users\andre\downloads\xbmc-360\xbmc360\libraries\libffmpeg\libavutil\libm.h(81): warning C4244: 'return' : conversion from 'double' to 'long', possible loss of data
+     1>c:\users\andre\downloads\xbmc-360\xbmc360\libraries\libffmpeg\libavutil\libm.h(102): warning C4244: 'return' : conversion from 'double' to 'float', possible loss of data
+         inverse.c
+     1>c:\users\andre\downloads\xbmc-360\xbmc360\libraries\libffmpeg\libavutil\libm.h(81): warning C4244: 'return' : conversion from 'double' to 'long', possible loss of data
+     1>c:\users\andre\downloads\xbmc-360\xbmc360\libraries\libffmpeg\libavutil\libm.h(102): warning C4244: 'return' : conversion from 'double' to 'float', possible loss of data
+         opt.c
+     1>c:\users\andre\downloads\xbmc-360\xbmc360\libraries\libffmpeg\libavutil\libm.h(81): warning C4244: 'return' : conversion from 'double' to 'long', possible loss of data
+     1>c:\users\andre\downloads\xbmc-360\xbmc360\libraries\libffmpeg\libavutil\libm.h(102): warning C4244: 'return' : conversion from 'double' to 'float', possible loss of data
+     1>..\..\libavutil\opt.c(72): warning C4244: '=' : conversion from 'int64_t' to 'int', possible loss of data
+     1>..\..\libavutil\opt.c(74): warning C4244: '=' : conversion from 'double' to 'float', possible loss of data
+     1>..\..\libavutil\opt.c(77): warning C4244: 'function' : conversion from 'double' to 'int', possible loss of data
+     1>..\..\libavutil\opt.c(183): warning C4244: '=' : conversion from 'int64_t' to 'double', possible loss of data
+     1>..\..\libavutil\opt.c(184): warning C4244: '=' : conversion from 'int64_t' to 'double', possible loss of data
+     1>..\..\libavutil\opt.c(306): warning C4244: 'function' : conversion from 'int64_t' to 'int', possible loss of data
+     1>..\..\libavutil\opt.c(318): warning C4244: 'return' : conversion from 'double' to 'int64_t', possible loss of data
+     1>..\..\libavutil\opt.c(421): warning C4244: '=' : conversion from 'const double' to 'int', possible loss of data
+     1>..\..\libavutil\opt.c(428): warning C4244: 'function' : conversion from 'const double' to 'int64_t', possible loss of data
+         parseutils.c
+     1>c:\users\andre\downloads\xbmc-360\xbmc360\libraries\libffmpeg\libavutil\libm.h(81): warning C4244: 'return' : conversion from 'double' to 'long', possible loss of data
+     1>c:\users\andre\downloads\xbmc-360\xbmc360\libraries\libffmpeg\libavutil\libm.h(102): warning C4244: 'return' : conversion from 'double' to 'float', possible loss of data
+     1>..\..\libavutil\parseutils.c(38): warning C4005: 'strncasecmp' : macro redefinition
+                 C:\Users\andre\Downloads\XBMC-360\xbmc360\libraries\libffmpeg\libavformat/os_support.h(90) : see previous definition of 'strncasecmp'
+     1>..\..\libavutil\parseutils.c(117): warning C4090: '=' : different 'const' qualifiers
+     1>..\..\libavutil\parseutils.c(370): warning C4244: '=' : conversion from 'double' to 'unsigned long', possible loss of data
+     1>..\..\libavutil\parseutils.c(378): warning C4244: '=' : conversion from 'unsigned long' to 'uint8_t', possible loss of data
+         samplefmt.c
+     1>c:\users\andre\downloads\xbmc-360\xbmc360\libraries\libffmpeg\libavutil\libm.h(81): warning C4244: 'return' : conversion from 'double' to 'long', possible loss of data
+     1>c:\users\andre\downloads\xbmc-360\xbmc360\libraries\libffmpeg\libavutil\libm.h(102): warning C4244: 'return' : conversion from 'double' to 'float', possible loss of data
+         Generating Code...
+       Lib:
+         C:\Program Files (x86)\Microsoft Xbox 360 SDK\bin\win32\Lib.exe /OUT:"Xbox 360\Release\libavutil.lib" /NOLOGO "Xbox 360\Release\adler32.obj"
+         "Xbox 360\Release\aes.obj"
+         "Xbox 360\Release\avstring.obj"
+         "Xbox 360\Release\base64.obj"
+         "Xbox 360\Release\crc.obj"
+         "Xbox 360\Release\des.obj"
+         "Xbox 360\Release\DllEntry.obj"
+         "Xbox 360\Release\error.obj"
+         "Xbox 360\Release\eval.obj"
+         "Xbox 360\Release\fifo.obj"
+         "Xbox 360\Release\intfloat_readwrite.obj"
+         "Xbox 360\Release\lfg.obj"
+         "Xbox 360\Release\lls.obj"
+         "Xbox 360\Release\log.obj"
+         "Xbox 360\Release\lzo.obj"
+         "Xbox 360\Release\mathematics.obj"
+         "Xbox 360\Release\md5.obj"
+         "Xbox 360\Release\mem.obj"
+         "Xbox 360\Release\pixdesc.obj"
+         "Xbox 360\Release\random_seed.obj"
+         "Xbox 360\Release\rational.obj"
+         "Xbox 360\Release\rc4.obj"
+         "Xbox 360\Release\sha.obj"
+         "Xbox 360\Release\tree.obj"
+         "Xbox 360\Release\utils.obj"
+         "Xbox 360\Release\audioconvert.obj"
+         "Xbox 360\Release\imgutils.obj"
+         "Xbox 360\Release\inverse.obj"
+         "Xbox 360\Release\opt.obj"
+         "Xbox 360\Release\parseutils.obj"
+         "Xbox 360\Release\samplefmt.obj"
+         libavutil.vcxproj -> C:\Users\andre\Downloads\XBMC-360\xbmc360\libraries\libffmpeg\vcproj\libavutil\Xbox 360\Release\libavutil.lib
+       FinalizeBuildStatus:
+         Deleting file "Xbox 360\Release\libavutil.unsuccessfulbuild".
+         Touching "Xbox 360\Release\libavutil.lastbuildstate".
+     1>Done Building Project "C:\Users\andre\Downloads\XBMC-360\xbmc360\libraries\libffmpeg\vcproj\libavutil\libavutil.vcxproj" (build target(s)).
 
 Build succeeded.
 
-Time Elapsed 00:00:00.01
+Time Elapsed 00:00:02.75

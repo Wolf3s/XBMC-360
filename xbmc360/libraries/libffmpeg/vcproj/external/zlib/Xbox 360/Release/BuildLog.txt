@@ -1,5 +1,5 @@
-﻿Build started 24/09/2022 20:52:07.
-     1>Project "C:\Users\andre\Downloads\XBMC-360\xbmc360\libraries\libffmpeg\vcproj\external\zlib\zlib.vcxproj" on node 2 (rebuild target(s)).
+﻿Build started 11/10/2022 14:44:55.
+     1>Project "C:\Users\andre\Downloads\XBMC-360\xbmc360\libraries\libffmpeg\vcproj\external\zlib\zlib.vcxproj" on node 2 (build target(s)).
      1>InitializeBuildStatus:
          Creating "Xbox 360\Release\zlib.unsuccessfulbuild" because "AlwaysCreate" was specified.
        ClCompile:
@@ -41,8 +41,8 @@
        FinalizeBuildStatus:
          Deleting file "Xbox 360\Release\zlib.unsuccessfulbuild".
          Touching "Xbox 360\Release\zlib.lastbuildstate".
-     1>Done Building Project "C:\Users\andre\Downloads\XBMC-360\xbmc360\libraries\libffmpeg\vcproj\external\zlib\zlib.vcxproj" (rebuild target(s)).
+     1>Done Building Project "C:\Users\andre\Downloads\XBMC-360\xbmc360\libraries\libffmpeg\vcproj\external\zlib\zlib.vcxproj" (build target(s)).
 
 Build succeeded.
 
-Time Elapsed 00:00:00.75
+Time Elapsed 00:00:00.86
