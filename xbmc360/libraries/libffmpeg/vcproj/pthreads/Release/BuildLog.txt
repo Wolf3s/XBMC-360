@@ -1,8 +1,6 @@
-﻿Build started 24/09/2022 20:51:30.
-     1>Project "C:\Users\andre\Downloads\XBMC-360\xbmc360\libraries\libffmpeg\vcproj\pthreads\pthreads.vcxproj" on node 2 (rebuild target(s)).
-     1>PrepareForBuild:
-         Creating directory "C:\Users\andre\Downloads\XBMC-360\xbmc360\libraries\libffmpeg\vcproj\Xbox 360\Release\".
-       InitializeBuildStatus:
+﻿Build started 11/10/2022 14:44:55.
+     1>Project "C:\Users\andre\Downloads\XBMC-360\xbmc360\libraries\libffmpeg\vcproj\pthreads\pthreads.vcxproj" on node 5 (build target(s)).
+     1>InitializeBuildStatus:
          Creating "Release\pthreads.unsuccessfulbuild" because "AlwaysCreate" was specified.
        ClCompile:
          C:\Program Files (x86)\Microsoft Xbox 360 SDK\bin\win32\CL.exe /c /I../external/pthreads/ /Zi /nologo /W3 /WX- /O2 /D NDEBUG /D _XBOX /D _LIB /D HAVE_CONFIG_H /D PTW32_STATIC_LIB /GF /Gm- /EHsc /MT /GS /Gy /fp:fast /fp:except- /Zc:wchar_t /Zc:forScope /GR- /openmp- /Fo"Release\\" /Fd"Release\vc100.pdb" /TC ..\external\pthreads\pthread.c /FI"C:\Program Files (x86)\Microsoft Xbox 360 SDK\\include\xbox\xbox_intellisense_platform.h"
@@ -24,8 +22,8 @@
        FinalizeBuildStatus:
          Deleting file "Release\pthreads.unsuccessfulbuild".
          Touching "Release\pthreads.lastbuildstate".
-     1>Done Building Project "C:\Users\andre\Downloads\XBMC-360\xbmc360\libraries\libffmpeg\vcproj\pthreads\pthreads.vcxproj" (rebuild target(s)).
+     1>Done Building Project "C:\Users\andre\Downloads\XBMC-360\xbmc360\libraries\libffmpeg\vcproj\pthreads\pthreads.vcxproj" (build target(s)).
 
 Build succeeded.
 
-Time Elapsed 00:00:01.01
+Time Elapsed 00:00:00.81

@@ -1,9 +1,148 @@
-﻿Build started 19/09/2022 22:09:59.
-     1>Project "C:\Users\andre\Downloads\XBMC-360\xbmc360\libraries\libffmpeg\vcproj\libswscale\libswscale.vcxproj" on node 2 (clean target(s)).
-     1>_PrepareForClean:
-         Deleting file "Xbox 360\Release\libswscale.lastbuildstate".
-     1>Done Building Project "C:\Users\andre\Downloads\XBMC-360\xbmc360\libraries\libffmpeg\vcproj\libswscale\libswscale.vcxproj" (clean target(s)).
+﻿Build started 11/10/2022 14:44:55.
+     1>Project "C:\Users\andre\Downloads\XBMC-360\xbmc360\libraries\libffmpeg\vcproj\libswscale\libswscale.vcxproj" on node 4 (build target(s)).
+     1>InitializeBuildStatus:
+         Creating "Xbox 360\Release\libswscale.unsuccessfulbuild" because "AlwaysCreate" was specified.
+       ClCompile:
+         C:\Program Files (x86)\Microsoft Xbox 360 SDK\bin\win32\CL.exe /c /I..\external\include /I..\.. /Zi /nologo /W3 /WX- /O2 /Ob0 /D WIN32 /D NDEBUG /D _WINDOWS /D _USRDLL /D _XBOX /D HAVE_AV_CONFIG_H /GF /Gm- /EHsc /MT /GS /Gy /fp:fast /fp:except- /Zc:wchar_t /Zc:forScope /GR- /openmp- /Fo"Xbox 360\Release\\" /Fd"Xbox 360\Release\vc100.pdb" /TC /wd4305 /FIconfig.h ..\external\DllEntry.c ..\..\libswscale\options.c ..\..\libswscale\rgb2rgb.c ..\..\libswscale\swscale.c ..\..\libswscale\utils.c ..\..\libswscale\yuv2rgb.c /Ou /Oz /FI"C:\Program Files (x86)\Microsoft Xbox 360 SDK\\include\xbox\xbox_intellisense_platform.h"
+         DllEntry.c
+     1>..\external\DllEntry.c(36): warning C4101: 'pomS' : unreferenced local variable
+         options.c
+     1>c:\users\andre\downloads\xbmc-360\xbmc360\libraries\libffmpeg\libavutil\libm.h(81): warning C4244: 'return' : conversion from 'double' to 'long', possible loss of data
+     1>c:\users\andre\downloads\xbmc-360\xbmc360\libraries\libffmpeg\libavutil\libm.h(102): warning C4244: 'return' : conversion from 'double' to 'float', possible loss of data
+         rgb2rgb.c
+     1>c:\users\andre\downloads\xbmc-360\xbmc360\libraries\libffmpeg\libavutil\libm.h(81): warning C4244: 'return' : conversion from 'double' to 'long', possible loss of data
+     1>c:\users\andre\downloads\xbmc-360\xbmc360\libraries\libffmpeg\libavutil\libm.h(102): warning C4244: 'return' : conversion from 'double' to 'float', possible loss of data
+     1>c:\users\andre\downloads\xbmc-360\xbmc360\libraries\libffmpeg\libswscale\rgb2rgb_template.c(1352): warning C4018: '<' : signed/unsigned mismatch
+         swscale.c
+     1>c:\users\andre\downloads\xbmc-360\xbmc360\libraries\libffmpeg\libavutil\libm.h(81): warning C4244: 'return' : conversion from 'double' to 'long', possible loss of data
+     1>c:\users\andre\downloads\xbmc-360\xbmc360\libraries\libffmpeg\libavutil\libm.h(102): warning C4244: 'return' : conversion from 'double' to 'float', possible loss of data
+     1>..\..\libswscale\swscale.c(286): warning C4244: '=' : conversion from 'uint16_t' to 'uint8_t', possible loss of data
+     1>..\..\libswscale\swscale.c(304): warning C4244: '=' : conversion from 'uint16_t' to 'uint8_t', possible loss of data
+     1>..\..\libswscale\swscale.c(305): warning C4244: '=' : conversion from 'uint16_t' to 'uint8_t', possible loss of data
+     1>..\..\libswscale\swscale.c(322): warning C4244: '=' : conversion from 'uint16_t' to 'uint8_t', possible loss of data
+     1>..\..\libswscale\swscale.c(907): warning C4101: 'g' : unreferenced local variable
+     1>..\..\libswscale\swscale.c(907): warning C4101: 'b' : unreferenced local variable
+     1>..\..\libswscale\swscale.c(907): warning C4101: 'r' : unreferenced local variable
+     1>..\..\libswscale\swscale.c(907): warning C4101: 'g' : unreferenced local variable
+     1>..\..\libswscale\swscale.c(907): warning C4101: 'b' : unreferenced local variable
+     1>..\..\libswscale\swscale.c(907): warning C4101: 'r' : unreferenced local variable
+     1>c:\users\andre\downloads\xbmc-360\xbmc360\libraries\libffmpeg\libswscale\swscale_template.c(1351): warning C4101: 'g' : unreferenced local variable
+     1>c:\users\andre\downloads\xbmc-360\xbmc360\libraries\libffmpeg\libswscale\swscale_template.c(1351): warning C4101: 'b' : unreferenced local variable
+     1>c:\users\andre\downloads\xbmc-360\xbmc360\libraries\libffmpeg\libswscale\swscale_template.c(1351): warning C4101: 'r' : unreferenced local variable
+     1>c:\users\andre\downloads\xbmc-360\xbmc360\libraries\libffmpeg\libswscale\swscale_template.c(1351): warning C4101: 'g' : unreferenced local variable
+     1>c:\users\andre\downloads\xbmc-360\xbmc360\libraries\libffmpeg\libswscale\swscale_template.c(1351): warning C4101: 'b' : unreferenced local variable
+     1>c:\users\andre\downloads\xbmc-360\xbmc360\libraries\libffmpeg\libswscale\swscale_template.c(1351): warning C4101: 'r' : unreferenced local variable
+     1>c:\users\andre\downloads\xbmc-360\xbmc360\libraries\libffmpeg\libswscale\swscale_template.c(1589): warning C4101: 'g' : unreferenced local variable
+     1>c:\users\andre\downloads\xbmc-360\xbmc360\libraries\libffmpeg\libswscale\swscale_template.c(1589): warning C4101: 'b' : unreferenced local variable
+     1>c:\users\andre\downloads\xbmc-360\xbmc360\libraries\libffmpeg\libswscale\swscale_template.c(1589): warning C4101: 'r' : unreferenced local variable
+     1>c:\users\andre\downloads\xbmc-360\xbmc360\libraries\libffmpeg\libswscale\swscale_template.c(1589): warning C4101: 'g' : unreferenced local variable
+     1>c:\users\andre\downloads\xbmc-360\xbmc360\libraries\libffmpeg\libswscale\swscale_template.c(1589): warning C4101: 'b' : unreferenced local variable
+     1>c:\users\andre\downloads\xbmc-360\xbmc360\libraries\libffmpeg\libswscale\swscale_template.c(1589): warning C4101: 'r' : unreferenced local variable
+     1>c:\users\andre\downloads\xbmc-360\xbmc360\libraries\libffmpeg\libswscale\swscale_template.c(1591): warning C4101: 'g' : unreferenced local variable
+     1>c:\users\andre\downloads\xbmc-360\xbmc360\libraries\libffmpeg\libswscale\swscale_template.c(1591): warning C4101: 'b' : unreferenced local variable
+     1>c:\users\andre\downloads\xbmc-360\xbmc360\libraries\libffmpeg\libswscale\swscale_template.c(1591): warning C4101: 'r' : unreferenced local variable
+     1>c:\users\andre\downloads\xbmc-360\xbmc360\libraries\libffmpeg\libswscale\swscale_template.c(1591): warning C4101: 'g' : unreferenced local variable
+     1>c:\users\andre\downloads\xbmc-360\xbmc360\libraries\libffmpeg\libswscale\swscale_template.c(1591): warning C4101: 'b' : unreferenced local variable
+     1>c:\users\andre\downloads\xbmc-360\xbmc360\libraries\libffmpeg\libswscale\swscale_template.c(1591): warning C4101: 'r' : unreferenced local variable
+     1>c:\users\andre\downloads\xbmc-360\xbmc360\libraries\libffmpeg\libswscale\swscale_template.c(2409): warning C4028: formal parameter 1 different from declaration
+     1>c:\users\andre\downloads\xbmc-360\xbmc360\libraries\libffmpeg\libswscale\swscale_template.c(2950): warning C4028: formal parameter 12 different from declaration
+     1>c:\users\andre\downloads\xbmc-360\xbmc360\libraries\libffmpeg\libswscale\swscale_template.c(2953): warning C4028: formal parameter 9 different from declaration
+     1>..\..\libswscale\swscale.c(2009): warning C4090: 'function' : different 'const' qualifiers
+     1>..\..\libswscale\swscale.c(2013): warning C4090: 'function' : different 'const' qualifiers
+         utils.c
+     1>c:\users\andre\downloads\xbmc-360\xbmc360\libraries\libffmpeg\libavutil\libm.h(81): warning C4244: 'return' : conversion from 'double' to 'long', possible loss of data
+     1>c:\users\andre\downloads\xbmc-360\xbmc360\libraries\libffmpeg\libavutil\libm.h(102): warning C4244: 'return' : conversion from 'double' to 'float', possible loss of data
+     1>c:\users\andre\downloads\xbmc-360\xbmc360\libraries\libffmpeg\libavutil\xbox360/bswap.h(31): warning C4022: '__loadshortbytereverse' : pointer mismatch for actual parameter 2
+     1>c:\users\andre\downloads\xbmc-360\xbmc360\libraries\libffmpeg\libavutil\xbox360/bswap.h(37): warning C4022: '__loadwordbytereverse' : pointer mismatch for actual parameter 2
+     1>..\..\libswscale\utils.c(254): warning C4244: '=' : conversion from 'double' to 'int', possible loss of data
+     1>..\..\libswscale\utils.c(285): warning C4244: 'initializing' : conversion from 'double' to 'int64_t', possible loss of data
+     1>..\..\libswscale\utils.c(286): warning C4244: 'initializing' : conversion from 'double' to 'int64_t', possible loss of data
+     1>..\..\libswscale\utils.c(295): warning C4244: '=' : conversion from 'double' to 'int64_t', possible loss of data
+     1>..\..\libswscale\utils.c(313): warning C4244: '=' : conversion from 'double' to 'int64_t', possible loss of data
+     1>..\..\libswscale\utils.c(316): warning C4244: '=' : conversion from 'double' to 'int64_t', possible loss of data
+     1>..\..\libswscale\utils.c(318): warning C4244: '=' : conversion from 'double' to 'int64_t', possible loss of data
+     1>..\..\libswscale\utils.c(322): warning C4244: '=' : conversion from 'double' to 'int64_t', possible loss of data
+     1>..\..\libswscale\utils.c(324): warning C4244: '=' : conversion from 'double' to 'int64_t', possible loss of data
+     1>..\..\libswscale\utils.c(327): warning C4244: '=' : conversion from 'double' to 'int64_t', possible loss of data
+     1>..\..\libswscale\utils.c(335): warning C4244: '=' : conversion from 'double' to 'int64_t', possible loss of data
+     1>..\..\libswscale\utils.c(337): warning C4244: '=' : conversion from 'double' to 'int64_t', possible loss of data
+     1>..\..\libswscale\utils.c(364): warning C4244: '+=' : conversion from 'double' to 'int64_t', possible loss of data
+     1>..\..\libswscale\utils.c(382): warning C4244: 'initializing' : conversion from 'double' to 'int64_t', possible loss of data
+     1>..\..\libswscale\utils.c(499): warning C4244: 'initializing' : conversion from 'int64_t' to 'int', possible loss of data
+         yuv2rgb.c
+     1>c:\users\andre\downloads\xbmc-360\xbmc360\libraries\libffmpeg\libavutil\libm.h(81): warning C4244: 'return' : conversion from 'double' to 'long', possible loss of data
+     1>c:\users\andre\downloads\xbmc-360\xbmc360\libraries\libffmpeg\libavutil\libm.h(102): warning C4244: 'return' : conversion from 'double' to 'float', possible loss of data
+     1>..\..\libswscale\yuv2rgb.c(367): warning C4101: 'V' : unreferenced local variable
+     1>..\..\libswscale\yuv2rgb.c(367): warning C4101: 'Y' : unreferenced local variable
+     1>..\..\libswscale\yuv2rgb.c(367): warning C4101: 'U' : unreferenced local variable
+     1>..\..\libswscale\yuv2rgb.c(415): warning C4101: 'V' : unreferenced local variable
+     1>..\..\libswscale\yuv2rgb.c(415): warning C4101: 'Y' : unreferenced local variable
+     1>..\..\libswscale\yuv2rgb.c(415): warning C4101: 'U' : unreferenced local variable
+     1>..\..\libswscale\yuv2rgb.c(442): warning C4101: 'V' : unreferenced local variable
+     1>..\..\libswscale\yuv2rgb.c(442): warning C4101: 'Y' : unreferenced local variable
+     1>..\..\libswscale\yuv2rgb.c(442): warning C4101: 'U' : unreferenced local variable
+     1>..\..\libswscale\yuv2rgb.c(501): warning C4101: 'V' : unreferenced local variable
+     1>..\..\libswscale\yuv2rgb.c(501): warning C4101: 'Y' : unreferenced local variable
+     1>..\..\libswscale\yuv2rgb.c(501): warning C4101: 'U' : unreferenced local variable
+     1>..\..\libswscale\yuv2rgb.c(550): warning C4101: 'V' : unreferenced local variable
+     1>..\..\libswscale\yuv2rgb.c(550): warning C4101: 'Y' : unreferenced local variable
+     1>..\..\libswscale\yuv2rgb.c(550): warning C4101: 'U' : unreferenced local variable
+     1>..\..\libswscale\yuv2rgb.c(552): warning C4101: 'b' : unreferenced local variable
+     1>..\..\libswscale\yuv2rgb.c(552): warning C4101: 'r' : unreferenced local variable
+     1>..\..\libswscale\yuv2rgb.c(552): warning C4101: 'V' : unreferenced local variable
+     1>..\..\libswscale\yuv2rgb.c(552): warning C4101: 'U' : unreferenced local variable
+     1>..\..\libswscale\yuv2rgb.c(577): warning C4101: 'V' : unreferenced local variable
+     1>..\..\libswscale\yuv2rgb.c(577): warning C4101: 'Y' : unreferenced local variable
+     1>..\..\libswscale\yuv2rgb.c(577): warning C4101: 'U' : unreferenced local variable
+     1>..\..\libswscale\yuv2rgb.c(657): warning C4244: '=' : conversion from 'int64_t' to 'int', possible loss of data
+     1>..\..\libswscale\yuv2rgb.c(664): warning C4244: 'initializing' : conversion from 'int64_t' to 'int', possible loss of data
+     1>..\..\libswscale\yuv2rgb.c(755): warning C4244: 'function' : conversion from 'int64_t' to 'int', possible loss of data
+     1>..\..\libswscale\yuv2rgb.c(758): warning C4244: 'function' : conversion from 'int64_t' to 'const int', possible loss of data
+     1>..\..\libswscale\yuv2rgb.c(759): warning C4244: 'function' : conversion from 'int64_t' to 'const int', possible loss of data
+     1>..\..\libswscale\yuv2rgb.c(770): warning C4244: 'function' : conversion from 'int64_t' to 'int', possible loss of data
+     1>..\..\libswscale\yuv2rgb.c(776): warning C4244: 'function' : conversion from 'int64_t' to 'const int', possible loss of data
+     1>..\..\libswscale\yuv2rgb.c(777): warning C4244: 'function' : conversion from 'int64_t' to 'const int', possible loss of data
+     1>..\..\libswscale\yuv2rgb.c(778): warning C4244: 'function' : conversion from 'int64_t' to 'const int', possible loss of data
+     1>..\..\libswscale\yuv2rgb.c(779): warning C4244: 'function' : conversion from 'int64_t' to 'const int', possible loss of data
+     1>..\..\libswscale\yuv2rgb.c(789): warning C4244: 'function' : conversion from 'int64_t' to 'int', possible loss of data
+     1>..\..\libswscale\yuv2rgb.c(795): warning C4244: 'function' : conversion from 'int64_t' to 'const int', possible loss of data
+     1>..\..\libswscale\yuv2rgb.c(796): warning C4244: 'function' : conversion from 'int64_t' to 'const int', possible loss of data
+     1>..\..\libswscale\yuv2rgb.c(797): warning C4244: 'function' : conversion from 'int64_t' to 'const int', possible loss of data
+     1>..\..\libswscale\yuv2rgb.c(798): warning C4244: 'function' : conversion from 'int64_t' to 'const int', possible loss of data
+     1>..\..\libswscale\yuv2rgb.c(808): warning C4244: 'function' : conversion from 'int64_t' to 'int', possible loss of data
+     1>..\..\libswscale\yuv2rgb.c(817): warning C4244: 'function' : conversion from 'int64_t' to 'const int', possible loss of data
+     1>..\..\libswscale\yuv2rgb.c(818): warning C4244: 'function' : conversion from 'int64_t' to 'const int', possible loss of data
+     1>..\..\libswscale\yuv2rgb.c(819): warning C4244: 'function' : conversion from 'int64_t' to 'const int', possible loss of data
+     1>..\..\libswscale\yuv2rgb.c(820): warning C4244: 'function' : conversion from 'int64_t' to 'const int', possible loss of data
+     1>..\..\libswscale\yuv2rgb.c(831): warning C4244: 'function' : conversion from 'int64_t' to 'int', possible loss of data
+     1>..\..\libswscale\yuv2rgb.c(840): warning C4244: 'function' : conversion from 'int64_t' to 'const int', possible loss of data
+     1>..\..\libswscale\yuv2rgb.c(841): warning C4244: 'function' : conversion from 'int64_t' to 'const int', possible loss of data
+     1>..\..\libswscale\yuv2rgb.c(842): warning C4244: 'function' : conversion from 'int64_t' to 'const int', possible loss of data
+     1>..\..\libswscale\yuv2rgb.c(843): warning C4244: 'function' : conversion from 'int64_t' to 'const int', possible loss of data
+     1>..\..\libswscale\yuv2rgb.c(851): warning C4244: 'function' : conversion from 'int64_t' to 'int', possible loss of data
+     1>..\..\libswscale\yuv2rgb.c(854): warning C4244: 'function' : conversion from 'int64_t' to 'const int', possible loss of data
+     1>..\..\libswscale\yuv2rgb.c(855): warning C4244: 'function' : conversion from 'int64_t' to 'const int', possible loss of data
+     1>..\..\libswscale\yuv2rgb.c(856): warning C4244: 'function' : conversion from 'int64_t' to 'const int', possible loss of data
+     1>..\..\libswscale\yuv2rgb.c(857): warning C4244: 'function' : conversion from 'int64_t' to 'const int', possible loss of data
+     1>..\..\libswscale\yuv2rgb.c(871): warning C4244: 'function' : conversion from 'int64_t' to 'int', possible loss of data
+     1>..\..\libswscale\yuv2rgb.c(877): warning C4244: 'function' : conversion from 'int64_t' to 'const int', possible loss of data
+     1>..\..\libswscale\yuv2rgb.c(878): warning C4244: 'function' : conversion from 'int64_t' to 'const int', possible loss of data
+     1>..\..\libswscale\yuv2rgb.c(879): warning C4244: 'function' : conversion from 'int64_t' to 'const int', possible loss of data
+     1>..\..\libswscale\yuv2rgb.c(880): warning C4244: 'function' : conversion from 'int64_t' to 'const int', possible loss of data
+         Generating Code...
+       Lib:
+         C:\Program Files (x86)\Microsoft Xbox 360 SDK\bin\win32\Lib.exe /OUT:"Xbox 360\Release\libswscale.lib" /NOLOGO "Xbox 360\Release\DllEntry.obj"
+         "Xbox 360\Release\options.obj"
+         "Xbox 360\Release\rgb2rgb.obj"
+         "Xbox 360\Release\swscale.obj"
+         "Xbox 360\Release\utils.obj"
+         "Xbox 360\Release\yuv2rgb.obj"
+         libswscale.vcxproj -> C:\Users\andre\Downloads\XBMC-360\xbmc360\libraries\libffmpeg\vcproj\libswscale\Xbox 360\Release\libswscale.lib
+       FinalizeBuildStatus:
+         Deleting file "Xbox 360\Release\libswscale.unsuccessfulbuild".
+         Touching "Xbox 360\Release\libswscale.lastbuildstate".
+     1>Done Building Project "C:\Users\andre\Downloads\XBMC-360\xbmc360\libraries\libffmpeg\vcproj\libswscale\libswscale.vcxproj" (build target(s)).
 
 Build succeeded.
 
-Time Elapsed 00:00:00.00
+Time Elapsed 00:00:10.44
