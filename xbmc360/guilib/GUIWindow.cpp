@@ -728,11 +728,7 @@ void CGUIWindow::LoadControl(TiXmlElement* pControl, CGUIControlGroup *pGroup)
 	CGUIControl* pGUIControl = factory.Create(GetID(), rect, pControl);
 	if (pGUIControl)
 	{
-<<<<<<< HEAD
 	    float maxX = pGUIControl->GetXPosition() + pGUIControl->GetWidth();
-=======
-	float maxX = pGUIControl->GetXPosition() + pGUIControl->GetWidth();
->>>>>>> Development
 		if (maxX > m_width)
 		{
 			m_width = maxX;
@@ -743,14 +739,11 @@ void CGUIWindow::LoadControl(TiXmlElement* pControl, CGUIControlGroup *pGroup)
 			m_height = maxY;
 		}
 		// if we are in a group, add to the group, else add to our window
-/*
+
 		if (pGroup)
 			pGroup->AddControl(pGUIControl);
 		else
-<<<<<<< HEAD
-=======
-*/
->>>>>>> Development
+
 		AddControl(pGUIControl);
 		// if the new control is a group, then add it's controls
 		if (pGUIControl->IsGroup())
@@ -762,12 +755,5 @@ void CGUIWindow::LoadControl(TiXmlElement* pControl, CGUIControlGroup *pGroup)
 				pSubControl = pSubControl->NextSiblingElement("control");
 			}
 		}
-<<<<<<< HEAD
-=======
-
-	}
-}
->>>>>>> Development
-
 	}
 }
