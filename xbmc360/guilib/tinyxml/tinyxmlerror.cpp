@@ -21,7 +21,7 @@ must not be misrepresented as being the original software.
 3. This notice may not be removed or altered from any source
 distribution.
 */
-
+#ifndef HAVE_TIXML2
 #include "tinyxml.h"
 
 // The goal of the seperate error file is to make the first
@@ -50,3 +50,5 @@ const char* TiXmlBase::errorString[ TiXmlBase::TIXML_ERROR_STRING_COUNT ] =
 	"Error parsing CDATA.",
 	"Error when TiXmlDocument added to document, because TiXmlDocument can only be at the root.",
 };
+
+#endif

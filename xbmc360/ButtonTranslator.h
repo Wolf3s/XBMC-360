@@ -3,7 +3,7 @@
 
 #include "utils\Stdafx.h"
 #include "utils\StdString.h"
-#include "guilib\tinyxml\tinyxml.h"
+#include "guilib\XMLUtils.h"
 #include "guilib\Key.h"
 #include <map>
 

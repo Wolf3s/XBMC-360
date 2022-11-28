@@ -199,10 +199,18 @@ void CGUISettings::LoadXML(TiXmlElement *pRootElement)
 		CStringUtils::SplitString((*it).first, ".", strSplit);
 		if (strSplit.size() > 1)
 		{
+#ifdef HAVE_TIXML1
 			const TiXmlNode *pChild = pRootElement->FirstChild(strSplit[0].c_str());
+#elif HAVE_TIXML2
+			const TiXmlNode *pChild = pRootElement->FirstChildElement(strSplit[0].c_str());
+#endif
 			if (pChild)
 			{
+#ifdef HAVE_TIXML1
 				const TiXmlNode *pGrandChild = pChild->FirstChild(strSplit[1].c_str());
+#elif HAVE_TIXML2
+				const TiXmlNode *pGrandChild = pChild->FirstChildElement(strSplit[1].c_str());
+#endif
 				if (pGrandChild && pGrandChild->FirstChild())
 				{
 					CStdString strValue = pGrandChild->FirstChild()->Value();
@@ -230,23 +238,44 @@ void CGUISettings::SaveXML(TiXmlNode *pRootNode)
 		
 		if (strSplit.size() > 1)
 		{
+#ifdef HAVE_TIXML1
 			TiXmlNode *pChild = pRootNode->FirstChild(strSplit[0].c_str());
+#elif HAVE_TIXML2
+			TiXmlNode *pChild = pRootNode->FirstChildElement(strSplit[0].c_str());
+#endif
 			if (!pChild)
 			{
 				// add our group tag
+#ifdef HAVE_TIXML1
 				TiXmlElement newElement(strSplit[0].c_str());
 				pChild = pRootNode->InsertEndChild(newElement);
+#elif HAVE_TIXML2
+				TiXmlDocument doc;
+				auto *newElement = doc.NewElement(strSplit[0].c_str());
+				pChild = pRootNode->InsertEndChild(newElement);
+#endif
 			}
 
 			if (pChild)
 			{
 				// successfully added (or found) our group
+#ifdef HAVE_TIXML1
 				TiXmlElement newElement(strSplit[1]);
 				TiXmlNode *pNewNode = pChild->InsertEndChild(newElement);
+#elif HAVE_TIXML2
+				TiXmlDocument doc;
+				auto newElement = doc.NewElement(strSplit[1].c_str()); //C Stuff...
+				TiXmlNode *pNewNode = pChild->InsertEndChild(newElement);		
+#endif
 				if (pNewNode)
 				{
+#ifdef HAVE_TIXML1
 					TiXmlText value((*it).second->ToString());
 					pNewNode->InsertEndChild(value);
+#elif HAVE_TIXML2
+					auto *value = doc.NewText((*it).second->ToString());
+					pNewNode->InsertEndChild(value);
+#endif				
 				}
 			}
 		}

@@ -27,8 +27,7 @@
 #include "..\utils\StdString.h"
 
 // forward definitions
-class TiXmlElement;
-
+#include "XMLUtils.h"
 class CGUIIncludes
 {
 public:

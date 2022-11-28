@@ -2,7 +2,9 @@
 #include "Application.h"
 #include "utils\Log.h"
 #include "GUISettings.h"
+#ifdef HAVE_TIXML1
 #include "guilib\XMLUtils.h"
+#endif
 #include "utils\URIUtils.h"
 #include "AdvancedSettings.h"
 #include "URL.h"
@@ -93,7 +95,11 @@ bool CSettings::Load()
       CLog::Log(LOGERROR, "%s sources.xml file does not contain <sources>", __FUNCTION__);
   }
   else if (CFile::Exists(strXMLFile))
-    CLog::Log(LOGERROR, "%s Error loading %s: Line %d, %s", __FUNCTION__, strXMLFile.c_str(), xmlDoc.ErrorRow(), xmlDoc.ErrorDesc());
+#ifdef HAVE_TIXML1
+		CLog::Log(LOGERROR, "%s Error loading %s: Line %d, %s", __FUNCTION__, strXMLFile.c_str(), xmlDoc.ErrorRow(), xmlDoc.ErrorDesc());
+#elif HAVE_TIXML2
+		CLog::Log(LOGERROR, "%s Error loading %s: Line %d, %s", __FUNCTION__, strXMLFile.c_str(), xmlDoc.ErrorLineNum(), xmlDoc.ErrorStr());
+#endif
 
   // look for external sources file
   TiXmlNode *pInclude = pRootElement ? pRootElement->FirstChild("remote") : NULL;
@@ -152,14 +158,16 @@ bool CSettings::Load()
 
 bool CSettings::LoadSettings(const CStdString& strSettingsFile)
 {
-
   // load the xml file
   TiXmlDocument xmlDoc;
 
   if (!xmlDoc.LoadFile(strSettingsFile))
   {
-    g_LoadErrorStr.Format("%s, Line %d\n%s", strSettingsFile.c_str(), xmlDoc.ErrorRow(), xmlDoc.ErrorDesc());
-    return false;
+#ifdef HAVE_TIXML1
+		g_LoadErrorStr.Format("%s, Line %d\n%s", strSettingsFile.c_str(), xmlDoc.ErrorRow(), xmlDoc.ErrorDesc());
+#elif HAVE_TIXML2
+		g_LoadErrorStr.Format("%s, Line %d\n%s", strSettingsFile.c_str(), xmlDoc.ErrorLineNum(), xmlDoc.ErrorStr());
+#endif
   }
 
   TiXmlElement *pRootElement = xmlDoc.RootElement();
@@ -390,16 +398,25 @@ CStdString CSettings::GetUserDataItem(const CStdString& strFile) const
 bool CSettings::SaveSettings(const CStdString& strSettingsFile) const
 {
 	TiXmlDocument xmlDoc;
+#ifdef HAVE_TIXML1
 	TiXmlElement xmlRootElement("settings");
-
 	TiXmlNode *pRoot = xmlDoc.InsertEndChild(xmlRootElement);
+#elif HAVE_TIXML2
+	auto *xmlRootElement = xmlDoc.NewElement("settings");
+	TiXmlNode *pRoot = xmlDoc.InsertEndChild(xmlRootElement);
+#endif
 	if(!pRoot) return false;
 
 	// Write our tags one by one, just a big list for now (can be flashed up later)
 
 	// General settings
+#ifdef HAVE_TIXML1
 	TiXmlElement generalNode("general");
 	TiXmlNode *pNode = pRoot->InsertEndChild(generalNode);
+#elif HAVE_TIXML2
+	auto *generalNode =  xmlDoc.NewElement("general");
+	TiXmlNode *pNode = pRoot->InsertEndChild(generalNode);
+#endif	
 	if(!pNode) return false;
 	XMLUtils::SetInt(pNode, "systemtotaluptime", m_iSystemTimeTotalUp);
 
@@ -816,8 +833,11 @@ void CSettings::GetSources(const TiXmlElement* pRootElement, const CStdString& s
 	CLog::Log(LOGDEBUG, "Parsing <%s> tag", strTagName.c_str());
 
 	items.clear();
+#ifdef HAVE_TIXML1
 	const TiXmlNode *pChild = pRootElement->FirstChild(strTagName.c_str());
-
+#elif HAVE_TIXML2
+	const TiXmlNode *pChild = pRootElement->FirstChildElement(strTagName.c_str());
+#endif
 	if(pChild)
 	{
 		pChild = pChild->FirstChild();
@@ -847,17 +867,23 @@ void CSettings::GetSources(const TiXmlElement* pRootElement, const CStdString& s
 
 bool CSettings::SetSources(TiXmlNode *root, const char *section, const VECSOURCES &shares)
 {
+#ifdef HAVE_TIXML1
 	TiXmlElement sectionElement(section);
 	TiXmlNode *sectionNode = root->InsertEndChild(sectionElement);
-	
+#elif HAVE_TIXML2
+	TiXmlDocument doc;
+	auto *sectionElement = doc.NewElement(section);
+	TiXmlNode *sectionNode = root->InsertEndChild(sectionElement);
+#endif
 	if(sectionNode)
 	{
 		for(unsigned int i = 0; i < shares.size(); i++)
 		{
 			const CMediaSource &share = shares[i];
-				
+	
+#ifdef HAVE_TIXML1
 			TiXmlElement source("source");
-
+			
 			XMLUtils::SetString(&source, "name", share.strName);
 
 			for(unsigned int i = 0; i < share.vecPaths.size(); i++)
@@ -867,6 +893,20 @@ bool CSettings::SetSources(TiXmlNode *root, const char *section, const VECSOURCE
 				XMLUtils::SetPath(&source, "thumbnail", share.m_strThumbnailImage);
 
 			sectionNode->InsertEndChild(source);
+#elif HAVE_TIXML2
+			auto *source = doc.NewElement("source");
+
+			XMLUtils::SetString(source, "name", share.strName);
+
+			for(unsigned int i = 0; i < share.vecPaths.size(); i++)
+				XMLUtils::SetPath(source, "path", share.vecPaths[i]);
+
+			if(!share.m_strThumbnailImage.IsEmpty())
+				XMLUtils::SetPath(source, "thumbnail", share.m_strThumbnailImage);
+
+			sectionNode->InsertEndChild(source);
+#endif
+
 		}
 	}
 	return true;
@@ -875,9 +915,13 @@ bool CSettings::SetSources(TiXmlNode *root, const char *section, const VECSOURCE
 bool CSettings::SaveSources()
 {
 	TiXmlDocument doc;
+#ifdef HAVE_TIXML1
 	TiXmlElement xmlRootElement("sources");
 	TiXmlNode *pRoot = doc.InsertEndChild(xmlRootElement);
-
+#elif HAVE_TIXML2
+	auto *xmlRootElement = doc.NewElement("sources");
+	TiXmlNode *pRoot = doc.InsertEndChild(xmlRootElement);
+#endif
 	if(!pRoot) return false;
 
 	// Ok, now run through and save each sources section
@@ -892,8 +936,11 @@ bool CSettings::SaveSources()
 bool CSettings::GetSource(const CStdString &category, const TiXmlNode *source, CMediaSource &share)
 {
 	CLog::Log(LOGDEBUG,"---- SOURCE START ----");
+#ifdef HAVE_TIXML1
 	const TiXmlNode *pNodeName = source->FirstChild("name");
-
+#elif HAVE_TIXML2
+	const TiXmlNode *pNodeName = source->FirstChildElement("name");
+#endif
 	CStdString strName;
 	if(pNodeName && pNodeName->FirstChild())
 	{
@@ -927,8 +974,11 @@ bool CSettings::GetSource(const CStdString &category, const TiXmlNode *source, C
 		pPathName = pPathName->NextSiblingElement("path");
 	}
 
+#ifdef HAVE_TIXML1
 	const TiXmlNode *pThumbnailNode = source->FirstChild("thumbnail");
-
+#elif HAVE_TIXML2
+	const TiXmlNode *pThumbnailNode = source->FirstChildElement("thumbnail");
+#endif
 	if(!strName.IsEmpty() && vecPaths.size() > 0)
 	{
 		vector<CStdString> verifiedPaths;
@@ -983,7 +1033,11 @@ bool CSettings::GetSource(const CStdString &category, const TiXmlNode *source, C
 
 void CSettings::GetInteger(const TiXmlElement* pRootElement, const CStdString& strTagName, int& iValue, const int iDefault, const int iMin, const int iMax)
 {
+#ifdef HAVE_TIXML1
 	const TiXmlNode *pChild = pRootElement->FirstChild(strTagName.c_str());
+#elif HAVE_TIXML2
+	const TiXmlNode *pChild = pRootElement->FirstChildElement(strTagName.c_str());
+#endif
 	if(pChild)
 	{
 		iValue = atoi( pChild->FirstChild()->Value() );

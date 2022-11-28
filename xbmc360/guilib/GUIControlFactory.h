@@ -22,7 +22,7 @@
 #define H_CGUICONTROLFACTORY
 
 #include "GUIControl.h"
-#include "tinyxml\tinyxml.h"
+#include "XMLUtils.h"
 #include "GUITexture.h"
 #include "GUIInfoTypes.h"
 

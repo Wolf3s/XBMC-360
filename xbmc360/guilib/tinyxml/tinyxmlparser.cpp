@@ -21,7 +21,7 @@ must not be misrepresented as being the original software.
 3. This notice may not be removed or altered from any source 
 distribution.
 */
-
+#ifndef HAVE_TIXML2
 #include <ctype.h>
 #include <stddef.h>
 
@@ -1636,3 +1636,4 @@ bool TiXmlText::Blank() const
 	return true;
 }
 
+#endif

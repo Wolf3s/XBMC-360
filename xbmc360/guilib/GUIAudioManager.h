@@ -3,8 +3,7 @@
 
 #include "..\utils\SingleLock.h"
 #include "..\utils\StdString.h"
-#include "tinyxml\tinyxml.h"
-
+#include "XMLUtils.h"
 #include <map>
 #include <vector>
 

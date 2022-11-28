@@ -21,7 +21,7 @@ must not be misrepresented as being the original software.
 distribution.
 */
 
-
+#ifndef HAVE_TIXML2
 #ifndef TIXML_USE_STL
 
 #ifndef TIXML_STRING_INCLUDED
@@ -303,3 +303,4 @@ public :
 
 #endif	// TIXML_STRING_INCLUDED
 #endif	// TIXML_USE_STL
+#endif // HAVE_TIXML2

@@ -159,6 +159,12 @@
     <Filter Include="Source Files\cores\AudioRenderers">
       <UniqueIdentifier>{e7547332-c625-4841-b17d-7122fc8d651b}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Header Files\guilib\tinyxml2">
+      <UniqueIdentifier>{e16a22ba-1f17-4775-af80-6d18eb1ca50b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\guilib\tinyxml2">
+      <UniqueIdentifier>{398da11f-122c-44d2-9075-6bdaa24a9da7}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Application.h">
@@ -232,12 +238,6 @@
     </ClInclude>
     <ClInclude Include="guilib\GUIControl.h">
       <Filter>Header Files\guilib</Filter>
-    </ClInclude>
-    <ClInclude Include="guilib\tinyxml\tinystr.h">
-      <Filter>Header Files\guilib\tinyxml</Filter>
-    </ClInclude>
-    <ClInclude Include="guilib\tinyxml\tinyxml.h">
-      <Filter>Header Files\guilib\tinyxml</Filter>
     </ClInclude>
     <ClInclude Include="guilib\GUIControlFactory.h">
       <Filter>Header Files\guilib</Filter>
@@ -763,6 +763,14 @@
     </ClInclude>
     <ClInclude Include="filesystem\SpecialProtocolDirectory.h">
       <Filter>Header Files\filesystem</Filter>
+    <ClInclude Include="guilib\tinyxml2\tinyxml2.h">
+      <Filter>Header Files\guilib\tinyxml2</Filter>
+    </ClInclude>
+    <ClInclude Include="guilib\tinyxml\tinystr.h">
+      <Filter>Header Files\guilib\tinyxml</Filter>
+    </ClInclude>
+    <ClInclude Include="guilib\tinyxml\tinyxml.h">
+      <Filter>Header Files\guilib\tinyxml</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -831,18 +839,6 @@
     </ClCompile>
     <ClCompile Include="guilib\GUIControl.cpp">
       <Filter>Source Files\guilib</Filter>
-    </ClCompile>
-    <ClCompile Include="guilib\tinyxml\tinystr.cpp">
-      <Filter>Source Files\guilib\tinyxml</Filter>
-    </ClCompile>
-    <ClCompile Include="guilib\tinyxml\tinyxml.cpp">
-      <Filter>Source Files\guilib\tinyxml</Filter>
-    </ClCompile>
-    <ClCompile Include="guilib\tinyxml\tinyxmlerror.cpp">
-      <Filter>Source Files\guilib\tinyxml</Filter>
-    </ClCompile>
-    <ClCompile Include="guilib\tinyxml\tinyxmlparser.cpp">
-      <Filter>Source Files\guilib\tinyxml</Filter>
     </ClCompile>
     <ClCompile Include="guilib\GUIControlFactory.cpp">
       <Filter>Source Files\guilib</Filter>
@@ -1389,6 +1385,20 @@
     </ClCompile>
     <ClCompile Include="filesystem\SpecialProtocolDirectory.cpp">
       <Filter>Source Files\filesystem</Filter>
+    <ClCompile Include="guilib\tinyxml2\tinyxml2.cpp">
+      <Filter>Source Files\guilib\tinyxml2</Filter>
+    </ClCompile>
+    <ClCompile Include="guilib\tinyxml\tinystr.cpp">
+      <Filter>Source Files\guilib\tinyxml</Filter>
+    </ClCompile>
+    <ClCompile Include="guilib\tinyxml\tinyxml.cpp">
+      <Filter>Source Files\guilib\tinyxml</Filter>
+    </ClCompile>
+    <ClCompile Include="guilib\tinyxml\tinyxmlerror.cpp">
+      <Filter>Source Files\guilib\tinyxml</Filter>
+    </ClCompile>
+    <ClCompile Include="guilib\tinyxml\tinyxmlparser.cpp">
+      <Filter>Source Files\guilib\tinyxml</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>
