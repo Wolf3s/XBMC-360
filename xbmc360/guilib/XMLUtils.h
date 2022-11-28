@@ -32,6 +32,7 @@ typedef XMLElement TiXmlElement;
 typedef XMLText TiXmlText;
 typedef XMLHandle TiXmlHandle;
 #elif HAVE_TIXML1
+#include "tinyxml\tinyxml.h"
 class TiXmlNode;
 class TiXmlDocument;
 #endif

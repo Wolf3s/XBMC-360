@@ -19,9 +19,6 @@
  */
 
 #include "XMLUtils.h"
-#ifdef HAVE_TIXML1
-#include "tinyxml\tinyxml.h"
-#endif
 
 bool XMLUtils::GetString(const TiXmlNode* pRootNode, const char* strTag, CStdString& strStringValue)
 {

@@ -3,13 +3,7 @@
 
 #include "..\utils\SingleLock.h"
 #include "..\utils\StdString.h"
-#ifdef HAVE_TIXML1
-#include "tinyxml\tinyxml.h"
-#elif HAVE_TIXML2
-#include "tinyxml2\tinyxml2.h"
-using namespace tinyxml2;
 #include "XMLUtils.h"
-#endif
 #include <map>
 #include <vector>
 

@@ -27,13 +27,7 @@
 #include "..\utils\StdString.h"
 
 // forward definitions
-#ifdef HAVE_TIXML1
-class TiXmlElement;
-#elif HAVE_TIXML2
-#include "tinyxml2\tinyxml2.h"
-using namespace tinyxml2;
 #include "XMLUtils.h"
-#endif
 class CGUIIncludes
 {
 public:

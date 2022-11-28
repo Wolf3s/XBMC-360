@@ -1,10 +1,4 @@
 #include "AdvancedSettings.h"
-#ifdef HAVE_TIXML1
-#include "guilib\tinyxml\tinyxml.h"
-#elif HAVE_TIXML2
-#include "guilib\tinyxml2\tinyxml2.h"
-using namespace tinyxml2;
-#endif
 #include "utils\Log.h"
 #include "guilib\XMLUtils.h"
 
