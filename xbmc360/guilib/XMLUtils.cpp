@@ -20,8 +20,6 @@
 
 #include "XMLUtils.h"
 
-#include "tinyxml\tinyxml.h"
-
 bool XMLUtils::GetString(const TiXmlNode* pRootNode, const char* strTag, CStdString& strStringValue)
 {
 	const TiXmlElement* pElement = pRootNode->FirstChildElement(strTag );
@@ -41,8 +39,11 @@ bool XMLUtils::GetString(const TiXmlNode* pRootNode, const char* strTag, CStdStr
 
 bool XMLUtils::GetDWORD(const TiXmlNode* pRootNode, const char* strTag, DWORD& dwDWORDValue)
 {
+#ifdef HAVE_TIXML1
 	const TiXmlNode* pNode = pRootNode->FirstChild(strTag);
-
+#elif HAVE_TIXML2
+	const TiXmlNode* pNode = pRootNode->FirstChildElement(strTag);
+#endif
 	if(!pNode || !pNode->FirstChild())
 		return false;
 
@@ -52,8 +53,11 @@ bool XMLUtils::GetDWORD(const TiXmlNode* pRootNode, const char* strTag, DWORD& d
 
 bool XMLUtils::GetInt(const TiXmlNode* pRootNode, const char* strTag, int& iIntValue)
 {
+#ifdef HAVE_TIXML1
 	const TiXmlNode* pNode = pRootNode->FirstChild(strTag);
-
+#elif HAVE_TIXML2
+	const TiXmlNode* pNode = pRootNode->FirstChildElement(strTag);
+#endif
 	if(!pNode || !pNode->FirstChild())
 		return false;
 
@@ -75,7 +79,11 @@ bool XMLUtils::GetInt(const TiXmlNode* pRootNode, const char* strTag, int &value
 
 bool XMLUtils::GetHex(const TiXmlNode* pRootNode, const char* strTag, DWORD& dwHexValue)
 {
+#ifdef HAVE_TIXML1
 	const TiXmlNode* pNode = pRootNode->FirstChild(strTag );
+#elif HAVE_TIXML2
+	const TiXmlNode* pNode = pRootNode->FirstChildElement(strTag);
+#endif
 	if (!pNode || !pNode->FirstChild()) return false;
 	sscanf(pNode->FirstChild()->Value(), "%x", &dwHexValue );
 	return true;
@@ -83,7 +91,11 @@ bool XMLUtils::GetHex(const TiXmlNode* pRootNode, const char* strTag, DWORD& dwH
 
 bool XMLUtils::GetBoolean(const TiXmlNode* pRootNode, const char* strTag, bool& bBoolValue)
 {
+#ifdef HAVE_TIXML1
 	const TiXmlNode* pNode = pRootNode->FirstChild(strTag );
+#elif HAVE_TIXML2
+	const TiXmlNode* pNode = pRootNode->FirstChildElement(strTag );
+#endif
 	if (!pNode || !pNode->FirstChild()) return false;
 	CStdString strEnabled = pNode->FirstChild()->Value();
 	strEnabled.ToLower();
@@ -100,13 +112,23 @@ bool XMLUtils::GetBoolean(const TiXmlNode* pRootNode, const char* strTag, bool& 
 
 void XMLUtils::SetString(TiXmlNode* pRootNode, const char *strTag, const CStdString& strValue)
 {
+#ifdef HAVE_TIXML1
 	TiXmlElement newElement(strTag);
 	TiXmlNode *pNewNode = pRootNode->InsertEndChild(newElement);
-
+#elif HAVE_TIXML2
+	TiXmlDocument doc;
+	auto *newElement = doc.NewElement(strTag);
+	TiXmlNode *pNewNode = pRootNode->InsertEndChild(newElement);
+#endif
 	if(pNewNode)
 	{
+#ifdef HAVE_TIXML1
 		TiXmlText value(strValue);
 		pNewNode->InsertEndChild(value);
+#elif HAVE_TIXML2
+		auto *value = doc.NewText(strValue.c_str()); //new doc.NewText(strValue.c_str());
+		pNewNode->InsertEndChild(value);
+#endif
 	}
 }
 
@@ -138,12 +160,22 @@ void XMLUtils::SetBoolean(TiXmlNode* pRootNode, const char *strTag, bool value)
 
 void XMLUtils::SetPath(TiXmlNode* pRootNode, const char *strTag, const CStdString& strValue)
 {
+#ifdef HAVE_TIXML1
 	TiXmlElement newElement(strTag);
 	TiXmlNode *pNewNode = pRootNode->InsertEndChild(newElement);
-
+#elif HAVE_TIXML2
+	TiXmlDocument doc;
+	auto *newElement = doc.NewElement(strTag);
+	TiXmlNode *pNewNode = pRootNode->InsertEndChild(newElement);
+#endif
 	if(pNewNode)
 	{
+#ifdef HAVE_TIXML1
 		TiXmlText value(strValue);
 		pNewNode->InsertEndChild(value);
+#elif HAVE_TIXML2
+		auto *value = doc.NewText(strValue.c_str());
+		pNewNode->InsertEndChild(value);
+#endif	
 	}
 }

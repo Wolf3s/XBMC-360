@@ -472,7 +472,11 @@ bool CGUIWindow::LoadXML(const CStdString &strPath, const CStdString &strLowerPa
 
 	if ( !xmlDoc.LoadFile(strPathFull)/* && !xmlDoc.LoadFile(CStdString(strPath).ToLower()) && !xmlDoc.LoadFile(strLowerPath)*/)
 	{
+#ifdef HAVE_TIXML1
 		CLog::Log(LOGERROR, "unable to load:%s, Line %d\n%s", strPath.c_str(), xmlDoc.ErrorRow(), xmlDoc.ErrorDesc());
+#elif HAVE_TIXML2
+	CLog::Log(LOGERROR, "unable to load:%s, Line %d\n%s", strPath.c_str(), xmlDoc.ErrorLineNum(), xmlDoc.ErrorStr());
+#endif
 		SetID(WINDOW_INVALID);
 		return false;
 	}
