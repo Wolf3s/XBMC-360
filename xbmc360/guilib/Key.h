@@ -25,6 +25,23 @@
 #define KEY_BUTTON_START                    274
 #define KEY_BUTTON_BACK                     275
 
+// 0xF000 -> 0xF200 is reserved for the keyboard; a keyboard press is either
+#define KEY_VKEY            0xF000 // A virtual key/functional key e.g. cursor left
+#define KEY_ASCII           0xF100 // A printable character in the range of TRUE ASCII (from 0 to 127) // FIXME make it clean and pure unicode! remove the need for KEY_ASCII
+#define KEY_UNICODE         0xF200 // Another printable character whose range is not included in this KEY code
+
+#define REMOTE_0                    58  // Remote keys 0-9. are used by multiple windows
+#define REMOTE_1                    59  // For example in videoFullScreen.xml window id=2005 you can
+#define REMOTE_2                    60  // Enter time (mmss) to jump to particular point in the movie
+#define REMOTE_3                    61
+#define REMOTE_4                    62  // With spincontrols you can enter 3digit number to quickly set
+#define REMOTE_5                    63  // Spincontrol to desired value
+#define REMOTE_6                    64
+#define REMOTE_7                    65
+#define REMOTE_8                    66
+#define REMOTE_9                    67
+
+
 //====================
 //		Actions
 //====================
@@ -36,21 +53,52 @@
 #define ACTION_MOVE_UP                 3
 #define ACTION_MOVE_DOWN               4
 
+#define ACTION_PAGE_UP                 5
+#define ACTION_PAGE_DOWN               6
+
 #define ACTION_SELECT_ITEM             7
 #define ACTION_PREVIOUS_MENU          10
 #define ACTION_PAUSE                  12
 #define ACTION_STOP                   13
 
-#define ACTION_SHOW_GUI               18 // toggle between GUI and movie or GUI and visualisation.
-#define ACTION_STEP_FORWARD           20 // seek +1% in the movie. Can be used in videoFullScreen.xml window id=2005
-#define ACTION_STEP_BACK              21 // seek -1% in the movie. Can be used in videoFullScreen.xml window id=2005
-#define ACTION_BIG_STEP_FORWARD       22 // seek +10% in the movie. Can be used in videoFullScreen.xml window id=2005
-#define ACTION_BIG_STEP_BACK          23 // seek -10% in the movie. Can be used in videoFullScreen.xml window id=2005
-#define ACTION_SHOW_CODEC             27 // show information about file. Can be used in videoFullScreen.xml window id=2005
+#define ACTION_SHOW_GUI               18 // Toggle between GUI and movie or GUI and visualisation.
+#define ACTION_STEP_FORWARD           20 // Seek +1% in the movie. Can be used in videoFullScreen.xml window id=2005
+#define ACTION_STEP_BACK              21 // Seek -1% in the movie. Can be used in videoFullScreen.xml window id=2005
+#define ACTION_BIG_STEP_FORWARD       22 // Seek +10% in the movie. Can be used in videoFullScreen.xml window id=2005
+#define ACTION_BIG_STEP_BACK          23 // Seek -10% in the movie. Can be used in videoFullScreen.xml window id=2005
+#define ACTION_SHOW_CODEC             27 // Show information about file. Can be used in videoFullScreen.xml window id=2005
 
 #define ACTION_NAV_BACK				  92
-#define ACTION_CONTEXT_MENU           117 // pops up the context menu
+#define ACTION_CONTEXT_MENU           117 // Pops up the context menu
 #define ACTION_BUILT_IN_FUNCTION	  122
+#define ACTION_ENTER                  135
+
+// Stuff for virtual keyboard shortcuts
+#define ACTION_SHIFT              118
+#define ACTION_SYMBOLS            119
+#define ACTION_CURSOR_LEFT        120
+#define ACTION_CURSOR_RIGHT       121
+
+#define ACTION_NEXT_CONTROL           181
+#define ACTION_PREV_CONTROL           182
+
+#define ACTION_BACKSPACE          110
+#define ACTION_SCROLL_UP          111
+#define ACTION_SCROLL_DOWN        112
+#define ACTION_ANALOG_FORWARD     113
+#define ACTION_ANALOG_REWIND      114
+
+#define ACTION_PARENT_DIR              9
+
+#define ACTION_FILTER_CLEAR           150
+#define ACTION_FILTER_SMS2            151
+#define ACTION_FILTER_SMS3            152
+#define ACTION_FILTER_SMS4            153
+#define ACTION_FILTER_SMS5            154
+#define ACTION_FILTER_SMS6            155
+#define ACTION_FILTER_SMS7            156
+#define ACTION_FILTER_SMS8            157
+#define ACTION_FILTER_SMS9            158
 
 //====================
 //		Windows
@@ -179,6 +227,20 @@ public:
 	void SetID(int id) { m_id = id; };
 	CStdString GetActionString() { return m_strAction; };
 	void SetActionString(CStdString strAction) { m_strAction = strAction; };
+
+	// Is this an action from the mouse
+	// return true if this is a mouse action, false otherwise
+#ifdef _HAS_MOUSE
+	bool IsMouse() const { return (m_id >= ACTION_MOUSE_START && m_id <= ACTION_MOUSE_END); };
+#else
+	bool IsMouse() const { return false; };
+#endif
+
+	float GetAmount(unsigned int index = 0) const { 
+		CLog::Log(LOGERROR,"CAction::GetAmount not yet implemented!!");
+
+		return 0;
+	};
 
 private:
 	int m_id;

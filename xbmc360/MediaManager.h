@@ -1,5 +1,5 @@
-#ifndef H_MEDIAMANAGER
-#define H_MEDIAMANAGER
+#ifndef CMEDIAMANAGER_H
+#define CMEDIAMANAGER_H
 
 #include "utils\StdString.h"
 
@@ -33,25 +33,37 @@ typedef std::vector<CMediaSource> VECSOURCES;
 typedef std::vector<CMediaSource>::iterator IVECSOURCES;
 
 //======================================================
+#include "Settings.h" // for VECSOURCES
+#include "URL.h"
 
 class CNetworkLocation
 {
 public:
 	CNetworkLocation() { id = 0; };
 	int id;
-	CStdString strPath;
+	CStdString path;
 };
-
-//======================================================
 
 class CMediaManager
 {
 public:
 	CMediaManager();
 
-	void GetLocalDrives(VECSOURCES &localDrives);
+	bool LoadSources();
+	bool SaveSources();
+
+	void GetLocalDrives(VECSOURCES &localDrives, bool includeQ = true);
+	void GetNetworkLocations(VECSOURCES &locations);
+
+	bool AddNetworkLocation(const CStdString &path);
+	bool HasLocation(const CStdString& path) const;
+	bool RemoveLocation(const CStdString& path);
+	bool SetLocationPath(const CStdString& oldPath, const CStdString& newPath);
+
+protected:
+	std::vector<CNetworkLocation> m_locations;
 };
 
 extern class CMediaManager g_mediaManager;
 
-#endif //H_MEDIAMANAGER
+#endif //CMEDIAMANAGER_H

@@ -41,7 +41,7 @@ public:
   virtual ~CGUIControlGroup(void);
   virtual CGUIControlGroup *Clone() const { return new CGUIControlGroup(*this); };
 
-  //virtual void Render();
+  virtual void Render();
   virtual bool OnAction(const CAction &action);
   virtual bool OnMessage(CGUIMessage& message);
   virtual bool SendControlMessage(CGUIMessage& message);
@@ -51,17 +51,19 @@ public:
   virtual void DynamicResourceAlloc(bool bOnOff);
   virtual bool CanFocus() const;
 
-  //virtual bool SendMouseEvent(const CPoint &point, const CMouseEvent &event);
-  //virtual void UnfocusFromPoint(const CPoint &point);
+#ifdef _HAS_MOUSE
+	virtual bool SendMouseEvent(const CPoint &point, const CMouseEvent &event);
+#endif
+	virtual void UnfocusFromPoint(const CPoint &point);
 
-  //virtual void SetInitialVisibility();
+	virtual void SetInitialVisibility();
 
-  //virtual void DoRender(unsigned int currentTime);
-  //virtual bool IsAnimating(ANIMATION_TYPE anim);
-  //virtual bool HasAnimation(ANIMATION_TYPE anim);
-  //virtual void QueueAnimation(ANIMATION_TYPE anim);
-  //virtual void ResetAnimation(ANIMATION_TYPE anim);
-  //virtual void ResetAnimations();
+	virtual void DoRender(unsigned int currentTime);
+	virtual bool IsAnimating(ANIMATION_TYPE anim);
+	virtual bool HasAnimation(ANIMATION_TYPE anim);
+	virtual void QueueAnimation(ANIMATION_TYPE anim);
+	virtual void ResetAnimation(ANIMATION_TYPE anim);
+	virtual void ResetAnimations();
 
   virtual bool HasID(int id) const;
   virtual bool HasVisibleID(int id) const;

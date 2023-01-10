@@ -1,5 +1,5 @@
 #include "FileBrowser.h"
-#include "utils\log.h"
+#include "utils\Log.h"
 #include "Application.h"
 #include "utils\StringUtils.h"
 #include "utils\Util.h"

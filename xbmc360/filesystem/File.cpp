@@ -151,7 +151,7 @@ bool CFile::Exists(const CStdString& strFileName)
 	// TODO - Check other future protocols i.e. ftp, http, etc
 	//
 
-	//Check HDD
+	// Check HDD
 	if(CFileHD::Exists(strFileName)) return true;
 
 	//Check Samba(SMB)

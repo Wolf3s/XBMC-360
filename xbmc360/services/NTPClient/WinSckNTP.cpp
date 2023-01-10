@@ -4,6 +4,7 @@
 #include <math.h>
 #include "xbox\XBKernalExports.h"
 #include "Application.h"
+#include <sstream>
 
 #ifdef HAVE_TIXML2
 #include <string>

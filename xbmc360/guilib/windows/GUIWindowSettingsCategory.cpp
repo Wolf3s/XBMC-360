@@ -26,33 +26,10 @@
 #include "guilib\LocalizeStrings.h"
 #include "guilib\GUIControl.h"
 
-#define CONTROL_GROUP_BUTTONS           0
-#define CONTROL_GROUP_SETTINGS          1
-#define CONTROL_SETTINGS_LABEL          2
-#define CONTROL_BUTTON_AREA             3
-#define CONTROL_BUTTON_GAP              4
-#define CONTROL_AREA                    5
-#define CONTROL_GAP                     6
-#define CONTROL_DEFAULT_BUTTON          7
-#define CONTROL_DEFAULT_RADIOBUTTON     8
-#define CONTROL_DEFAULT_SPIN            9
-#define CONTROL_DEFAULT_SETTINGS_BUTTON 10
-#define CONTROL_DEFAULT_SEPARATOR       11
-#define CONTROL_START_BUTTONS           30
-#define CONTROL_START_CONTROL           50
-
-using namespace DIRECTORY;
 
 CGUIWindowSettingsCategory::CGUIWindowSettingsCategory(void) : CGUIWindow(WINDOW_SETTINGS_MYPICTURES, "SettingsCategory.xml")
 {
-	m_loadOnDemand = false;
-	
-	m_pOriginalSpin = NULL;
-	m_pOriginalSettingsButton = NULL;
 
-	// set the correct ID range...
-	m_dwIDRange = 8;
-	m_iScreen = 0;
 }
 
 CGUIWindowSettingsCategory::~CGUIWindowSettingsCategory(void)

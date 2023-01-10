@@ -1,7 +1,7 @@
 #include "Drive.h"
-#include "utils\log.h"
+#include "utils\Log.h"
 #include "utils\StringUtils.h"
-#include "..\xbox\XBKernalExports.h"
+#include "xbox\XBKernalExports.h"
 #include "utils\Util.h"
 
 CDrive::CDrive(CStdString strMountPoint, CStdString strSystemPath, eDriveType DriveType)

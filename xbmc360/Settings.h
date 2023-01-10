@@ -2,13 +2,28 @@
 #define H_CSETTINGS
 
 #include "utils\StdString.h"
-#include "guilib\XMLUtils.h"
-#include "MediaManager.h"
+#include "guilib\tinyxml\tinyxml.h"
+#include "MediaSource.h"
 #include "VideoSettings.h"
+#include "guilib\GraphicContext.h"
 
 #define DEFAULT_SKIN "Project Mayhem III"
 #define SETTINGS_FILE "D:\\settings.xml"
 #define SOURCES_FILE "D:\\sources.xml" //TODO: GetUserDataFolder()
+
+class CSkinString
+{
+public:
+	CStdString name;
+	CStdString value;
+};
+
+class CSkinBool
+{
+public:
+	CStdString name;
+	bool value;
+};
 
 class CSettings
 {
@@ -18,14 +33,29 @@ public:
 
 	void Initialize();
 	void LoadExtensions();
+
 	bool LoadSettings(const CStdString& strSettingsFile);
 	bool Load();
 	bool SaveSettings(const CStdString& strSettingsFile) const;
 	void Save() const;
-	void ClearSources();
+
+	void Clear();
+
+	bool UpdateShare(const CStdString &type, const CStdString oldName, const CMediaSource &share);
 	bool AddShare(const CStdString &type, const CMediaSource &share);
 	VECSOURCES *GetSourcesFromType(const CStdString &type);
 	bool DeleteSource(const CStdString &strType, const CStdString strName, const CStdString strPath, bool virtualSource = false);
+
+	int TranslateSkinString(const CStdString &setting);
+	const CStdString &GetSkinString(int setting) const;
+	void SetSkinString(int setting, const CStdString &label);
+
+	int TranslateSkinBool(const CStdString &setting);
+	bool GetSkinBool(int setting) const;
+	void SetSkinBool(int setting, bool set);
+
+	void ResetSkinSetting(const CStdString &setting);
+	void ResetSkinSettings();
 
 	CStdString GetVideoExtensions() { return m_strVideoExtensions; };
 	CStdString GetAudioExtensions() { return m_strAudioExtensions; };
@@ -34,19 +64,25 @@ public:
 	int m_iSystemTimeTotalUp; // Uptime in minutes!
 
 	CVideoSettings m_currentVideoSettings;
-	CStdString m_logFolder;
+
+	RESOLUTION_INFO m_ResInfo[10];
+
+	VECSOURCES m_programSources;
+	VECSOURCES m_pictureSources;
+	VECSOURCES m_fileSources;
+	VECSOURCES m_musicSources;
+	VECSOURCES m_videoSources;
+
 protected:
+	std::map<int, CSkinString> m_skinStrings;
+	std::map<int, CSkinBool> m_skinBools;
+
 	void GetSources(const TiXmlElement* pRootElement, const CStdString& strTagName, VECSOURCES& items);
 	bool GetSource(const CStdString &category, const TiXmlNode *source, CMediaSource &share);
 	bool SetSources(TiXmlNode *root, const char *section, const VECSOURCES &shares);
 	bool SaveSources();
 
 	void GetInteger(const TiXmlElement* pRootElement, const CStdString& strTagName, int& iValue, const int iDefault, const int iMin, const int iMax);
-
-	VECSOURCES m_vecProgramSources;
-	VECSOURCES m_vecVideoSources;
-	VECSOURCES m_vecMusicSources;
-	VECSOURCES m_vecPictureSources;
 
 	CStdString m_strVideoExtensions;
 	CStdString m_strAudioExtensions;

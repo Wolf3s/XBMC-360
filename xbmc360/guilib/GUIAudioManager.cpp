@@ -26,7 +26,7 @@ bool CGUIAudioManager::Load()
 //	if(g_guiSettings.GetString("lookandfeel.soundskin")=="OFF") // TODO
 //		return true;
 
-	CStdString strSoundsXml = g_graphicsContext.GetMediaDir() + "sounds\\sounds.xml";
+	CStdString strSoundsXml = g_graphicsContext.GetMediaDir() + "\\sounds\\sounds.xml";
 
 	// Load our xml file
 	TiXmlDocument xmlDoc;
@@ -99,7 +99,7 @@ bool CGUIAudioManager::Load()
 			if (pIdNode)
 			{
 				if (pIdNode->FirstChild())
-					id = g_buttonTranslator.TranslateWindowString(pIdNode->FirstChild()->Value());
+					id = CButtonTranslator::TranslateWindow(pIdNode->FirstChild()->Value());
 			}
 
 			CWindowSounds sounds;

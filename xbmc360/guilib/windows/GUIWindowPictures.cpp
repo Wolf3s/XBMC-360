@@ -1,154 +1,85 @@
-/*
- *      Copyright (C) 2005-2013 Team XBMC
- *      http://xbmc.org
- *
- *  This Program is free software; you can redistribute it and/or modify
- *  it under the terms of the GNU General Public License as published by
- *  the Free Software Foundation; either version 2, or (at your option)
- *  any later version.
- *
- *  This Program is distributed in the hope that it will be useful,
- *  but WITHOUT ANY WARRANTY; without even the implied warranty of
- *  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
- *  GNU General Public License for more details.
- *
- *  You should have received a copy of the GNU General Public License
- *  along with XBMC; see the file COPYING.  If not, see
- *  <http://www.gnu.org/licenses/>.
- *
- */
-
 #include "GUIWindowPictures.h"
-#include "utils\log.h"
-#include "utils\Util.h"
-#include "guilib\dialogs\GUIDialogMediaSource.h"
 
-CGUIWindowPictures::CGUIWindowPictures(void) : CGUIMediaWindow(WINDOW_PICTURES, "MyPictures.xml")
+CGUIWindowPictures::CGUIWindowPictures(void)
+	: CGUIMediaWindow(WINDOW_PICTURES, "MyPictures.xml")
 {
-	m_loadOnDemand = false;
 }
 
 CGUIWindowPictures::~CGUIWindowPictures(void)
 {
 }
 
-bool CGUIWindowPictures::OnMessage(CGUIMessage& message)
+void CGUIWindowPictures::GetContextButtons(int itemNumber, CContextButtons &buttons)
 {
-	switch(message.GetMessage())
+	CFileItemPtr item;
+	
+	if (itemNumber >= 0 && itemNumber < m_vecItems->Size())
+		item = m_vecItems->Get(itemNumber);
+
+	if (item && !item->GetPropertyBOOL("pluginreplacecontextitems"))
 	{
-		case GUI_MSG_WINDOW_INIT:
+		if ( m_vecItems->IsVirtualDirectoryRoot() && item)
 		{
-			// Check for a passed destination path
-			CStdString strDestination = message.GetStringParam();
-			if(!strDestination.IsEmpty())
-			{
-				message.SetStringParam("");
-//				g_stSettings.m_iVideoStartWindow = GetID();
-				CLog::Log(LOGINFO, "Attempting to quickpath to: %s", strDestination.c_str());
-
-				// Reset directory path, as we have effectively cleared it here
-				m_history.ClearPathHistory();
-			}
-
-			// Is this the first time accessing this window?
-			// A quickpath overrides the a default parameter
-			if(m_vecItems.m_strPath == "?" && strDestination.IsEmpty())
-			{
-				m_vecItems.m_strPath = strDestination;// = g_stSettings.m_szDefaultVideos; //CHECK ME
-				CLog::Log(LOGINFO, "Attempting to default to: %s", strDestination.c_str());
-			}
-
-			// Try to open the destination path
-			if(!strDestination.IsEmpty())
-			{
-				// Open root
-				if(strDestination.Equals("$ROOT"))
-				{
-					m_vecItems.m_strPath = "";
-					CLog::Log(LOGINFO, "  Success! Opening root listing.");
-				}
-				else
-				{
-					// Default parameters if the jump fails
-					m_vecItems.m_strPath = "";
-
-					bool bIsBookmarkName = false;
-
-					SetupShares();
-					VECSOURCES shares;
-					m_rootDir.GetShares(shares);
-
-					int iIndex = -1; // CUtil::GetMatchingShare(strDestination, shares, bIsBookmarkName);// CHECK ME
-
-					if(iIndex > -1)
-					{
-						if(bIsBookmarkName)
-							m_vecItems.m_strPath=shares[iIndex].strPath;
-						else
-							m_vecItems.m_strPath=strDestination;
-
-						CUtil::RemoveSlashAtEnd(m_vecItems.m_strPath);
-						CLog::Log(LOGINFO, "  Success! Opened destination path: %s", strDestination.c_str());
-					}
-					else
-					{
-						CLog::Log(LOGERROR, "  Failed! Destination parameter (%s) does not match a valid share!", strDestination.c_str());
-					}
-				}
-				SetHistoryForPath(m_vecItems.m_strPath);
-			}
-			return CGUIMediaWindow::OnMessage(message);
+			CGUIDialogContextMenu::GetContextButtons("pictures", item, buttons);
 		}
-		break;
-
-		case GUI_MSG_WINDOW_DEINIT:
+		else
 		{
-			return CGUIMediaWindow::OnMessage(message);
+#if 0 // TODO: OG Xbox stuff to be modded to suit 360
+			if (item)
+			{
+				if (!(item->m_bIsFolder || item->IsZIP() || item->IsRAR() || item->IsCBZ() || item->IsCBR()))
+					buttons.Add(CONTEXT_BUTTON_INFO, 13406); // picture info
+				
+				buttons.Add(CONTEXT_BUTTON_VIEW_SLIDESHOW, item->m_bIsFolder ? 13317 : 13422);      // View Slideshow
+				
+				if (item->m_bIsFolder)
+					buttons.Add(CONTEXT_BUTTON_RECURSIVE_SLIDESHOW, 13318);     // Recursive Slideshow
+
+				if (!m_thumbLoader.IsLoading())
+					buttons.Add(CONTEXT_BUTTON_REFRESH_THUMBS, 13315);         // Create Thumbnails
+				
+				if (g_guiSettings.GetBool("filelists.allowfiledeletion") && !item->IsReadOnly())
+				{
+					buttons.Add(CONTEXT_BUTTON_DELETE, 117);
+					buttons.Add(CONTEXT_BUTTON_RENAME, 118);
+				}
+			}
+			buttons.Add(CONTEXT_BUTTON_GOTO_ROOT, 20128);
+			buttons.Add(CONTEXT_BUTTON_SWITCH_MEDIA, 523);
+#endif
 		}
-		break;
 	}
+	
+	CGUIMediaWindow::GetContextButtons(itemNumber, buttons);
 
-	return CGUIMediaWindow::OnMessage(message);
+#if 0 // TODO: OG Xbox stuff to be modded to suit 360
+	if (item && !item->GetPropertyBOOL("pluginreplacecontextitems"))
+		buttons.Add(CONTEXT_BUTTON_SETTINGS, 5); // Settings
+#endif
 }
 
-bool CGUIWindowPictures::OnClick(int iItem)
+bool CGUIWindowPictures::OnContextButton(int itemNumber, CONTEXT_BUTTON button)
 {
-	if(iItem < 0 || iItem >= (int)m_vecItems.Size()) return true;
-	CFileItem* pItem = m_vecItems[iItem];
-
-	return CGUIMediaWindow::OnClick(iItem);
-}
-
-bool CGUIWindowPictures::Update(const CStdString &strDirectory)
-{
-	if(m_thumbLoader.IsLoading())
-		m_thumbLoader.StopThread();
-
-	if(!CGUIMediaWindow::Update(strDirectory))
-		return false;
-
-	m_thumbLoader.Load(m_vecItems);
-
-	return true;
-}
-
-bool CGUIWindowPictures::OnPlayMedia(int iItem)
-{
-	if( iItem < 0 || iItem >= (int)m_vecItems.Size()) return false;
-	CFileItem* pItem = m_vecItems[iItem];
-
-//	if(pItem->m_bIsShareOrDrive)
-//		return false;
-
-	if(pItem->GetPath() == "add" && pItem->GetLabel() == /*g_localizeStrings.Get(1026)*/"Add source") // 'add source button' in empty root
+	CFileItemPtr item = (itemNumber >= 0 && itemNumber < m_vecItems->Size()) ? m_vecItems->Get(itemNumber) : CFileItemPtr();
+	
+	if (m_vecItems->IsVirtualDirectoryRoot() && item)
 	{
-		if(CGUIDialogMediaSource::ShowAndAddMediaSource("pictures"))
+		if (CGUIDialogContextMenu::OnContextButton("pictures", item, button))
 		{
 			Update("");
 			return true;
 		}
-		return false;
 	}
+	
+#if 0 // TODO: OG Xbox stuff to be modded to suit 360
+	switch (button)
+	{
+		// TODO - Add more context options!
 
-	return CGUIMediaWindow::OnPlayMedia(iItem);
+		default:
+			break;
+	}
+#endif
+	
+	return CGUIMediaWindow::OnContextButton(itemNumber, button);
 }

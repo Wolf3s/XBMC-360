@@ -77,8 +77,6 @@ bool CScreensaverPlasma::Initialize()
 	if(m_initialized)
 		return false;
 
-	GRAPHICSCONTEXT_LOCK()
-
 	m_iScreenWidth = g_graphicsContext.GetWidth();
 	m_iScreenHeight = g_graphicsContext.GetHeight();
 
@@ -98,8 +96,10 @@ bool CScreensaverPlasma::Initialize()
                                     NULL );
 
     // Create vertex shader.
+	g_graphicsContext.TLock();
     m_pd3dDevice->CreateVertexShader( ( DWORD* )pVertexShaderCode->GetBufferPointer(),
                                       &m_pVertexShader );
+	g_graphicsContext.TUnlock();
 
     // Compile pixel shader.
 	ID3DXBuffer* pPixelShaderCode;
@@ -117,8 +117,10 @@ bool CScreensaverPlasma::Initialize()
                             NULL );
 
     // Create pixel shader.
+	g_graphicsContext.TLock();
     m_pd3dDevice->CreatePixelShader( ( DWORD* )pPixelShaderCode->GetBufferPointer(),
                                      &m_pPixelShader );
+	g_graphicsContext.TUnlock();
 
     // Define the vertex elements and
     // Create a vertex declaration from the element descriptions.
@@ -152,8 +154,6 @@ bool CScreensaverPlasma::Initialize()
 
 	m_initialized = true;
 
-	GRAPHICSCONTEXT_UNLOCK()
-
 	int iPosX = 0;
 	int iPosY = 0;
 	int iWidth = m_iScreenWidth;
@@ -182,6 +182,7 @@ bool CScreensaverPlasma::Initialize()
 	if(!m_pTexture)
 	{
 		//Create Texture
+		g_graphicsContext.TLock();
 		m_pd3dDevice->CreateTexture(320,
 			200,
 			1,
@@ -190,6 +191,7 @@ bool CScreensaverPlasma::Initialize()
 			D3DPOOL_MANAGED,
 			&m_pTexture,
 			NULL);
+		g_graphicsContext.TUnlock();
 	}
 
 	for(int x = 0; x < 256; x++)
@@ -257,73 +259,108 @@ bool CScreensaverPlasma::Close()
 	if(!m_initialized)
 		return false;
 
-	GRAPHICSCONTEXT_LOCK()
-
 	if(m_pTexture)
 	{
+		g_graphicsContext.TLock();
 		m_pTexture->Release();
+		g_graphicsContext.TUnlock();
 		m_pTexture = NULL;
 	}
 
 	if(m_pVB)
 	{
+		g_graphicsContext.TLock();
 		m_pd3dDevice->SetStreamSource( NULL, NULL, NULL, NULL );
+		g_graphicsContext.TUnlock();
+		g_graphicsContext.TLock();
 		m_pVB->Release();
+		g_graphicsContext.TUnlock();
 		m_pVB = NULL;
 	}
 
 	if(m_pVertexShader)
 	{
+		g_graphicsContext.TLock();
 		m_pd3dDevice->SetVertexShader( NULL );
+		g_graphicsContext.TUnlock();
+		g_graphicsContext.TLock();
 		m_pVertexShader->Release();
+		g_graphicsContext.TUnlock();
 		m_pVertexShader = NULL;
 	}
 
 	if(m_pVertexDecl)
 	{
+		g_graphicsContext.TLock();
 		m_pd3dDevice->SetVertexDeclaration( NULL );
+		g_graphicsContext.TUnlock();
+		g_graphicsContext.TLock();
 		m_pVertexDecl->Release();
+		g_graphicsContext.TUnlock();
 		m_pVertexDecl = NULL;
 	}
 
 	if(m_pPixelShader)
 	{
+		g_graphicsContext.TLock();
 		m_pd3dDevice->SetPixelShader( NULL );
+		g_graphicsContext.TUnlock();
+		g_graphicsContext.TLock();
 		m_pPixelShader->Release();
+		g_graphicsContext.TUnlock();
 		m_pPixelShader = NULL;
 	}
-
-	GRAPHICSCONTEXT_UNLOCK()
 
 	return true;
 }
 
 void CScreensaverPlasma::UpdateTexture()
 {
-	GRAPHICSCONTEXT_LOCK()
-
-    // Build the world-view-projection matrix and pass it into the vertex shader
+	// Build the world-view-projection matrix and pass it into the vertex shader
 	D3DXMATRIX matWVP = m_matWorld * m_matView * m_matProj;
-    m_pd3dDevice->SetVertexShaderConstantF( 0, ( FLOAT* )&matWVP, 4 );
+	g_graphicsContext.TLock();
+	m_pd3dDevice->SetVertexShaderConstantF( 0, ( FLOAT* )&matWVP, 4 );
+	g_graphicsContext.TUnlock();
 
-    m_pd3dDevice->SetSamplerState( 0, D3DSAMP_MAGFILTER, D3DTEXF_ANISOTROPIC );
-    m_pd3dDevice->SetSamplerState( 0, D3DSAMP_MINFILTER, D3DTEXF_ANISOTROPIC );
-    m_pd3dDevice->SetSamplerState( 0, D3DSAMP_MIPFILTER, D3DTEXF_LINEAR );
+	g_graphicsContext.TLock();
+	m_pd3dDevice->SetSamplerState( 0, D3DSAMP_MAGFILTER, D3DTEXF_ANISOTROPIC );
+	g_graphicsContext.TUnlock();
+	g_graphicsContext.TLock();
+	m_pd3dDevice->SetSamplerState( 0, D3DSAMP_MINFILTER, D3DTEXF_ANISOTROPIC );
+	g_graphicsContext.TUnlock();
+	g_graphicsContext.TLock();
+	m_pd3dDevice->SetSamplerState( 0, D3DSAMP_MIPFILTER, D3DTEXF_LINEAR );
+	g_graphicsContext.TUnlock();
 
 	// We are passing the vertices down a "stream", so first we need
     // to specify the source of that stream, which is our vertex buffer. 
     // Then we need to let D3D know what vertex and pixel shaders to use. 
-    m_pd3dDevice->SetVertexDeclaration( m_pVertexDecl );
+	g_graphicsContext.TLock(); 
+	m_pd3dDevice->SetVertexDeclaration( m_pVertexDecl );
+	g_graphicsContext.TUnlock();
+	g_graphicsContext.TLock(); 
 	m_pd3dDevice->SetStreamSource( 0, m_pVB, 0, sizeof( COLORVERTEX ) );
-    m_pd3dDevice->SetVertexShader( m_pVertexShader );
+	g_graphicsContext.TUnlock();
+	g_graphicsContext.TLock();  
+	m_pd3dDevice->SetVertexShader( m_pVertexShader );
+	g_graphicsContext.TUnlock();
+	g_graphicsContext.TLock();  
     m_pd3dDevice->SetPixelShader( m_pPixelShader );
+	g_graphicsContext.TUnlock();
 
+	g_graphicsContext.TLock(); 
 	m_pd3dDevice->SetTexture( 0, m_pTexture );
+	g_graphicsContext.TUnlock();
+
     // Draw the vertices in the vertex buffer
+	g_graphicsContext.TLock(); 
 	m_pd3dDevice->DrawPrimitive( D3DPT_TRIANGLESTRIP, 0, 2 );
+	g_graphicsContext.TUnlock();
+	g_graphicsContext.TLock();
 	m_pd3dDevice->SetTexture( 0,  NULL );
+	g_graphicsContext.TUnlock();
 
+	g_graphicsContext.TLock();
 	m_pd3dDevice->SetStreamSource( NULL, NULL, NULL, NULL );
-
-	GRAPHICSCONTEXT_UNLOCK()
+	g_graphicsContext.TUnlock();
 }
