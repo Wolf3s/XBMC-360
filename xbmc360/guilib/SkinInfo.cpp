@@ -3,6 +3,7 @@
 #include "XMLUtils.h"
 #include "utils\URIUtils.h"
 #include "filesystem\File.h"
+#include "GUIWindowManager.h"
 #include "GUISettings.h"
 #include <assert.h>
 
@@ -138,7 +139,7 @@ CStdString CSkinInfo::GetSkinPath(const CStdString& strFile, RESOLUTION *res, co
 		return strPath;
 
 	// If we're in 1080i mode, try 720p next
-	if (*res == HDTV_1080i)
+	if (*res == HDTV_1080p)
 	{
 		*res = HDTV_720p;
 		strPath = URIUtils::AddFileToFolder(strPathToUse, GetDirFromRes(*res));
@@ -192,8 +193,8 @@ bool CSkinInfo::GetResolution(const TiXmlNode *root, const char *tag, RESOLUTION
 			res = NTSC_16x9;
 		else if (strRes == "720p")
 			res = HDTV_720p;
-		else if (strRes == "1080i")
-			res = HDTV_1080i;
+		else if (strRes == "1080p")
+			res = HDTV_1080p;
 		else
 		{
 			CLog::Log(LOGERROR, "%s invalid resolution specified for <%s>, %s", __FUNCTION__, tag, strRes.c_str());
@@ -227,8 +228,8 @@ CStdString CSkinInfo::GetDirFromRes(RESOLUTION res) const
 	case HDTV_720p:
 		strRes = "720p";
 		break;
-	case HDTV_1080i:
-		strRes = "1080i";
+	case HDTV_1080p:
+		strRes = "1080p";
 		break;
 	case INVALID:
 	default:

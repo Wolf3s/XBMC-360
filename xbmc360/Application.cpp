@@ -71,6 +71,7 @@ bool CApplication::Create()
 	g_advancedSettings.m_logLevel = LOG_LEVEL_NORMAL;
 #endif
 	CLog::SetLogLevel(g_advancedSettings.m_logLevel);
+	g_guiSettings.Initialize();  // Initialize default GUI Settings
 	g_settings.Initialize(); // Initialize default Settings
 
 	// Check logpath
@@ -136,7 +137,7 @@ bool CApplication::Create()
 		FatalErrorHandler(true);
 
 	// Load the langinfo to have user charset <-> utf-8 conversion
-	CStdString strLanguage = "english";//g_guiSettings.GetString("locale.language"); // TODO
+	CStdString strLanguage = g_guiSettings.GetString("locale.language");
 	strLanguage[0] = toupper(strLanguage[0]);
 
 	CStdString strLanguagePath = "D:\\language\\";
@@ -152,7 +153,7 @@ bool CApplication::Create()
 	return CXBApplicationEX::Create();
 }
 
-// This function doesn´t return!
+// This function doesnï¿½t return!
 void CApplication::FatalErrorHandler(bool InitD3D)
 {
 	// XBMC couldn't start for some reason...
@@ -177,8 +178,8 @@ bool CApplication::Initialize()
 
 	g_windowManager.Add(new CGUIWindowHome); // window id = 0
 
-	CLog::Log(LOGNOTICE, "load default skin:[%s]", g_guiSettings.GetString("LookAndFeel.Skin").c_str());
-	LoadSkin(g_guiSettings.GetString("LookAndFeel.Skin"));
+	CLog::Log(LOGNOTICE, "load default skin:[%s]", g_guiSettings.GetString("lookandfeel.skin").c_str());
+	LoadSkin(g_guiSettings.GetString("lookandfeel.skin"));
 
 	// Windows
 	g_windowManager.Add(new CGUIWindowFullScreen);
@@ -186,7 +187,7 @@ bool CApplication::Initialize()
 	g_windowManager.Add(new CGUIWindowVideoFiles);
 	g_windowManager.Add(new CGUIWindowMusicFiles);
 	g_windowManager.Add(new CGUIWindowPictures);	
-	g_windowManager.Add(new CGUIWindowSettimgs);
+	g_windowManager.Add(new CGUIWindowSettings);
 	g_windowManager.Add(new CGUIWindowSettingsCategory);
 	g_windowManager.Add(new CGUIWindowScreensaver);
 	g_windowManager.Add(new CGUIWindowSystemInfo);
@@ -301,16 +302,14 @@ void CApplication::ReloadSkin()
 	// the window unload will reset all control states.
 	CGUIWindow* pWindow = g_windowManager.GetWindow(g_windowManager.GetActiveWindow());
 	int iCtrlID = pWindow->GetFocusedControlID();
-	g_application.LoadSkin(g_guiSettings.GetString("LookAndFeel.Skin"));
+	g_application.LoadSkin(g_guiSettings.GetString("lookandfeel.skin"));
 	pWindow = g_windowManager.GetWindow(g_windowManager.GetActiveWindow());
 
-	g_windowManager.ActivateWindow(/*pWindow->GetID()*/WINDOW_SETTINGS_APPEARANCE);
-//	if (pWindow && pWindow->HasSaveLastControl())
+	if (pWindow && pWindow->HasSaveLastControl())
 	{
-		CGUIMessage msg3(GUI_MSG_SETFOCUS, g_windowManager.GetActiveWindow(), iCtrlID, 0); //TODO
+		CGUIMessage msg3(GUI_MSG_SETFOCUS, g_windowManager.GetActiveWindow(), iCtrlID, 0);
 		pWindow->OnMessage(msg3);
 	}
-
 }
 
 void CApplication::UnloadSkin()
@@ -357,7 +356,7 @@ void CApplication::ProcessSlow()
 		m_pNTPClient->SyncTime();
 
 	// Check if we need to activate the screensaver (if enabled)
-	if(g_guiSettings.GetString("ScreenSaver.Mode") != "None")
+	if(g_guiSettings.GetString("screensaver.mode") != "None")
 		CheckScreenSaver();
 }
 
@@ -1030,7 +1029,7 @@ void CApplication::CheckScreenSaver()
 	if(m_bScreenSave) // Already running the screensaver
 		return;
 
-	if(m_screenSaverTimer.GetElapsedSeconds() > g_guiSettings.GetInt("ScreenSaver.Time") * 60)
+	if(m_screenSaverTimer.GetElapsedSeconds() > g_guiSettings.GetInt("screensaver.time") * 60)
 		ActivateScreenSaver();
 }
 

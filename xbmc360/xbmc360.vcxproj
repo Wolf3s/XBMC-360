@@ -424,6 +424,7 @@
     <ClInclude Include="guilib\GUIMultiSelectText.h" />
     <ClInclude Include="guilib\GUIPanelContainer.h" />
     <ClInclude Include="guilib\GUIProgressControl.h" />
+    <ClInclude Include="guilib\GUIRadioButtonControl.h" />
     <ClInclude Include="guilib\GUIScrollBarControl.h" />
     <ClInclude Include="guilib\GUISliderControl.h" />
     <ClInclude Include="guilib\GUISound.h" />
@@ -449,6 +450,7 @@
     <ClInclude Include="guilib\LocalizeStrings.h" />
     <ClInclude Include="guilib\screensavers\ScreensaverBase.h" />
     <ClInclude Include="guilib\screensavers\ScreensaverPlasma.h" />
+    <ClInclude Include="guilib\SettingsControls.h" />
     <ClInclude Include="guilib\SkinInfo.h" />
     <ClInclude Include="guilib\TextureManager.h" />
     <ClInclude Include="guilib\tinyxml2\tinyxml2.h" />
@@ -551,6 +553,8 @@
     <ClInclude Include="xbox\XBAudioUtils.h" />
     <ClInclude Include="xbox\XBInput.h" />
     <ClInclude Include="xbox\XBKernalExports.h" />
+    <ClInclude Include="xbox\XBTimeZone.h" />
+    <ClInclude Include="xbox\XBVideoConfig.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="AdvancedSettings.cpp" />
@@ -654,6 +658,7 @@
     <ClCompile Include="guilib\GUIMultiSelectText.cpp" />
     <ClCompile Include="guilib\GUIPanelContainer.cpp" />
     <ClCompile Include="guilib\GUIProgressControl.cpp" />
+    <ClCompile Include="guilib\GUIRadioButtonControl.cpp" />
     <ClCompile Include="guilib\GUIScrollBarControl.cpp" />
     <ClCompile Include="guilib\GUISliderControl.cpp" />
     <ClCompile Include="guilib\GUISound.cpp" />
@@ -677,6 +682,7 @@
     <ClCompile Include="guilib\info\SkinVariable.cpp" />
     <ClCompile Include="guilib\LocalizeStrings.cpp" />
     <ClCompile Include="guilib\screensavers\ScreensaverPlasma.cpp" />
+    <ClCompile Include="guilib\SettingsControls.cpp" />
     <ClCompile Include="guilib\SkinInfo.cpp" />
     <ClCompile Include="guilib\TextureManager.cpp" />
     <ClCompile Include="guilib\tinyxml2\tinyxml2.cpp" />
@@ -985,6 +991,8 @@
     <ClCompile Include="xbox\XBAudioUtils.cpp" />
     <ClCompile Include="xbox\XBInput.cpp" />
     <ClCompile Include="xbox\XBKernalExports.cpp" />
+    <ClCompile Include="xbox\XBTimeZone.cpp" />
+    <ClCompile Include="xbox\XBVideoConfig.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

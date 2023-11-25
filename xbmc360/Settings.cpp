@@ -25,7 +25,7 @@ CSettings::~CSettings()
 //TODO Wolf3s: Some extensions are not working properly or not executing. need more tests and work.
 void CSettings::LoadExtensions()
 {
-	for(int i = HDTV_1080i; i <= PAL60_16x9; i++)
+	for(int i = HDTV_1080p; i <= PAL60_16x9; i++)
 	{
 		g_graphicsContext.ResetScreenParameters((RESOLUTION)i);
 		g_graphicsContext.ResetOverscan((RESOLUTION)i, m_ResInfo[i].Overscan);

@@ -894,6 +894,18 @@
     <ClInclude Include="libraries\libsmb2\libsmb2md4.h">
       <Filter>Header Files\libraries\libsmb2</Filter>
     </ClInclude>
+    <ClInclude Include="xbox\XBVideoConfig.h">
+      <Filter>Header Files\xbox</Filter>
+    </ClInclude>
+    <ClInclude Include="xbox\XBTimeZone.h">
+      <Filter>Header Files\xbox</Filter>
+    </ClInclude>
+    <ClInclude Include="guilib\SettingsControls.h">
+      <Filter>Header Files\guilib</Filter>
+    </ClInclude>
+    <ClInclude Include="guilib\GUIRadioButtonControl.h">
+      <Filter>Header Files\guilib</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Application.cpp">
@@ -1608,6 +1620,18 @@
     </ClCompile>
     <ClCompile Include="libraries\libsmb2\libsmb2md4.c">
       <Filter>Source Files\libraries\libsmb2</Filter>
+    </ClCompile>
+    <ClCompile Include="xbox\XBVideoConfig.cpp">
+      <Filter>Source Files\xbox</Filter>
+    </ClCompile>
+    <ClCompile Include="xbox\XBTimeZone.cpp">
+      <Filter>Source Files\xbox</Filter>
+    </ClCompile>
+    <ClCompile Include="guilib\SettingsControls.cpp">
+      <Filter>Source Files\guilib</Filter>
+    </ClCompile>
+    <ClCompile Include="guilib\GUIRadioButtonControl.cpp">
+      <Filter>Source Files\guilib</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>
