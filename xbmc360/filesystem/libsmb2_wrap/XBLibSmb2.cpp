@@ -116,7 +116,7 @@ __int64 CXBLibSMB2::Seek(__int64 iFilePosition, int iWhence)
 	if(m_pLibSMB2FH == NULL || m_pLibSMB2Context == NULL)
 		return -1;
 
-	INT64 iPos = smb2_lseek(m_pLibSMB2Context, m_pLibSMB2FH, iFilePosition, iWhence, NULL);
+	__int64 iPos = smb2_lseek(m_pLibSMB2Context, m_pLibSMB2FH, iFilePosition, iWhence, NULL);
 
 	if(iPos < 0)
 		return -1;
@@ -182,6 +182,7 @@ __int64 CXBLibSMB2::GetLength()
 
 __int64 CXBLibSMB2::GetPosition()
 {
+#if 0
 	if(m_pLibSMB2FH == NULL || m_pLibSMB2Context == NULL)
 		return 0;
 
@@ -191,6 +192,9 @@ __int64 CXBLibSMB2::GetPosition()
 		return 0;
 	
 	return iPos;
+#else
+	return Seek(0, SEEK_CUR);
+#endif
 }
 
 void CXBLibSMB2::Close()
