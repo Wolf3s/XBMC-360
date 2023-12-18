@@ -43,7 +43,11 @@ typedef unsigned int uintptr_t;
 #include <stdint.h> /* XBOX 360 */
 #endif
 
+#ifdef XBMC
+#include <xb_emu_socket.h>
+#else
 #include "xbox/xb_emu_socket.h"
+#endif
 
 #ifndef ENETRESET
 #define ENETRESET WSAENETRESET

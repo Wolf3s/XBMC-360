@@ -195,8 +195,8 @@
       <BufferSecurityCheck>false</BufferSecurityCheck>
       <PrecompiledHeaderOutputFile>$(OutDir)$(ProjectName).pch</PrecompiledHeaderOutputFile>
       <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
-      <PreprocessorDefinitions>NDEBUG;_XBOX;_LIB;NEED_POLL;XBOX_360_PLATFORM;HAVE_CONFIG_H</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>..\include\;..\include\smb2;..\include\msvc;..\include\msvc\sys;..\include\xbox 360</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>NDEBUG;_XBOX;_LIB;NEED_POLL;XBOX_360_PLATFORM;HAVE_CONFIG_H;XBMC</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>..\include\;..\include\smb2;..\include\msvc;..\include\msvc\sys;..\include\xbox 360;..\..\..\xbmc360\;..\..\..\xbmc360\utils;..\..\..\xbmc360\xbox\socket_emu</AdditionalIncludeDirectories>
       <CompileAs>CompileAsC</CompileAs>
       <InlineFunctionExpansion>AnySuitable</InlineFunctionExpansion>
     </ClCompile>
@@ -234,6 +234,12 @@
     <None Include="..\README" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="..\..\..\xbmc360\xbox\socket_emu\addrinfo.h" />
+    <ClInclude Include="..\..\..\xbmc360\xbox\socket_emu\addrsize.h" />
+    <ClInclude Include="..\..\..\xbmc360\xbox\socket_emu\bittypes.h" />
+    <ClInclude Include="..\..\..\xbmc360\xbox\socket_emu\emu_socket.h" />
+    <ClInclude Include="..\..\..\xbmc360\xbox\socket_emu\sockstorage.h" />
+    <ClInclude Include="..\..\..\xbmc360\xbox\socket_emu\xb_emu_socket.h" />
     <ClInclude Include="..\include\asprintf.h" />
     <ClInclude Include="..\include\libsmb2-private.h" />
     <ClInclude Include="..\include\msvc\poll.h" />
@@ -248,12 +254,6 @@
     <ClInclude Include="..\include\smb2\smb2-errors.h" />
     <ClInclude Include="..\include\smb2\smb2.h" />
     <ClInclude Include="..\include\xbox 360\config.h" />
-    <ClInclude Include="..\lib\xbox\addrinfo.h" />
-    <ClInclude Include="..\lib\xbox\addrsize.h" />
-    <ClInclude Include="..\lib\xbox\bittypes.h" />
-    <ClInclude Include="..\lib\xbox\emu_socket.h" />
-    <ClInclude Include="..\lib\xbox\sockstorage.h" />
-    <ClInclude Include="..\lib\xbox\xb_emu_socket.h" />
     <ClInclude Include="..\lib\aes.h" />
     <ClInclude Include="..\lib\aes128ccm.h" />
     <ClInclude Include="..\lib\compat.h" />
@@ -268,15 +268,14 @@
     <ClInclude Include="..\lib\smb3-seal.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="..\lib\xbox\emu_socket.cpp">
+    <ClCompile Include="..\..\..\xbmc360\xbox\socket_emu\emu_socket.cpp">
       <CompileAs Condition="'$(Configuration)|$(Platform)'=='Release|Xbox 360'">CompileAsCpp</CompileAs>
-      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Debug|Xbox 360'">CompileAsCpp</CompileAs>
     </ClCompile>
-    <ClCompile Include="..\lib\xbox\getaddrinfo.c" />
-    <ClCompile Include="..\lib\xbox\getnameinfo.c" />
-    <ClCompile Include="..\lib\xbox\inet_aton.c" />
-    <ClCompile Include="..\lib\xbox\inet_ntop.c" />
-    <ClCompile Include="..\lib\xbox\inet_pton.c" />
+    <ClCompile Include="..\..\..\xbmc360\xbox\socket_emu\getaddrinfo.c" />
+    <ClCompile Include="..\..\..\xbmc360\xbox\socket_emu\getnameinfo.c" />
+    <ClCompile Include="..\..\..\xbmc360\xbox\socket_emu\inet_aton.c" />
+    <ClCompile Include="..\..\..\xbmc360\xbox\socket_emu\inet_ntop.c" />
+    <ClCompile Include="..\..\..\xbmc360\xbox\socket_emu\inet_pton.c" />
     <ClCompile Include="..\lib\aes.c" />
     <ClCompile Include="..\lib\aes128ccm.c" />
     <ClCompile Include="..\lib\alloc.c" />
