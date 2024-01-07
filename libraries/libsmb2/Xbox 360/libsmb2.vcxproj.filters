@@ -29,9 +29,6 @@
     <Filter Include="include\xbox 360">
       <UniqueIdentifier>{6c01c6cd-316c-4bff-82ea-f611e60057e9}</UniqueIdentifier>
     </Filter>
-    <Filter Include="xbox">
-      <UniqueIdentifier>{2ee310d9-8aad-4af1-9726-53f9518d0978}</UniqueIdentifier>
-    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\include\smb2\libsmb2.h">
@@ -111,24 +108,6 @@
     </ClInclude>
     <ClInclude Include="..\include\xbox 360\config.h">
       <Filter>include\xbox 360</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\xbmc360\xbox\socket_emu\addrinfo.h">
-      <Filter>xbox</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\xbmc360\xbox\socket_emu\addrsize.h">
-      <Filter>xbox</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\xbmc360\xbox\socket_emu\bittypes.h">
-      <Filter>xbox</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\xbmc360\xbox\socket_emu\emu_socket.h">
-      <Filter>xbox</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\xbmc360\xbox\socket_emu\sockstorage.h">
-      <Filter>xbox</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\xbmc360\xbox\socket_emu\xb_emu_socket.h">
-      <Filter>xbox</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -275,24 +254,6 @@
     </ClCompile>
     <ClCompile Include="..\lib\usha.c">
       <Filter>lib</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\xbmc360\xbox\socket_emu\emu_socket.cpp">
-      <Filter>xbox</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\xbmc360\xbox\socket_emu\getaddrinfo.c">
-      <Filter>xbox</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\xbmc360\xbox\socket_emu\getnameinfo.c">
-      <Filter>xbox</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\xbmc360\xbox\socket_emu\inet_aton.c">
-      <Filter>xbox</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\xbmc360\xbox\socket_emu\inet_ntop.c">
-      <Filter>xbox</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\xbmc360\xbox\socket_emu\inet_pton.c">
-      <Filter>xbox</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

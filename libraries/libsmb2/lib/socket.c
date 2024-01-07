@@ -72,6 +72,10 @@
 #include <unistd.h>
 #endif
 
+#ifdef HAVE_SYS_UNISTD_H
+#include <sys/unistd.h>
+#endif
+
 #ifdef HAVE_STDINT_H
 #include <stdint.h>
 #endif
@@ -81,6 +85,10 @@
 
 #ifdef HAVE_FCNTL_H
 #include <fcntl.h>
+#endif
+
+#ifdef HAVE_SYS_FCNTL_H
+#include <sys/fcntl.h>
 #endif
 
 #ifdef HAVE_SYS_SOCKET_H
@@ -94,8 +102,6 @@
 #include "libsmb2.h"
 #include "smb3-seal.h"
 #include "libsmb2-private.h"
-
-
 
 #define MAX_URL_SIZE 1024
 
@@ -262,12 +268,8 @@ smb2_write_to_socket(struct smb2_context *smb2)
 
                 count = writev(smb2->fd, tmpiov, niov);
                 if (count == -1) {
-#ifdef XBOX_PLATFORM
-                        if (errno == EAGAIN) {
-#else
-						if (errno == EAGAIN || errno == EWOULDBLOCK) {
-#endif
-							return 0;
+                        if (errno == EAGAIN || errno == EWOULDBLOCK) {
+                                return 0;
                         }
                         smb2_set_error(smb2, "Error when writing to "
                                        "socket :%d %s", errno,
@@ -735,13 +737,8 @@ smb2_service_fd(struct smb2_context *smb2, t_socket fd, int revents)
                         if (err == 0) {
                                 return 0;
                         }
-#ifdef XBMC
-                } else if (sckemu_getsockopt(fd, SOL_SOCKET, SO_ERROR,
-                               (char *)&err, &err_size) != 0 || err != 0) {
-#else
                 } else if (getsockopt(fd, SOL_SOCKET, SO_ERROR,
                                (char *)&err, &err_size) != 0 || err != 0) {
-#endif
                         if (err == 0) {
                                 err = errno;
                         }
@@ -861,12 +858,8 @@ set_tcp_sockopt(t_socket sockfd, int optname, int value)
         int level;
 #if !defined(SOL_TCP)
         struct protoent *buf;
-#ifdef XBOX_PLATFORM
-        if ((buf = sckemu_getprotobyname("tcp")) != NULL) {
-#else
         if ((buf = getprotobyname("tcp")) != NULL) {
-#endif
-			level = buf->p_proto;
+                level = buf->p_proto;
         } else {
                 return -1;
         }
@@ -889,7 +882,7 @@ connect_async_ai(struct smb2_context *smb2, const struct addrinfo *ai, int *fd_o
         struct LingerStruct const lin = { 1, 0 };   /*  if l_linger is zero, sends RST after FIN */
 #endif
 #ifdef _XBOX
-		BOOL bBroadcast = TRUE;
+        BOOL bBroadcast = TRUE;
 #endif
         memset(&ss, 0, sizeof(ss));
         switch (ai->ai_family) {
@@ -900,7 +893,7 @@ connect_async_ai(struct smb2_context *smb2, const struct addrinfo *ai, int *fd_o
                 ((struct sockaddr_in *)&ss)->sin_len = socksize;
 #endif
                 break;
-#ifdef ENABLE_IPV6
+#ifndef _XBOX
         case AF_INET6:
 #if !defined(PICO_PLATFORM) || defined(LWIP_INETV6)
                 socksize = sizeof(struct sockaddr_in6);
@@ -928,14 +921,18 @@ connect_async_ai(struct smb2_context *smb2, const struct addrinfo *ai, int *fd_o
         }
 
 #ifdef _XBOX		
-		if(setsockopt(fd, SOL_SOCKET, 0x5801, (PCSTR)&bBroadcast, sizeof(BOOL) ) != 0 )
-		{
-			//return 0;
-		}
-		if(setsockopt(fd, SOL_SOCKET, 0x5802, (PCSTR)&bBroadcast, sizeof(BOOL)) != 0)
-		{
-			//return 0;
-		}
+        if(setsockopt(fd, SOL_SOCKET, 0x5801, (PCSTR)&bBroadcast, sizeof(BOOL) ) != 0 )
+        {
+#if 0			
+                return 0;
+#endif
+        }
+        if(setsockopt(fd, SOL_SOCKET, 0x5802, (PCSTR)&bBroadcast, sizeof(BOOL)) != 0)
+        {
+#if 0 			
+                return 0;
+#endif
+        }
 #endif
 
         set_nonblocking(fd);
@@ -953,7 +950,7 @@ connect_async_ai(struct smb2_context *smb2, const struct addrinfo *ai, int *fd_o
 #endif
                 smb2_set_error(smb2, "Connect failed with errno : "
                         "%s(%d)", strerror(errno), errno);
-				close(fd);
+                close(fd);
                 return -EIO;
         }
 
@@ -1075,31 +1072,22 @@ smb2_connect_async(struct smb2_context *smb2, const char *server,
         {
 #else
         /* is it a hostname ? */
-#ifdef XBMC
-        err = sckemu_getaddrinfo(host, port, NULL, &smb2->addrinfos);
-#else
         err = getaddrinfo(host, port, NULL, &smb2->addrinfos);
-#endif
-		if (err != 0) {
+        if (err != 0) {
 #endif
                 free(addr);
 #if defined(_WINDOWS) || defined(_XBOX)
                 if (err == WSANOTINITIALISED)
                 {
-#ifdef _XBOX
-  					smb2_set_error(smb2, "Winsockx was not initialized. "
-                                "Please call WSAStartup().");                      
-#else
-					smb2_set_error(smb2, "Winsock was not initialized. "
+                        smb2_set_error(smb2, "Winsock was not initialized. "
                                 "Please call WSAStartup().");
-#endif
-						return -WSANOTINITIALISED; 
+                        return -WSANOTINITIALISED; 
                 }
                 else
 #endif
                 {
                         smb2_set_error(smb2, "Invalid address:%s  "
-                                "Can not resolv into IPv4/v6.", server);
+                                "Can not resolve into IPv4/v6.", server);
                 }
                 switch (err) {
                     case EAI_AGAIN:

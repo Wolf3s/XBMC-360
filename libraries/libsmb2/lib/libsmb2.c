@@ -57,6 +57,10 @@
 #include <unistd.h>
 #endif
 
+#ifdef HAVE_SYS_UNISTD_H
+#include <sys/unistd.h>
+#endif
+
 #include <errno.h>
 #include <stdio.h>
 
@@ -64,8 +68,16 @@
 #include <time.h>
 #endif
 
+#ifdef HAVE_SYS_TIME_H
+#include <sys/time.h>
+#endif
+
 #ifdef HAVE_FCNTL_H
 #include <fcntl.h>
+#endif
+
+#ifdef HAVE_SYS_FCNTL_H
+#include <sys/fcntl.h>
 #endif
 
 #ifdef HAVE_SYS_SOCKET_H
@@ -110,11 +122,12 @@ static const char SmbSign[] = "SmbSign";
 static const char SMB2AESCCM[] = "SMB2AESCCM";
 static const char ServerOut[] = "ServerOut";
 static const char ServerIn[] = "ServerIn ";
-/* The following strings will be used for deriving other keys
+/* The following strings will be used for deriving other keys */
+#if 0
 static const char SMB2APP[] = "SMB2APP";
 static const char SmbRpc[] = "SmbRpc";
 static const char SMBAppKey[] = "SMBAppKey";
-*/
+#endif
 
 #ifndef O_ACCMODE
 #define O_ACCMODE (O_RDWR|O_WRONLY|O_RDONLY)
@@ -185,7 +198,7 @@ smb2_close_context(struct smb2_context *smb2)
                 if (smb2->change_fd) {
                         smb2->change_fd(smb2, smb2->fd, SMB2_DEL_FD);
                 }
-				close(smb2->fd);
+                close(smb2->fd);
                 smb2->fd = -1;
         }
 
@@ -2528,7 +2541,7 @@ disconnect_cb_2(struct smb2_context *smb2, int status,
         if (smb2->change_fd) {
                 smb2->change_fd(smb2, smb2->fd, SMB2_DEL_FD);
         }
-		close(smb2->fd);
+        close(smb2->fd);
         smb2->fd = -1;
 }
 
