@@ -18,24 +18,20 @@
 
 #include "compat.h"
 
-#if defined(_MSC_VER) && defined(_WINDOWS)
+#if defined(_WINDOWS) || defined(_XBOX)
 #include <errno.h>
-#include <Windows.h>
 #include <stdlib.h>
+#ifdef _WINDOWS
 #define NEED_GETLOGIN_R
 #define NEED_GETPID
 #define NEED_RANDOM
 #define NEED_SRANDOM
 #define login_num ENXIO
 #define getpid_num GetCurrentProcessId
-#define smb2_random rand
-#define smb2_srandom srand
-#endif
-
-#if defined(_MSC_VER) && defined(_XBOX)
+#else
 #define login_num 0
-#define getpid_num 0
-#include <stdlib.h>
+#define getpid_num 0	
+#endif
 #define smb2_random rand
 #define smb2_srandom srand
 #endif
@@ -182,14 +178,10 @@ int iop_connect(int sockfd, struct sockaddr *addr, socklen_t addrlen)
 #ifdef ESP_PLATFORM
 #include <errno.h>
 #define NEED_GETLOGIN_R
-#if ESP_IDF_VERSION_MAJOR <= 4
 #define NEED_RANDOM
-#endif
 #define NEED_SRANDOM
 #define login_num ENXIO
-#if ESP_IDF_VERSION_MAJOR <= 4
 #define smb2_random esp_random
-#endif
 #define smb2_srandom(seed)
 #endif
 
@@ -278,7 +270,11 @@ void smb2_freeaddrinfo(struct addrinfo *res)
 #endif
 
 #ifdef NEED_RANDOM
+#ifdef ESP_PLATFORM
+long random(void)
+#else
 int random(void)
+#endif
 { 
 #ifdef PS2_IOP_PLATFORM
     next = next * 1103515245 + 12345; 
