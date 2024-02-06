@@ -854,7 +854,7 @@ static int
 set_tcp_sockopt(t_socket sockfd, int optname, int value)
 {
         int level;
-#if !defined(SOL_TCP)
+#if !defined(SOL_TCP) && !defined(XBMC_360)
         struct protoent *buf;
         if ((buf = getprotobyname("tcp")) != NULL) {
                 level = buf->p_proto;

@@ -35,6 +35,9 @@ extern "C" {
 #include <ws2tcpip.h>
 #endif
 #include <stddef.h>
+#ifdef XBMC_360
+#include "..\..\..\xbmc360\xbox\socket_emu\xb_emu_socket.h"
+#endif
 #include <errno.h>
 
 #ifndef WIN32_LEAN_AND_MEAN
@@ -149,7 +152,7 @@ typedef int socklen_t;
 #define SO_ERROR 0x1007
 #endif
 
-#ifdef _XBOX
+#if defined(_XBOX) && !defined(XBMC_360)
 struct sockaddr_storage {
 #ifdef HAVE_SOCKADDR_SA_LEN
 	unsigned char ss_len;
@@ -170,18 +173,23 @@ struct addrinfo {
 };
 
 /* XBOX Defs end */
+#endif
+
+#ifndef inline
+#define inline __inline 
+#endif
+
+#define SOL_TCP 6
+
+#ifndef XBMC_360
+typedef SSIZE_T ssize_t;
+#endif
+
 struct pollfd {
         int fd;
         short events;
         short revents;
 };
-
-#define SOL_TCP 6
-
-#define inline __inline 
-#endif
-
-typedef SSIZE_T ssize_t;
 
 struct iovec
 {
@@ -192,6 +200,12 @@ struct iovec
 #ifdef _XBOX
 int poll(struct pollfd *fds, unsigned int nfds, int timo);
 
+#ifdef XBMC_360
+
+#define getaddrinfo sckemu_getaddrinfo
+#define freeaddrinfo sckemu_freeaddrinfo
+
+#else
 int smb2_getaddrinfo(const char *node, const char*service,
                 const struct addrinfo *hints,
                 struct addrinfo **res);
@@ -199,7 +213,7 @@ void smb2_freeaddrinfo(struct addrinfo *res);
 
 #define getaddrinfo smb2_getaddrinfo
 #define freeaddrinfo smb2_freeaddrinfo
-
+#endif
 #else
 
 #undef poll
