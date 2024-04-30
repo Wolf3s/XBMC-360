@@ -27,6 +27,9 @@ extern "C" {
 #if defined(_WINDOWS)
 #include <winsock2.h>
 #elif defined(_XBOX)
+#ifdef XBMC_360
+#include "..\..\..\xbmc360\xbox\socket_emu\xb_emu_socket.h"
+#endif
 #include <winsockx.h>
 #endif
 typedef SOCKET t_socket;
@@ -47,9 +50,7 @@ typedef int t_socket;
 #include <ws2tcpip.h>
 #endif
 #include <stddef.h>
-#ifdef XBMC_360
-#include "..\..\..\xbmc360\xbox\socket_emu\xb_emu_socket.h"
-#endif
+
 #include <errno.h>
 
 #ifndef WIN32_LEAN_AND_MEAN
