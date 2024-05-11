@@ -117,7 +117,7 @@ public:
 	virtual bool IsPaused() const;
 	virtual bool HasVideo() const;
 	virtual bool HasAudio() const;
-
+	virtual bool CanSeek();
 	virtual void OnStartup();
 	virtual void Process();
 	virtual void OnExit();
@@ -130,6 +130,8 @@ public:
 	virtual void Pause();
 
 	virtual bool OnAction(const CAction &action);
+
+	virtual void SetVolume(long nVolume)                          { m_dvdPlayerAudio.SetVolume(nVolume); }
 
 	virtual void SeekPercentage(float iPercent);
 	virtual void Seek(bool bPlus, bool bLargeStep);
@@ -163,6 +165,8 @@ public:
 		, CACHESTATE_INIT     // Player is waiting for first packet of each stream
 		, CACHESTATE_PLAY     // Player is waiting for players to not be stalled
 	};
+
+	virtual bool IsCaching() const { return m_caching == CACHESTATE_FULL; }
 
 protected:
 	friend class CSelectionStreams;
@@ -259,6 +263,7 @@ protected:
 			chapter_count = 0;
 			canrecord     = false;
 			recording     = false;
+			canseek       = false;
 			demux_video   = "";
 			demux_audio   = "";
 		}
@@ -278,6 +283,8 @@ protected:
 
 		bool canrecord;           // Can input stream record
 		bool recording;           // Are we currently recording
+
+		bool canseek;             // pvr: can seek in the current playing item
 
 		std::string demux_video;
 		std::string demux_audio;
