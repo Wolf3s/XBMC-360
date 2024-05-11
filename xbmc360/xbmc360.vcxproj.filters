@@ -899,6 +899,18 @@
     <ClInclude Include="filesystem\XBLibSmb2.h">
       <Filter>Header Files\filesystem\libsmb2_wrap</Filter>
     </ClInclude>
+    <ClInclude Include="guilib\dialogs\GUIDialogVolumeBar.h">
+      <Filter>Header Files\guilib\dialogs</Filter>
+    </ClInclude>
+    <ClInclude Include="guilib\dialogs\GUIDialogMuteBug.h">
+      <Filter>Header Files\guilib\dialogs</Filter>
+    </ClInclude>
+    <ClInclude Include="ApplicationRenderer.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="guilib\dialogs\GUIDialogBusy.h">
+      <Filter>Header Files\guilib\dialogs</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Application.cpp">
@@ -1497,6 +1509,21 @@
     </ClCompile>
     <ClCompile Include="filesystem\libsmb2_wrap\XBLibSmb2.cpp">
       <Filter>Source Files\filesystem\libsmb2_wrap</Filter>
+    </Clcompile>  
+    <ClCompile Include="guilib\dialogs\GUIDialogVolumeBar.cpp">
+      <Filter>Source Files\guilib\dialogs</Filter>
+    </ClCompile>
+    <ClCompile Include="Key.cpp">
+      <Filter>Source Files\guilib</Filter>
+    </ClCompile>
+    <ClCompile Include="guilib\dialogs\GUIDialogMuteBug.cpp">
+      <Filter>Source Files\guilib\dialogs</Filter>
+    </ClCompile>
+    <ClCompile Include="ApplicationRenderer.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="guilib\dialogs\GUIDialogBusy.cpp">
+      <Filter>Source Files\guilib\dialogs</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>
