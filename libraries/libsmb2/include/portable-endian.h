@@ -21,51 +21,17 @@
 
 #	include <endian.h>
 
-#elif defined(PICO_PLATFORM)
+#elif defined(PS2_PLATFORM) || defined(PICO_PLATFORM)
 
-#   include <machine/endian.h>
-#   include "lwip/def.h"
-
-#   define be16toh(x) PP_NTOHS(x)
-#   define htobe16(x) PP_HTONS(x)
-#   define htole16(x) (x)
-#   define le16toh(x) (x)
-
-#   define be32toh(x) PP_NTOHL(x)
-#   define htobe32(x) PP_HTONL(x)
-#   define htole32(x) (x)
-#   define le32toh(x) (x)
-
-#   define htobe64(x) be64toh(x)
-#   define htole64(x) (x)
-#   define le64toh(x) (x)
-
-#elif defined(PS2_IOP_PLATFORM)
-
-#	include <tcpip.h>
-
-#       define _LITTLE_ENDIAN LITTLE_ENDIAN
-
-#   define be16toh(x) PP_NTOHS(x)
-#   define htobe16(x) PP_HTONS(x)
-#   define htole16(x) (x)
-#   define le16toh(x) (x)
-
-#   define be32toh(x) PP_NTOHL(x)
-#   define htobe32(x) PP_HTONL(x)
-#   define htole32(x) (x)
-#   define le32toh(x) (x)
-
-#   define htobe64(x) be64toh(x)
-#   define htole64(x) (x)
-#   define le64toh(x) (x)
-
-#elif defined(PS2_EE_PLATFORM)
-
-#       ifndef _LITTLE_ENDIAN
-#       define _LITTLE_ENDIAN LITTLE_ENDIAN
-#       endif
+#   ifndef _LITTLE_ENDIAN
+#   define _LITTLE_ENDIAN LITTLE_ENDIAN
+#   endif
+#if defined(PS2_EE_PLATFORM) || defined(PICO_PLATFORM)
 #	include <machine/endian.h>
+#ifdef PICO_PLATFORM
+#   include "lwip/def.h"
+#endif
+#endif
 #	include <tcpip.h>
 
 #   define be16toh(x) PP_NTOHS(x)
@@ -167,9 +133,13 @@
 #   define be64toh(x) (x)
 #   define le64toh(x) __builtin_bswap64(x)
 
-#elif defined(__WINDOWS__) 
+#elif defined(__WINDOWS__) || defined(_XBOX)
 
+#ifdef _XBOX
+# include <xtl.h>
+#else
 # include <windows.h>
+#endif
 
 # if defined(_MSC_VER)
 #   include <stdlib.h>
@@ -188,6 +158,27 @@
 #   define htole64(x) (x)
 #   define be64toh(x) _byteswap_uint64(x)
 #   define le64toh(x) (x)
+
+#ifdef _XBOX
+
+#ifndef __BYTE_ORDER
+#   define __BYTE_ORDER    BYTE_ORDER
+#endif
+
+#ifndef __BIG_ENDIAN
+#   define __BIG_ENDIAN    BIG_ENDIAN
+#endif
+
+#ifndef __LITTLE_ENDIAN
+#   define __LITTLE_ENDIAN LITTLE_ENDIAN
+#endif
+
+#ifndef __PDP_ENDIAN
+#   define __PDP_ENDIAN    PDP_ENDIAN
+#endif
+
+#endif
+
 # elif defined(__GNUC__) || defined(__clang__)
 
 #   define htobe16(x) __builtin_bswap16(x)
@@ -314,55 +305,6 @@
 #   define le64toh(x) __bswap64(x)
 
 # endif
-
-#elif defined(XBOX_360_PLATFORM)
-#   include <xtl.h>
-
-#   include <stdlib.h>
-
-#   define htobe16(x) (x)
-#   define htole16(x) _byteswap_ushort(x)
-#   define be16toh(x) (x)
-#   define le16toh(x) _byteswap_ushort(x)
-
-#   define htobe32(x) (x)
-#   define htole32(x) _byteswap_ulong(x)
-#   define be32toh(x) (x)
-#   define le32toh(x) _byteswap_ulong(x)
-
-#   define htobe64(x) (x)
-#   define htole64(x) _byteswap_uint64(x)
-#   define be64toh(x) (x)
-#   define le64toh(x) _byteswap_uint64(x)
-
-#	define __BYTE_ORDER    BYTE_ORDER
-#	define __BIG_ENDIAN    BIG_ENDIAN
-#	define __LITTLE_ENDIAN LITTLE_ENDIAN
-#	define __PDP_ENDIAN    PDP_ENDIAN
-
-#elif defined(XBOX_PLATFORM)
-#   include <xtl.h>
-
-#   include <stdlib.h>
-
-#   define htobe16(x) (x)
-#   define htole16(x) _byteswap_ushort(x)
-#   define be16toh(x) (x)
-#   define le16toh(x) _byteswap_ushort(x)
-
-#   define htobe32(x) (x)
-#   define htole32(x) _byteswap_ulong(x)
-#   define be32toh(x) (x)
-#   define le32toh(x) _byteswap_ulong(x)
-
-#   define htobe64(x) (x)
-#   define htole64(x) _byteswap_uint64(x)
-#   define be64toh(x) (x)
-#   define le64toh(x) _byteswap_uint64(x)
-
-/* #	define __BYTE_ORDER    BYTE_ORDER */
-#	define __LITTLE_ENDIAN LITTLE_ENDIAN
-/* #	define __PDP_ENDIAN    PDP_ENDIAN */
 
 # elif defined(__GNUC__) || defined(__clang__)
 
