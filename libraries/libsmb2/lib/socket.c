@@ -211,7 +211,7 @@ smb2_write_to_socket(struct smb2_context *smb2)
                 struct smb2_pdu *tmp_pdu;
                 size_t num_done = pdu->out.num_done;
                 int i, niov = 1;
-                size_t count;
+                ssize_t count;
                 uint32_t spl = 0, tmp_spl, credit_charge = 0;
 
                 for (tmp_pdu = pdu; tmp_pdu; tmp_pdu = tmp_pdu->next_compound) {
@@ -303,7 +303,7 @@ smb2_write_to_socket(struct smb2_context *smb2)
         return 0;
 }
 
-typedef size_t (*read_func)(struct smb2_context *smb2,
+typedef ssize_t (*read_func)(struct smb2_context *smb2,
                              const struct iovec *iov, int iovcnt);
 
 static int smb2_read_data(struct smb2_context *smb2, read_func func,
@@ -448,7 +448,7 @@ read_more_data:
 
                 smb2->recv_state = SMB2_RECV_FIXED;
                 smb2_add_iovector(smb2, &smb2->in,
-                                  malloc((size_t)len & 0xfffe),
+                                  malloc(len & 0xfffe),
                                   len & 0xfffe, free);
                 goto read_more_data;
         case SMB2_RECV_FIXED:
@@ -635,7 +635,7 @@ read_more_data:
         return 0;
 }
 
-static size_t smb2_readv_from_socket(struct smb2_context *smb2,
+static ssize_t smb2_readv_from_socket(struct smb2_context *smb2,
                                       const struct iovec *iov, int iovcnt)
 {
         return readv(smb2->fd, (struct iovec*) iov, iovcnt);
@@ -661,7 +661,7 @@ smb2_read_from_socket(struct smb2_context *smb2)
         return smb2_read_data(smb2, smb2_readv_from_socket, 0);
 }
 
-static size_t smb2_readv_from_buf(struct smb2_context *smb2,
+static ssize_t smb2_readv_from_buf(struct smb2_context *smb2,
                                    const struct iovec *iov, int iovcnt)
 {
         size_t i, len;
@@ -870,7 +870,7 @@ static int
 set_tcp_sockopt(t_socket sockfd, int optname, int value)
 {
         int level;
-#if !defined(SOL_TCP) && !defined(XBMC_360)
+#if !defined(SOL_TCP)
         struct protoent *buf;
         if ((buf = getprotobyname("tcp")) != NULL) {
                 level = buf->p_proto;
