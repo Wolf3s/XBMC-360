@@ -1509,7 +1509,7 @@
     </ClCompile>
     <ClCompile Include="filesystem\libsmb2_wrap\XBLibSmb2.cpp">
       <Filter>Source Files\filesystem\libsmb2_wrap</Filter>
-    </Clcompile>  
+    </ClCompile>  
     <ClCompile Include="guilib\dialogs\GUIDialogVolumeBar.cpp">
       <Filter>Source Files\guilib\dialogs</Filter>
     </ClCompile>
