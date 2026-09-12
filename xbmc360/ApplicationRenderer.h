@@ -2,7 +2,7 @@
 
 #include "utils\Thread.h"
 #include "utils\CriticalSection.h"
-#include "guilib\dialogs\GUIDialogBusy.h"
+#include "dialogs\GUIDialogBusy.h"
 
 class CApplicationRenderer : public CThread
 {

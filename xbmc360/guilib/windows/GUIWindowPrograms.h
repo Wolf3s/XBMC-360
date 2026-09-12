@@ -2,7 +2,7 @@
 #define GUILIB_GUIWINDOWPROGRAMS_H
 
 #include "guilib\GUIMediaWindow.h"
-#include "guilib\dialogs\GUIDialogProgress.h"
+#include "dialogs\GUIDialogProgress.h"
 #include "ThumbLoader.h"
 
 class CGUIWindowPrograms :

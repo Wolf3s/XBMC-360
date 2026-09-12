@@ -15,9 +15,9 @@
 #include "ApplicationMessenger.h"
 #include "utils\DelayController.h"
 #include "filesystem\DrivesManager.h"
-#include "guilib\dialogs\GUIDialogSeekBar.h"
-#include "guilib\dialogs\GUIDialogVolumeBar.h"
-#include "guilib\dialogs\GUIDialogMuteBug.h"
+#include "dialogs\GUIDialogSeekBar.h"
+#include "dialogs\GUIDialogVolumeBar.h"
+#include "dialogs\GUIDialogMuteBug.h"
 #include "utils\Idle.h"
 #include "cores\PlayerCoreFactory.h"
 #ifdef HAS_UPNP

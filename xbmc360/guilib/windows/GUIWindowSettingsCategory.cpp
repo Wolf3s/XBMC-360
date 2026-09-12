@@ -2,7 +2,7 @@
 #include "guilib\GUIControlGroupList.h"
 #include "guilib\LocalizeStrings.h"
 #include "guilib\GUIMessage.h"
-#include "guilib\dialogs\GUIDialogKeyboard.h"
+#include "dialogs\GUIDialogKeyboard.h"
 #include "utils\Weather.h"
 #include "guilib\GUIUserMessages.h"
 #include "guilib\GUIWindowManager.h"

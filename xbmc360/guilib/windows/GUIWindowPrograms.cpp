@@ -2,7 +2,7 @@
 #include "utils\Log.h"
 #include "Util.h"
 #include "utils\XEXUtils.h"
-#include "guilib\dialogs\GUIDialogMediaSource.h"
+#include "dialogs\GUIDialogMediaSource.h"
 #include "guilib\GUIWindowManager.h"
 #include "utils\URIUtils.h"
 #include "filesystem\File.h"

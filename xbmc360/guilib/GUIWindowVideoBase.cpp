@@ -1,6 +1,6 @@
 #include "GUIWindowVideoBase.h"
 #include "video\VideoDatabase.h"
-#include "guilib\dialogs\GUIDialogContextMenu.h"
+#include "dialogs\GUIDialogContextMenu.h"
 #include "guilib\LocalizeStrings.h"
 #include "guilib\GUIWindowManager.h"
 #include "GUISettings.h"

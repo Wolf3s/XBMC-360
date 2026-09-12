@@ -5,7 +5,7 @@
 #include "guilib\GUIWindowManager.h"
 #include "guilib\GUIUserMessages.h"
 #include "utils\TimeUtils.h"
-#include "guilib\dialogs\GUIDialogOK.h"
+#include "dialogs\GUIDialogOK.h"
 
 using namespace PLAYLIST;
 

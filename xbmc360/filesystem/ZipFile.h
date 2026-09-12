@@ -25,7 +25,7 @@
 #include "zlib.h"
 #include "utils\Log.h"
 #include "guilib\GUIWindowManager.h"
-#include "guilib\dialogs\GUIDialogProgress.h"
+#include "dialogs\GUIDialogProgress.h"
 #include "File.h"
 #include "ZipManager.h"
 

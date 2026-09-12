@@ -6,7 +6,7 @@
 #include "utils\StringUtils.h"
 #include "URL.h"
 #include "guilib\GUIWindowManager.h"
-#include "guilib\dialogs\GUIDialogProgress.h"
+#include "dialogs\GUIDialogProgress.h"
 #include "FileItem.h"
 #include "utils\TimeUtils.h"
 

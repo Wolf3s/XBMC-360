@@ -18,7 +18,7 @@
  *  <http://www.gnu.org/licenses/>.
  *
  */
-#include "Database.h"
+#include "dbwrappers/Database.h"
 #include "video/Bookmark.h"
 #include "VideoSettings.h"
 #include "utils/StreamDetails.h"

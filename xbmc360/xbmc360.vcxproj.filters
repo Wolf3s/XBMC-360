@@ -63,12 +63,6 @@
     <Filter Include="Source Files\filesystem">
       <UniqueIdentifier>{5705ec4c-21f5-4c09-aca4-83eca12b4818}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Header Files\guilib\dialogs">
-      <UniqueIdentifier>{fba4a9ba-f973-4731-a719-74d83f11fa9e}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Source Files\guilib\dialogs">
-      <UniqueIdentifier>{160f50a0-36a1-4b30-87a3-b166a7ca20ca}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Source Files\services">
       <UniqueIdentifier>{e4c76007-793c-49ae-801b-481117d01531}</UniqueIdentifier>
     </Filter>
@@ -254,6 +248,30 @@
     </Filter>
     <Filter Include="Header Files\commons">
       <UniqueIdentifier>{b5117ee2-9f14-435e-b5c0-e5df817ab84b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\contrib">
+      <UniqueIdentifier>{00d527f9-41d6-40c4-9245-bb5bebe4a7fb}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\contrib\kissfft">
+      <UniqueIdentifier>{35c7be21-062b-4ec2-9e97-d4441c42a583}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\contrib">
+      <UniqueIdentifier>{d89e22eb-4505-4024-9e0b-6cb35e7187ed}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\contrib\kissfft">
+      <UniqueIdentifier>{a6ea2069-bdce-4da1-a94a-97d0df50fd29}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\dialogs">
+      <UniqueIdentifier>{fba4a9ba-f973-4731-a719-74d83f11fa9e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\dialogs">
+      <UniqueIdentifier>{160f50a0-36a1-4b30-87a3-b166a7ca20ca}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\dbwrappers">
+      <UniqueIdentifier>{76454586-e059-4d38-9a36-92717e5281ee}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\dbwrappers">
+      <UniqueIdentifier>{598d0883-904a-4d4f-ad6a-af5e431f3d2c}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -479,12 +497,6 @@
     <ClInclude Include="utils\Stdafx.h">
       <Filter>Header Files\utils</Filter>
     </ClInclude>
-    <ClInclude Include="guilib\dialogs\GUIDialogButtonMenu.h">
-      <Filter>Header Files\guilib\dialogs</Filter>
-    </ClInclude>
-    <ClInclude Include="guilib\dialogs\GUIDialogFavourites.h">
-      <Filter>Header Files\guilib\dialogs</Filter>
-    </ClInclude>
     <ClInclude Include="guilib\GUIDialog.h">
       <Filter>Header Files\guilib</Filter>
     </ClInclude>
@@ -508,9 +520,6 @@
     </ClInclude>
     <ClInclude Include="cores\PlayerCoreFactory.h">
       <Filter>Header Files\cores</Filter>
-    </ClInclude>
-    <ClInclude Include="guilib\dialogs\GUIDialogSeekBar.h">
-      <Filter>Header Files\guilib\dialogs</Filter>
     </ClInclude>
     <ClInclude Include="guilib\GUIAudioManager.h">
       <Filter>Header Files\guilib</Filter>
@@ -650,9 +659,6 @@
     <ClInclude Include="URL.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="guilib\dialogs\GUIDialogMediaSource.h">
-      <Filter>Header Files\guilib\dialogs</Filter>
-    </ClInclude>
     <ClInclude Include="guilib\windows\GUIWindowPrograms.h">
       <Filter>Header Files\guilib\windows</Filter>
     </ClInclude>
@@ -661,9 +667,6 @@
     </ClInclude>
     <ClInclude Include="guilib\windows\GUIWindowScriptsInfo.h">
       <Filter>Header Files\guilib\windows</Filter>
-    </ClInclude>
-    <ClInclude Include="guilib\dialogs\GUIDialogFileBrowser.h">
-      <Filter>Header Files\guilib\dialogs</Filter>
     </ClInclude>
     <ClInclude Include="filesystem\VirtualDirectory.h">
       <Filter>Header Files\filesystem</Filter>
@@ -706,15 +709,6 @@
     </ClInclude>
     <ClInclude Include="utils\XEXUtils.h">
       <Filter>Header Files\utils</Filter>
-    </ClInclude>
-    <ClInclude Include="guilib\dialogs\GUIDialogContextMenu.h">
-      <Filter>Header Files\guilib\dialogs</Filter>
-    </ClInclude>
-    <ClInclude Include="guilib\dialogs\GUIDialogYesNo.h">
-      <Filter>Header Files\guilib\dialogs</Filter>
-    </ClInclude>
-    <ClInclude Include="guilib\dialogs\GUIDialogNetworkSetup.h">
-      <Filter>Header Files\guilib\dialogs</Filter>
     </ClInclude>
     <ClInclude Include="filesystem\SMBDirectory.h">
       <Filter>Header Files\filesystem</Filter>
@@ -826,12 +820,6 @@
     </ClInclude>
     <ClInclude Include="video\VideoDatabase.h">
       <Filter>Header Files\video</Filter>
-    </ClInclude>
-    <ClInclude Include="Database.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="ViewDatabase.h">
-      <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="cores\DVDPlayer\DVDFileInfo.h">
       <Filter>Header Files\cores\DVDPlayer</Filter>
@@ -1079,29 +1067,11 @@
     <ClInclude Include="guilib\GUIEditControl.h">
       <Filter>Header Files\guilib</Filter>
     </ClInclude>
-    <ClInclude Include="guilib\dialogs\GUIDialogSlider.h">
-      <Filter>Header Files\guilib\dialogs</Filter>
-    </ClInclude>
-    <ClInclude Include="guilib\dialogs\GUIDialogSubMenu.h">
-      <Filter>Header Files\guilib\dialogs</Filter>
-    </ClInclude>
     <ClInclude Include="guilib\GUISliderControl.h">
       <Filter>Header Files\guilib</Filter>
     </ClInclude>
-    <ClInclude Include="guilib\dialogs\GUIDialogKeyboard.h">
-      <Filter>Header Files\guilib\dialogs</Filter>
-    </ClInclude>
     <ClInclude Include="utils\CharsetConverter.h">
       <Filter>Header Files\utils</Filter>
-    </ClInclude>
-    <ClInclude Include="guilib\dialogs\GUIDialogNumeric.h">
-      <Filter>Header Files\guilib\dialogs</Filter>
-    </ClInclude>
-    <ClInclude Include="guilib\dialogs\GUIDialogOK.h">
-      <Filter>Header Files\guilib\dialogs</Filter>
-    </ClInclude>
-    <ClInclude Include="guilib\dialogs\GUIDialogProgress.h">
-      <Filter>Header Files\guilib\dialogs</Filter>
     </ClInclude>
     <ClInclude Include="utils\md5.h">
       <Filter>Header Files\utils</Filter>
@@ -1115,17 +1085,8 @@
     <ClInclude Include="guilib\GUIRadioButtonControl.h">
       <Filter>Header Files\guilib</Filter>
     </ClInclude>
-    <ClInclude Include="guilib\dialogs\GUIDialogVolumeBar.h">
-      <Filter>Header Files\guilib\dialogs</Filter>
-    </ClInclude>
-    <ClInclude Include="guilib\dialogs\GUIDialogMuteBug.h">
-      <Filter>Header Files\guilib\dialogs</Filter>
-    </ClInclude>
     <ClInclude Include="ApplicationRenderer.h">
       <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="guilib\dialogs\GUIDialogBusy.h">
-      <Filter>Header Files\guilib\dialogs</Filter>
     </ClInclude>
     <ClInclude Include="guilib\windows\GUIWindowWeather.h">
       <Filter>Header Files\guilib\windows</Filter>
@@ -1147,12 +1108,6 @@
     </ClInclude>
     <ClInclude Include="LangInfo.h">
       <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="guilib\dialogs\GUIDialogSelect.h">
-      <Filter>Header Files\guilib\dialogs</Filter>
-    </ClInclude>
-    <ClInclude Include="guilib\dialogs\GUIDialogBoxBase.h">
-      <Filter>Header Files\guilib\dialogs</Filter>
     </ClInclude>
     <ClInclude Include="Temperature.h">
       <Filter>Header Files</Filter>
@@ -1324,6 +1279,78 @@
     </ClInclude>
     <ClInclude Include="commons\typeindex.h">
       <Filter>Header Files\commons</Filter>
+    </ClInclude>
+    <ClInclude Include="contrib\kissfft\kiss_fftr.h">
+      <Filter>Header Files\contrib\kissfft</Filter>
+    </ClInclude>
+    <ClInclude Include="contrib\kissfft\_kiss_fft_guts.h">
+      <Filter>Header Files\contrib\kissfft</Filter>
+    </ClInclude>
+    <ClInclude Include="contrib\kissfft\kiss_fft.h">
+      <Filter>Header Files\contrib\kissfft</Filter>
+    </ClInclude>
+    <ClInclude Include="dialogs\GUIDialogBoxBase.h">
+      <Filter>Header Files\dialogs</Filter>
+    </ClInclude>
+    <ClInclude Include="dialogs\GUIDialogBusy.h">
+      <Filter>Header Files\dialogs</Filter>
+    </ClInclude>
+    <ClInclude Include="dialogs\GUIDialogButtonMenu.h">
+      <Filter>Header Files\dialogs</Filter>
+    </ClInclude>
+    <ClInclude Include="dialogs\GUIDialogContextMenu.h">
+      <Filter>Header Files\dialogs</Filter>
+    </ClInclude>
+    <ClInclude Include="dialogs\GUIDialogFavourites.h">
+      <Filter>Header Files\dialogs</Filter>
+    </ClInclude>
+    <ClInclude Include="dialogs\GUIDialogFileBrowser.h">
+      <Filter>Header Files\dialogs</Filter>
+    </ClInclude>
+    <ClInclude Include="dialogs\GUIDialogKeyboard.h">
+      <Filter>Header Files\dialogs</Filter>
+    </ClInclude>
+    <ClInclude Include="dialogs\GUIDialogMediaSource.h">
+      <Filter>Header Files\dialogs</Filter>
+    </ClInclude>
+    <ClInclude Include="dialogs\GUIDialogMuteBug.h">
+      <Filter>Header Files\dialogs</Filter>
+    </ClInclude>
+    <ClInclude Include="dialogs\GUIDialogNetworkSetup.h">
+      <Filter>Header Files\dialogs</Filter>
+    </ClInclude>
+    <ClInclude Include="dialogs\GUIDialogNumeric.h">
+      <Filter>Header Files\dialogs</Filter>
+    </ClInclude>
+    <ClInclude Include="dialogs\GUIDialogOK.h">
+      <Filter>Header Files\dialogs</Filter>
+    </ClInclude>
+    <ClInclude Include="dialogs\GUIDialogProgress.h">
+      <Filter>Header Files\dialogs</Filter>
+    </ClInclude>
+    <ClInclude Include="dialogs\GUIDialogSeekBar.h">
+      <Filter>Header Files\dialogs</Filter>
+    </ClInclude>
+    <ClInclude Include="dialogs\GUIDialogSelect.h">
+      <Filter>Header Files\dialogs</Filter>
+    </ClInclude>
+    <ClInclude Include="dialogs\GUIDialogSlider.h">
+      <Filter>Header Files\dialogs</Filter>
+    </ClInclude>
+    <ClInclude Include="dialogs\GUIDialogSubMenu.h">
+      <Filter>Header Files\dialogs</Filter>
+    </ClInclude>
+    <ClInclude Include="dialogs\GUIDialogVolumeBar.h">
+      <Filter>Header Files\dialogs</Filter>
+    </ClInclude>
+    <ClInclude Include="dialogs\GUIDialogYesNo.h">
+      <Filter>Header Files\dialogs</Filter>
+    </ClInclude>
+    <ClInclude Include="dbwrappers\Database.h">
+      <Filter>Header Files\dbwrappers</Filter>
+    </ClInclude>
+    <ClInclude Include="dbwrappers\ViewDatabase.h">
+      <Filter>Header Files\dbwrappers</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -1537,12 +1564,6 @@
     <ClCompile Include="utils\Stdafx.cpp">
       <Filter>Source Files\utils</Filter>
     </ClCompile>
-    <ClCompile Include="guilib\dialogs\GUIDialogButtonMenu.cpp">
-      <Filter>Source Files\guilib\dialogs</Filter>
-    </ClCompile>
-    <ClCompile Include="guilib\dialogs\GUIDialogFavourites.cpp">
-      <Filter>Source Files\guilib\dialogs</Filter>
-    </ClCompile>
     <ClCompile Include="guilib\GUIDialog.cpp">
       <Filter>Source Files\guilib</Filter>
     </ClCompile>
@@ -1566,9 +1587,6 @@
     </ClCompile>
     <ClCompile Include="cores\PlayerCoreFactory.cpp">
       <Filter>Source Files\cores</Filter>
-    </ClCompile>
-    <ClCompile Include="guilib\dialogs\GUIDialogSeekBar.cpp">
-      <Filter>Source Files\guilib\dialogs</Filter>
     </ClCompile>
     <ClCompile Include="guilib\GUIAudioManager.cpp">
       <Filter>Source Files\guilib</Filter>
@@ -1699,9 +1717,6 @@
     <ClCompile Include="URL.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="guilib\dialogs\GUIDialogMediaSource.cpp">
-      <Filter>Source Files\guilib\dialogs</Filter>
-    </ClCompile>
     <ClCompile Include="guilib\windows\GUIWindowPrograms.cpp">
       <Filter>Source Files\guilib\windows</Filter>
     </ClCompile>
@@ -1710,9 +1725,6 @@
     </ClCompile>
     <ClCompile Include="guilib\windows\GUIWindowScriptsInfo.cpp">
       <Filter>Source Files\guilib\windows</Filter>
-    </ClCompile>
-    <ClCompile Include="guilib\dialogs\GUIDialogFileBrowser.cpp">
-      <Filter>Source Files\guilib\dialogs</Filter>
     </ClCompile>
     <ClCompile Include="filesystem\VirtualDirectory.cpp">
       <Filter>Source Files\filesystem</Filter>
@@ -1749,15 +1761,6 @@
     </ClCompile>
     <ClCompile Include="utils\XEXUtils.cpp">
       <Filter>Source Files\utils</Filter>
-    </ClCompile>
-    <ClCompile Include="guilib\dialogs\GUIDialogContextMenu.cpp">
-      <Filter>Source Files\guilib\dialogs</Filter>
-    </ClCompile>
-    <ClCompile Include="guilib\dialogs\GUIDialogYesNo.cpp">
-      <Filter>Source Files\guilib\dialogs</Filter>
-    </ClCompile>
-    <ClCompile Include="guilib\dialogs\GUIDialogNetworkSetup.cpp">
-      <Filter>Source Files\guilib\dialogs</Filter>
     </ClCompile>
     <ClCompile Include="filesystem\SMBDirectory.cpp">
       <Filter>Source Files\filesystem</Filter>
@@ -1854,12 +1857,6 @@
     </ClCompile>
     <ClCompile Include="video\VideoDatabase.cpp">
       <Filter>Source Files\video</Filter>
-    </ClCompile>
-    <ClCompile Include="Database.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="ViewDatabase.cpp">
-      <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="cores\DVDPlayer\DVDFileInfo.cpp">
       <Filter>Source Files\cores\DVDPlayer</Filter>
@@ -2116,29 +2113,11 @@
     <ClCompile Include="guilib\GUIEditControl.cpp">
       <Filter>Source Files\guilib</Filter>
     </ClCompile>
-    <ClCompile Include="guilib\dialogs\GUIDialogSlider.cpp">
-      <Filter>Source Files\guilib\dialogs</Filter>
-    </ClCompile>
-    <ClCompile Include="guilib\dialogs\GUIDialogSubMenu.cpp">
-      <Filter>Source Files\guilib\dialogs</Filter>
-    </ClCompile>
     <ClCompile Include="guilib\GUISliderControl.cpp">
       <Filter>Source Files\guilib</Filter>
     </ClCompile>
-    <ClCompile Include="guilib\dialogs\GUIDialogKeyboard.cpp">
-      <Filter>Source Files\guilib\dialogs</Filter>
-    </ClCompile>
     <ClCompile Include="utils\CharsetConverter.cpp">
       <Filter>Source Files\utils</Filter>
-    </ClCompile>
-    <ClCompile Include="guilib\dialogs\GUIDialogNumeric.cpp">
-      <Filter>Source Files\guilib\dialogs</Filter>
-    </ClCompile>
-    <ClCompile Include="guilib\dialogs\GUIDialogOK.cpp">
-      <Filter>Source Files\guilib\dialogs</Filter>
-    </ClCompile>
-    <ClCompile Include="guilib\dialogs\GUIDialogProgress.cpp">
-      <Filter>Source Files\guilib\dialogs</Filter>
     </ClCompile>
     <ClCompile Include="utils\md5.cpp">
       <Filter>Source Files\utils</Filter>
@@ -2152,20 +2131,11 @@
     <ClCompile Include="guilib\GUIRadioButtonControl.cpp">
       <Filter>Source Files\guilib</Filter>
     </ClCompile>
-    <ClCompile Include="guilib\dialogs\GUIDialogVolumeBar.cpp">
-      <Filter>Source Files\guilib\dialogs</Filter>
-    </ClCompile>
     <ClCompile Include="Key.cpp">
       <Filter>Source Files\guilib</Filter>
     </ClCompile>
-    <ClCompile Include="guilib\dialogs\GUIDialogMuteBug.cpp">
-      <Filter>Source Files\guilib\dialogs</Filter>
-    </ClCompile>
     <ClCompile Include="ApplicationRenderer.cpp">
       <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="guilib\dialogs\GUIDialogBusy.cpp">
-      <Filter>Source Files\guilib\dialogs</Filter>
     </ClCompile>
     <ClCompile Include="guilib\windows\GUIWindowWeather.cpp">
       <Filter>Source Files\guilib\windows</Filter>
@@ -2184,12 +2154,6 @@
     </ClCompile>
     <ClCompile Include="LangInfo.cpp">
       <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="guilib\dialogs\GUIDialogSelect.cpp">
-      <Filter>Source Files\guilib\dialogs</Filter>
-    </ClCompile>
-    <ClCompile Include="guilib\dialogs\GUIDialogBoxBase.cpp">
-      <Filter>Source Files\guilib\dialogs</Filter>
     </ClCompile>
     <ClCompile Include="Temperature.cpp">
       <Filter>Source Files</Filter>
@@ -2334,6 +2298,75 @@
     </ClCompile>
     <ClCompile Include="utils\StringUtils.cpp">
       <Filter>Source Files\utils</Filter>
+    </ClCompile>
+    <ClCompile Include="contrib\kissfft\kiss_fftr.c">
+      <Filter>Source Files\contrib\kissfft</Filter>
+    </ClCompile>
+    <ClCompile Include="contrib\kissfft\kiss_fft.c">
+      <Filter>Source Files\contrib\kissfft</Filter>
+    </ClCompile>
+    <ClCompile Include="dialogs\GUIDialogSeekBar.cpp">
+      <Filter>Source Files\dialogs</Filter>
+    </ClCompile>
+    <ClCompile Include="dialogs\GUIDialogSelect.cpp">
+      <Filter>Source Files\dialogs</Filter>
+    </ClCompile>
+    <ClCompile Include="dialogs\GUIDialogSlider.cpp">
+      <Filter>Source Files\dialogs</Filter>
+    </ClCompile>
+    <ClCompile Include="dialogs\GUIDialogSubMenu.cpp">
+      <Filter>Source Files\dialogs</Filter>
+    </ClCompile>
+    <ClCompile Include="dialogs\GUIDialogVolumeBar.cpp">
+      <Filter>Source Files\dialogs</Filter>
+    </ClCompile>
+    <ClCompile Include="dialogs\GUIDialogYesNo.cpp">
+      <Filter>Source Files\dialogs</Filter>
+    </ClCompile>
+    <ClCompile Include="dialogs\GUIDialogBoxBase.cpp">
+      <Filter>Source Files\dialogs</Filter>
+    </ClCompile>
+    <ClCompile Include="dialogs\GUIDialogBusy.cpp">
+      <Filter>Source Files\dialogs</Filter>
+    </ClCompile>
+    <ClCompile Include="dialogs\GUIDialogButtonMenu.cpp">
+      <Filter>Source Files\dialogs</Filter>
+    </ClCompile>
+    <ClCompile Include="dialogs\GUIDialogContextMenu.cpp">
+      <Filter>Source Files\dialogs</Filter>
+    </ClCompile>
+    <ClCompile Include="dialogs\GUIDialogFavourites.cpp">
+      <Filter>Source Files\dialogs</Filter>
+    </ClCompile>
+    <ClCompile Include="dialogs\GUIDialogFileBrowser.cpp">
+      <Filter>Source Files\dialogs</Filter>
+    </ClCompile>
+    <ClCompile Include="dialogs\GUIDialogKeyboard.cpp">
+      <Filter>Source Files\dialogs</Filter>
+    </ClCompile>
+    <ClCompile Include="dialogs\GUIDialogMediaSource.cpp">
+      <Filter>Source Files\dialogs</Filter>
+    </ClCompile>
+    <ClCompile Include="dialogs\GUIDialogMuteBug.cpp">
+      <Filter>Source Files\dialogs</Filter>
+    </ClCompile>
+    <ClCompile Include="dialogs\GUIDialogNetworkSetup.cpp">
+      <Filter>Source Files\dialogs</Filter>
+    </ClCompile>
+    <ClCompile Include="dialogs\GUIDialogNumeric.cpp">
+      <Filter>Source Files\dialogs</Filter>
+    </ClCompile>
+    <ClCompile Include="dialogs\GUIDialogOK.cpp">
+      <Filter>Source Files\dialogs</Filter>
+    </ClCompile>
+    <ClCompile Include="dialogs\GUIDialogProgress.cpp">
+      <Filter>Source Files\dialogs</Filter>
+    </ClCompile>
+    <ClCompile Include="dbwrappers\Database.cpp">
+      <Filter>Source Files\dbwrappers</Filter>
+    </ClCompile>
+    <ClCompile Include="dbwrappers\ViewDatabase.cpp">
+      <Filter>Source Files\dbwrappers</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

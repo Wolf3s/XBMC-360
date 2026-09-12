@@ -5,7 +5,7 @@
 #include "FileSystem/VirtualDirectory.h"
 #include "FileSystem/DirectoryHistory.h"
 #include "guilib\GUIViewControl.h"
-#include "guilib\dialogs\GUIDialogContextMenu.h"
+#include "dialogs\GUIDialogContextMenu.h"
 
 class CFileItemList;
 

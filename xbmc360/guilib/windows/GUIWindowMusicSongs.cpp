@@ -2,7 +2,7 @@
 #include "Util.h"
 #include "utils\URIUtils.h"
 #include "guilib\GUIInfoManager.h"
-#include "guilib\dialogs\GUIDialogProgress.h"
+#include "dialogs\GUIDialogProgress.h"
 #include "GUISettings.h"
 #include "Application.h"
 #include "FileSystem\MultiPathDirectory.h"

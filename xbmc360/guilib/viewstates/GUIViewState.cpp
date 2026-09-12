@@ -10,7 +10,7 @@
 #include "URL.h"
 //#include "GUIPassword.h" // TODO - Not yet implemented
 #include "guilib\GUIBaseContainer.h" // For VIEW_TYPE_*
-#include "ViewDatabase.h"
+#include "dbwrappers\ViewDatabase.h"
 //#include "AutoSwitch.h" // TODO - Not yet implemented
 #include "guilib\GUIWindowManager.h"
 #include "ViewState.h"

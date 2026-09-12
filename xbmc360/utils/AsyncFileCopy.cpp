@@ -19,7 +19,7 @@
  */
 
 #include "AsyncFileCopy.h"
-#include "guilib\dialogs\GUIDialogProgress.h"
+#include "dialogs\GUIDialogProgress.h"
 #include "guilib\GUIWindowManager.h"
 #include "URL.h"
 #include "utils\Log.h"
