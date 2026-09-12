@@ -1,6 +1,6 @@
 #include "pictures/PictureInfoTag.h"
 #include "XBDateTime.h"
-#include "utils/Util.h"
+#include "Util.h"
 
 void CPictureInfoTag::Reset()
 {

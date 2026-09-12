@@ -1,6 +1,6 @@
 #include "SkinVariable.h"
 #include "guilib\GUIInfoManager.h"
-#include "guilib\tinyXML\tinyxml.h"
+#include "tinyXML\tinyxml.h"
 
 using namespace std;
 using namespace INFO;

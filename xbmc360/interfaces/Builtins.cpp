@@ -7,11 +7,11 @@
 #include "guilib\GUIWindowVideoBase.h"
 #include "filesystem\Directory.h"
 #include "utils\StringUtils.h"
-#include "utils\Util.h"
+#include "Util.h"
 #include "utils\Log.h"
 #include "utils\URIUtils.h"
 #include "utils\RssReader.h"
-#include "ButtonTranslator.h"
+#include "input\ButtonTranslator.h"
 #include "guilib\GUIWindowManager.h"
 
 #include <vector>

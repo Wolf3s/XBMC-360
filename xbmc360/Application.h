@@ -21,7 +21,7 @@
 #include "utils\Idle.h"
 #include "cores\PlayerCoreFactory.h"
 #ifdef HAS_UPNP
-#include "network\UPnP.h"
+#include "network\upnp\UPnP.h"
 #endif
 #ifdef HAS_WEB_SERVER
 #include "network\WebServer.h"

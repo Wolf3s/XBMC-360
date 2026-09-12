@@ -28,7 +28,7 @@
 #pragma once
 #endif // _MSC_VER > 1000
 
-#include "guilib\tinyxml\tinyxml.h"
+#include "tinyxml\tinyxml.h"
 #include "utils\CharsetConverter.h"
 
 class CVideoInfoTag;

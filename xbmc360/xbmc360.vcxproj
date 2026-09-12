@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup Label="ProjectConfigurations">
     <ProjectConfiguration Include="CodeAnalysis|Xbox 360">
@@ -120,9 +120,9 @@
       <MinimalRebuild>true</MinimalRebuild>
       <BufferSecurityCheck>false</BufferSecurityCheck>
       <RuntimeLibrary>MultiThreadedDebug</RuntimeLibrary>
-      <PreprocessorDefinitions>_DEBUG;_XBOX;__STDC_CONSTANT_MACROS;HAS_UPNP;HAS_WEB_SERVER;CURL_STATICLIB;_ITERATOR_DEBUG_LEVEL=0;_HAS_ITERATOR_DEBUGGING=0;HAS_PYTHON;Py_NO_ENABLE_SHARED</PreprocessorDefinitions>
+      <PreprocessorDefinitions>_DEBUG;_XBOX;__STDC_CONSTANT_MACROS;HAS_UPNP;HAS_WEB_SERVER;CURL_STATICLIB;_ITERATOR_DEBUG_LEVEL=0;_HAS_ITERATOR_DEBUGGING=0;HAS_PYTHON;Py_NO_ENABLE_SHARED;TIXML_USE_STL;__XBOX_360__</PreprocessorDefinitions>
       <CallAttributedProfiling>Callcap</CallAttributedProfiling>
-      <AdditionalIncludeDirectories>..\libraries\libPython\Include;..\libraries\libPython\PC;..\libraries\libPython\xbox360;..\libraries\libid3tag\include;..\libraries\libjpeg\include;..\xbmc360\;..\libraries\freetype\freetype\include;..\libraries\ffmpeg\;..\libraries\ffmpeg\vcproj\external\include;..\sources\360MilkDrop2;..\sources\PAPlayer\libFlac\include;..\sources\PAPlayer\libmad\include;..\libraries\libUPnP\Neptune\Source\Core;..\libraries\libUPnP\Platinum\Source\Core;..\libraries\libUPnP\Platinum\Source\Platinum;..\libraries\libUPnP\Platinum\Source\Devices\MediaServer;..\libraries\libUPnP\Platinum\Source\Devices\MediaRenderer;..\libraries\libUPnP\Platinum\Source\Devices\MediaConnect;..\libraries\libUPnP\Neptune\Source\System\Xbox;..\libraries\libUPnP\Neptune\Source\System\Win32;..\libraries\libcurl\include;..\libraries\libsmb2;..\libraries\libsmb2\include;..\libraries\sqlite3\include;..\libraries\sqlite3\include\wrapper;..\libraries\libiconv\include;..\libraries\libmicrohttpd\compat;..\xbmc360\compat;..\libraries\ffmpeg\vcproj\external\zlib;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>..\libraries\boost;..\libraries\libPython\Include;..\libraries\libPython\PC;..\libraries\libPython\xbox360;..\libraries\libid3tag\include;..\libraries\libjpeg\include;..\xbmc360\;..\libraries\freetype\freetype\include;..\libraries\ffmpeg\;..\libraries\ffmpeg\vcproj\external\include;..\sources;..\sources\360MilkDrop2;..\sources\PAPlayer\libFlac\include;..\sources\PAPlayer\libmad\include;..\libraries\libUPnP\Neptune\Source\Core;..\libraries\libUPnP\Platinum\Source\Core;..\libraries\libUPnP\Platinum\Source\Platinum;..\libraries\libUPnP\Platinum\Source\Devices\MediaServer;..\libraries\libUPnP\Platinum\Source\Devices\MediaRenderer;..\libraries\libUPnP\Platinum\Source\Devices\MediaConnect;..\libraries\libUPnP\Neptune\Source\System\Xbox;..\libraries\libUPnP\Neptune\Source\System\Win32;..\libraries\libcurl\include;..\libraries\libsmb2;..\libraries\libsmb2\include;..\libraries\sqlite3\include;..\libraries\sqlite3\include\wrapper;..\libraries\libiconv\include;..\libraries\libmicrohttpd\compat;..\xbmc360\compat;..\libraries\ffmpeg\vcproj\external\zlib;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <AdditionalOptions>/EHa %(AdditionalOptions)</AdditionalOptions>
       <MultiProcessorCompilation>true</MultiProcessorCompilation>
       <CompileAs>CompileAsCpp</CompileAs>
@@ -155,7 +155,7 @@
       <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
       <PreprocessorDefinitions>_XBOX;__STDC_CONSTANT_MACROS;HAS_UPNP;HAS_WEB_SERVER;CURL_STATICLIB;HAS_PYTHON;Py_NO_ENABLE_SHARED</PreprocessorDefinitions>
       <CallAttributedProfiling>Callcap</CallAttributedProfiling>
-      <AdditionalIncludeDirectories>..\libraries\libPython\Include;..\libraries\libPython\PC;..\libraries\libPython\xbox360;..\libraries\libid3tag\include;..\libraries\libjpeg\include;..\xbmc360\;..\libraries\freetype\freetype\include;..\libraries\ffmpeg\;..\libraries\ffmpeg\vcproj\external\include;..\sources\360MilkDrop2;..\sources\PAPlayer\libFlac\include;..\sources\PAPlayer\libmad\include;..\libraries\libUPnP\Neptune\Source\Core;..\libraries\libUPnP\Platinum\Source\Core;..\libraries\libUPnP\Platinum\Source\Platinum;..\libraries\libUPnP\Platinum\Source\Devices\MediaServer;..\libraries\libUPnP\Platinum\Source\Devices\MediaRenderer;..\libraries\libUPnP\Platinum\Source\Devices\MediaConnect;..\libraries\libUPnP\Neptune\Source\System\Xbox;..\libraries\libUPnP\Neptune\Source\System\Win32;..\libraries\libcurl\include;..\libraries\libsmb2;..\libraries\libsmb2\include;..\libraries\sqlite3\include;..\libraries\sqlite3\include\wrapper;..\libraries\libiconv\include;..\libraries\libmicrohttpd\compat;..\xbmc360\compat;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>..\libraries\libPython\Include;..\libraries\libPython\PC;..\libraries\libPython\xbox360;..\libraries\libid3tag\include;..\libraries\libjpeg\include;..\xbmc360\;..\libraries\freetype\freetype\include;..\libraries\ffmpeg\;..\libraries\ffmpeg\vcproj\external\include;..\sources;..\sources\360MilkDrop2;..\sources\PAPlayer\libFlac\include;..\sources\PAPlayer\libmad\include;..\libraries\libUPnP\Neptune\Source\Core;..\libraries\libUPnP\Platinum\Source\Core;..\libraries\libUPnP\Platinum\Source\Platinum;..\libraries\libUPnP\Platinum\Source\Devices\MediaServer;..\libraries\libUPnP\Platinum\Source\Devices\MediaRenderer;..\libraries\libUPnP\Platinum\Source\Devices\MediaConnect;..\libraries\libUPnP\Neptune\Source\System\Xbox;..\libraries\libUPnP\Neptune\Source\System\Win32;..\libraries\libcurl\include;..\libraries\libsmb2;..\libraries\libsmb2\include;..\libraries\sqlite3\include;..\libraries\sqlite3\include\wrapper;..\libraries\libiconv\include;..\libraries\libmicrohttpd\compat;..\xbmc360\compat;..\libraries\ffmpeg\vcproj\external\zlib;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <AdditionalOptions>/EHa %(AdditionalOptions)</AdditionalOptions>
       <MultiProcessorCompilation>true</MultiProcessorCompilation>
       <CompileAs>CompileAsCpp</CompileAs>
@@ -258,8 +258,8 @@
       <ExceptionHandling>false</ExceptionHandling>
       <BufferSecurityCheck>false</BufferSecurityCheck>
       <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
-      <PreprocessorDefinitions>NDEBUG;_XBOX;__STDC_CONSTANT_MACROS;HAS_UPNP;HAS_WEB_SERVER;CURL_STATICLIB;HAS_PYTHON;Py_NO_ENABLE_SHARED</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>..\libraries\libPython\Include;..\libraries\libPython\PC;..\libraries\libPython\xbox360;..\libraries\libid3tag\include;..\libraries\libjpeg\include;..\xbmc360\;..\libraries\freetype\freetype\include;..\libraries\ffmpeg\;..\libraries\ffmpeg\vcproj\external\include;..\sources\360MilkDrop2;..\sources\PAPlayer\libFlac\include;..\sources\PAPlayer\libmad\include;..\libraries\libUPnP\Neptune\Source\Core;..\libraries\libUPnP\Platinum\Source\Core;..\libraries\libUPnP\Platinum\Source\Platinum;..\libraries\libUPnP\Platinum\Source\Devices\MediaServer;..\libraries\libUPnP\Platinum\Source\Devices\MediaRenderer;..\libraries\libUPnP\Platinum\Source\Devices\MediaConnect;..\libraries\libUPnP\Neptune\Source\System\Xbox;..\libraries\libUPnP\Neptune\Source\System\Win32;..\libraries\libcurl\include;..\libraries\libsmb2;..\libraries\libsmb2\include;..\libraries\sqlite3\include;..\libraries\sqlite3\include\wrapper;..\libraries\libiconv\include;..\libraries\libmicrohttpd\compat;..\xbmc360\compat;..\libraries\ffmpeg\vcproj\external\zlib;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>NDEBUG;_XBOX;__STDC_CONSTANT_MACROS;HAS_UPNP;HAS_WEB_SERVER;CURL_STATICLIB;HAS_PYTHON;Py_NO_ENABLE_SHARED;TIXML_USE_STL;__XBOX_360__</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>..\libraries\boost\;..\libraries\libPython\Include;..\libraries\libPython\PC;..\libraries\libPython\xbox360;..\libraries\libid3tag\include;..\libraries\libjpeg\include;..\xbmc360\;..\libraries\freetype\freetype\include;..\libraries\ffmpeg\;..\libraries\ffmpeg\vcproj\external\include;..\sources;..\sources\360MilkDrop2;..\sources\PAPlayer\libFlac\include;..\sources\PAPlayer\libmad\include;..\libraries\libUPnP\Neptune\Source\Core;..\libraries\libUPnP\Platinum\Source\Core;..\libraries\libUPnP\Platinum\Source\Platinum;..\libraries\libUPnP\Platinum\Source\Devices\MediaServer;..\libraries\libUPnP\Platinum\Source\Devices\MediaRenderer;..\libraries\libUPnP\Platinum\Source\Devices\MediaConnect;..\libraries\libUPnP\Neptune\Source\System\Xbox;..\libraries\libUPnP\Neptune\Source\System\Win32;..\libraries\libcurl\include;..\libraries\libsmb2;..\libraries\libsmb2\include;..\libraries\sqlite3\include;..\libraries\sqlite3\include\wrapper;..\libraries\libiconv\include;..\libraries\libmicrohttpd\compat;..\xbmc360\compat;..\libraries\ffmpeg\vcproj\external\zlib;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <BasicRuntimeChecks>Default</BasicRuntimeChecks>
       <InlineAssemblyOptimization>true</InlineAssemblyOptimization>
       <PreschedulingOptimization>true</PreschedulingOptimization>
@@ -316,12 +316,18 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="..\sources\tinyjson\tinyjson.h" />
+    <ClInclude Include="..\sources\tinyxml\tinystr.h" />
+    <ClInclude Include="..\sources\tinyxml\tinyxml.h" />
     <ClInclude Include="AdvancedSettings.h" />
     <ClInclude Include="Application.h" />
     <ClInclude Include="ApplicationMessenger.h" />
     <ClInclude Include="ApplicationRenderer.h" />
     <ClInclude Include="BackgroundInfoLoader.h" />
-    <ClInclude Include="ButtonTranslator.h" />
+    <ClInclude Include="commons\Buffer.h" />
+    <ClInclude Include="commons\Exception.h" />
+    <ClInclude Include="commons\ilog.h" />
+    <ClInclude Include="commons\typeindex.h" />
     <ClInclude Include="cores\FFmpegThreading.h" />
     <ClInclude Include="cores\AudioRenderers\IAudioCallback.h" />
     <ClInclude Include="cores\AudioRenderers\IAudioRenderer.h" />
@@ -375,6 +381,7 @@
     <ClInclude Include="filesystem\DrivesManager.h" />
     <ClInclude Include="filesystem\File.h" />
     <ClInclude Include="filesystem\IFile.h" />
+    <ClInclude Include="filesystem\IFileTypes.h" />
     <ClInclude Include="filesystem\ZipDirectory.h" />
     <ClInclude Include="filesystem\ZipFile.h" />
     <ClInclude Include="filesystem\ZipManager.h" />
@@ -396,7 +403,8 @@
     <ClInclude Include="filesystem\SMBDirectory.h" />
     <ClInclude Include="filesystem\UPnPDirectory.h" />
     <ClInclude Include="guilib\TextureBundle.h" />
-    <ClInclude Include="network\UPnP.h" />
+    <ClInclude Include="input\ButtonTranslator.h" />
+    <ClInclude Include="network\upnp\UPnP.h" />
     <ClInclude Include="network\WebServer.h" />
     <ClInclude Include="interfaces\json-rpc\ITransportLayer.h" />
     <ClInclude Include="interfaces\json-rpc\IClient.h" />
@@ -501,9 +509,6 @@
     <ClInclude Include="guilib\SkinInfo.h" />
     <ClInclude Include="guilib\AnimatedGif.h" />
     <ClInclude Include="guilib\TextureManager.h" />
-    <ClInclude Include="guilib\tinyjson\tinyjson.h" />
-    <ClInclude Include="guilib\tinyxml\tinystr.h" />
-    <ClInclude Include="guilib\tinyxml\tinyxml.h" />
     <ClInclude Include="guilib\TransformMatrix.h" />
     <ClInclude Include="guilib\Tween.h" />
     <ClInclude Include="guilib\viewstates\GUIViewState.h" />
@@ -528,7 +533,6 @@
     <ClInclude Include="guilib\windows\GUIWindowVideoFiles.h" />
     <ClInclude Include="guilib\windows\GUIWindowVisualisation.h" />
     <ClInclude Include="guilib\windows\GUIWindowWeather.h" />
-    <ClInclude Include="guilib\XMLUtils.h" />
     <ClInclude Include="GUILargeTextureManager.h" />
     <ClInclude Include="GUISettings.h" />
     <ClInclude Include="interfaces\Builtins.h" />
@@ -591,9 +595,11 @@
     <ClInclude Include="ThumbLoader.h" />
     <ClInclude Include="ThumbnailCache.h" />
     <ClInclude Include="URL.h" />
+    <ClInclude Include="Util.h" />
     <ClInclude Include="utils\Archive.h" />
     <ClInclude Include="utils\asprintf.h" />
     <ClInclude Include="utils\AutoPtrHandle.h" />
+    <ClInclude Include="utils\auto_buffer.h" />
     <ClInclude Include="utils\BitstreamStats.h" />
     <ClInclude Include="utils\CharsetConverter.h" />
     <ClInclude Include="utils\CRC_32.h" />
@@ -605,6 +611,8 @@
     <ClInclude Include="utils\InfoLoader.h" />
     <ClInclude Include="utils\JpegIO.h" />
     <ClInclude Include="utils\minilzo.h" />
+    <ClInclude Include="utils\params_check_macros.h" />
+    <ClInclude Include="utils\Random.h" />
     <ClInclude Include="utils\SystemInfo.h" />
     <ClInclude Include="utils\Job.h" />
     <ClInclude Include="utils\JobManager.h" />
@@ -624,18 +632,19 @@
     <ClInclude Include="utils\Stdafx.h" />
     <ClInclude Include="utils\StdString.h" />
     <ClInclude Include="utils\Stopwatch.h" />
-    <ClInclude Include="utils\StringUtils.h" />
+    <ClInclude Include="utils\CStringUtils.h" />
     <ClInclude Include="utils\Thread.h" />
     <ClInclude Include="utils\TimeUtils.h" />
     <ClInclude Include="utils\URIUtils.h" />
     <ClInclude Include="utils\StreamDetails.h" />
     <ClInclude Include="utils\StreamUtils.h" />
-    <ClInclude Include="utils\Util.h" />
+    <ClInclude Include="utils\Utf8Utils.h" />
     <ClInclude Include="utils\Variant.h" />
     <ClInclude Include="utils\JSONVariantParser.h" />
     <ClInclude Include="utils\Weather.h" />
     <ClInclude Include="utils\Win32Exception.h" />
     <ClInclude Include="utils\XEXUtils.h" />
+    <ClInclude Include="utils\XMLUtils.h" />
     <ClInclude Include="VideoSettings.h" />
     <ClInclude Include="video\VideoInfoTag.h" />
     <ClInclude Include="NfoFile.h" />
@@ -651,6 +660,7 @@
     <ClInclude Include="XBApplicationEx.h" />
     <ClInclude Include="XBDateTime.h" />
     <ClInclude Include="xbox\Network.h" />
+    <ClInclude Include="xbox\PlatformDefs.h" />
     <ClInclude Include="xbox\socket_emu\addrinfo.h" />
     <ClInclude Include="xbox\socket_emu\addrsize.h" />
     <ClInclude Include="xbox\socket_emu\bittypes.h" />
@@ -664,6 +674,11 @@
     <ClInclude Include="xbox\XBVideoConfig.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="..\sources\tinyjson\tinyjson.cpp" />
+    <ClCompile Include="..\sources\tinyxml\tinystr.cpp" />
+    <ClCompile Include="..\sources\tinyxml\tinyxml.cpp" />
+    <ClCompile Include="..\sources\tinyxml\tinyxmlerror.cpp" />
+    <ClCompile Include="..\sources\tinyxml\tinyxmlparser.cpp" />
     <ClCompile Include="AdvancedSettings.cpp" />
     <ClCompile Include="Application.cpp">
       <AdditionalIncludeDirectories Condition="'$(Configuration)|$(Platform)'=='Release|Xbox 360'">..\xbox360 ffmpeg\;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
@@ -671,7 +686,8 @@
     <ClCompile Include="ApplicationMessenger.cpp" />
     <ClCompile Include="ApplicationRenderer.cpp" />
     <ClCompile Include="BackgroundInfoLoader.cpp" />
-    <ClCompile Include="ButtonTranslator.cpp" />
+    <ClCompile Include="commons\Exception.cpp" />
+    <ClCompile Include="commons\ilog.cpp" />
     <ClCompile Include="cores\AudioRenderers\NullSound.cpp" />
     <ClCompile Include="cores\AudioRenderers\XAudio2.cpp" />
     <ClCompile Include="cores\DVDPlayer\DVDAudio.cpp" />
@@ -735,7 +751,8 @@
     <ClCompile Include="filesystem\SMBDirectory.cpp" />
     <ClCompile Include="filesystem\UPnPDirectory.cpp" />
     <ClCompile Include="guilib\TextureBundle.cpp" />
-    <ClCompile Include="network\UPnP.cpp" />
+    <ClCompile Include="input\ButtonTranslator.cpp" />
+    <ClCompile Include="network\upnp\UPnP.cpp" />
     <ClCompile Include="network\WebServer.cpp" />
     <ClCompile Include="interfaces\json-rpc\JSONRPC.cpp" />
     <ClCompile Include="filesystem\VirtualDirectory.cpp" />
@@ -835,11 +852,6 @@
     <ClCompile Include="guilib\SkinInfo.cpp" />
     <ClCompile Include="guilib\AnimatedGif.cpp" />
     <ClCompile Include="guilib\TextureManager.cpp" />
-    <ClCompile Include="guilib\tinyjson\tinyjson.cpp" />
-    <ClCompile Include="guilib\tinyxml\tinystr.cpp" />
-    <ClCompile Include="guilib\tinyxml\tinyxml.cpp" />
-    <ClCompile Include="guilib\tinyxml\tinyxmlerror.cpp" />
-    <ClCompile Include="guilib\tinyxml\tinyxmlparser.cpp" />
     <ClCompile Include="guilib\viewstates\GUIViewState.cpp" />
     <ClCompile Include="guilib\viewstates\GUIViewStateMusic.cpp" />
     <ClCompile Include="guilib\viewstates\GUIViewStatePictures.cpp" />
@@ -862,7 +874,6 @@
     <ClCompile Include="guilib\windows\GUIWindowVideoFiles.cpp" />
     <ClCompile Include="guilib\windows\GUIWindowVisualisation.cpp" />
     <ClCompile Include="guilib\windows\GUIWindowWeather.cpp" />
-    <ClCompile Include="guilib\XMLUtils.cpp" />
     <ClCompile Include="GUILargeTextureManager.cpp" />
     <ClCompile Include="GUISettings.cpp" />
     <ClCompile Include="interfaces\Builtins.cpp" />
@@ -1010,6 +1021,7 @@
     <ClCompile Include="ThumbLoader.cpp" />
     <ClCompile Include="ThumbnailCache.cpp" />
     <ClCompile Include="URL.cpp" />
+    <ClCompile Include="Util.cpp" />
     <ClCompile Include="utils\Archive.cpp" />
     <ClCompile Include="utils\asprintf.c">
       <CompileAs Condition="'$(Configuration)|$(Platform)'=='Release_New|Xbox 360'">CompileAsC</CompileAs>
@@ -1017,6 +1029,7 @@
       <CompileAs Condition="'$(Configuration)|$(Platform)'=='Debug|Xbox 360'">CompileAsC</CompileAs>
     </ClCompile>
     <ClCompile Include="utils\AutoPtrHandle.cpp" />
+    <ClCompile Include="utils\auto_buffer.cpp" />
     <ClCompile Include="utils\BitstreamStats.cpp" />
     <ClCompile Include="utils\CharsetConverter.cpp" />
     <ClCompile Include="utils\CRC_32.cpp" />
@@ -1028,6 +1041,7 @@
     <ClCompile Include="utils\InfoLoader.cpp" />
     <ClCompile Include="utils\JpegIO.cpp" />
     <ClCompile Include="utils\minilzo.cpp" />
+    <ClCompile Include="utils\StringUtils.cpp" />
     <ClCompile Include="utils\SystemInfo.cpp" />
     <ClCompile Include="utils\JobManager.cpp" />
     <ClCompile Include="utils\LabelFormatter.cpp" />
@@ -1044,18 +1058,18 @@
     <ClCompile Include="utils\Splash.cpp" />
     <ClCompile Include="utils\Stdafx.cpp" />
     <ClCompile Include="utils\Stopwatch.cpp" />
-    <ClCompile Include="utils\StringUtils.cpp" />
     <ClCompile Include="utils\Thread.cpp" />
     <ClCompile Include="utils\TimeUtils.cpp" />
     <ClCompile Include="utils\URIUtils.cpp" />
     <ClCompile Include="utils\StreamDetails.cpp" />
     <ClCompile Include="utils\StreamUtils.cpp" />
-    <ClCompile Include="utils\Util.cpp" />
+    <ClCompile Include="utils\Utf8Utils.cpp" />
     <ClCompile Include="utils\Variant.cpp" />
     <ClCompile Include="utils\JSONVariantParser.cpp" />
     <ClCompile Include="utils\Weather.cpp" />
     <ClCompile Include="utils\Win32Exception.cpp" />
     <ClCompile Include="utils\XEXUtils.cpp" />
+    <ClCompile Include="utils\XMLUtils.cpp" />
     <ClCompile Include="VideoSettings.cpp" />
     <ClCompile Include="video\VideoInfoTag.cpp" />
     <ClCompile Include="NfoFile.cpp" />

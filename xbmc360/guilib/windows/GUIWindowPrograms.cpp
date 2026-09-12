@@ -1,6 +1,6 @@
 #include "GUIWindowPrograms.h"
 #include "utils\Log.h"
-#include "utils\Util.h"
+#include "Util.h"
 #include "utils\XEXUtils.h"
 #include "guilib\dialogs\GUIDialogMediaSource.h"
 #include "guilib\GUIWindowManager.h"

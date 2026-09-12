@@ -1,6 +1,6 @@
 #include "ZipDirectory.h"
 #include "utils\Log.h"
-#include "utils\Util.h"
+#include "Util.h"
 #include "zlib.h"
 #include "URL.h"
 #include "ZipManager.h"

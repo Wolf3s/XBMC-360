@@ -2,7 +2,7 @@
 #include "guilib\GUIVisualisationControl.h"
 #include "Application.h"
 #include "guilib\GUIInfoManager.h"
-#include "ButtonTranslator.h"
+#include "input\ButtonTranslator.h"
 #include "guilib\GUIWindowManager.h"
 #include "guilib\GUIUserMessages.h"
 #include "Settings.h"

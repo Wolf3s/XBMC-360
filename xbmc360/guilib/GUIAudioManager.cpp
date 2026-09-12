@@ -4,7 +4,7 @@
 #include "AudioContext.h"
 #include "GUISound.h"
 #include "GUISettings.h"
-#include "ButtonTranslator.h"
+#include "input\ButtonTranslator.h"
 #include "utils\SingleLock.h"
 #include "utils\URIUtils.h"
 #include "FileSystem\Directory.h"

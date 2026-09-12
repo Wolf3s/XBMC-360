@@ -1,7 +1,7 @@
 #include "SMBDirectory.h"
 #include "utils\SingleLock.h"
 #include "utils\Log.h"
-#include "utils\Util.h"
+#include "Util.h"
 #include "XBLibSmb2.h"
 #include "FileItem.h"
 

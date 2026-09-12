@@ -1,7 +1,7 @@
 #include "utils\log.h"
 #include "MultiPathDirectory.h"
 #include "Directory.h"
-#include "utils\Util.h"
+#include "Util.h"
 #include "utils\URIUtils.h"
 #include "utils\StringUtils.h"
 #include "URL.h"

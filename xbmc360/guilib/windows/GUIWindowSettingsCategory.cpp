@@ -17,7 +17,7 @@
 #include "xbox\XBTimeZone.h"
 #include "LangInfo.h"
 #include "filesystem\Directory.h"
-#include "utils\Util.h"
+#include "Util.h"
 #include "utils\URIUtils.h"
 
 using namespace XFILE;

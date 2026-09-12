@@ -1,5 +1,5 @@
 #include "DirectoryHistory.h"
-#include "utils\Util.h"
+#include "Util.h"
 #include "utils\Log.h"
 
 CDirectoryHistory::CDirectoryHistory()

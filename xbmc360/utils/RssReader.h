@@ -32,7 +32,7 @@
 #include "utils\StdString.h"
 #include "utils\SingleLock.h"
 #include "utils\Thread.h"
-#include "guilib\tinyxml\tinyxml.h"
+#include "tinyxml\tinyxml.h"
 
 #include <vector>
 #include <list>

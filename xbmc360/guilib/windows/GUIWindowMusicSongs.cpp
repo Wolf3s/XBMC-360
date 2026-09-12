@@ -1,5 +1,5 @@
 #include "GUIWindowMusicSongs.h"
-#include "utils\Util.h"
+#include "Util.h"
 #include "utils\URIUtils.h"
 #include "guilib\GUIInfoManager.h"
 #include "guilib\dialogs\GUIDialogProgress.h"

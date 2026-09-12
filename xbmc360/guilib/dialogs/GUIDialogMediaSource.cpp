@@ -5,7 +5,7 @@
 //#include "settings\GUIDialogContentSettings.h"// TODO
 #include "guilib\windows\GUIWindowVideoFiles.h"
 #include "guilib\GUIWindowManager.h"
-#include "utils\Util.h"
+#include "Util.h"
 #include "utils\URIUtils.h"
 //#include "FileSystem\PluginDirectory.h"// TODO
 #include "guilib\dialogs\GUIDialogYesNo.h"

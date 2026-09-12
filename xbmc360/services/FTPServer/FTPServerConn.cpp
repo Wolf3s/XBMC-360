@@ -2,7 +2,7 @@
 #include "FTPFileWriter.h"
 #include "utils\Log.h"
 #include "utils\StringUtils.h"
-#include "utils\Util.h"
+#include "Util.h"
 #include "utils\CRC_32.h"
 #include <direct.h>
 

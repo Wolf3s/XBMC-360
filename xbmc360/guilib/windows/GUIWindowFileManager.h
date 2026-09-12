@@ -29,6 +29,7 @@
 class CFileItem;
 class CFileItemList;
 class CGUIDialogProgress;
+class IFileCallBack; // TODO:
 
 class CGUIWindowFileManager :
 			public CGUIWindow,

@@ -1,7 +1,7 @@
 #include "SkinInfo.h"
 #include "utils\Log.h"
 #include "Key.h"
-#include "XMLUtils.h"
+#include "utils\XMLUtils.h"
 #include "utils\URIUtils.h"
 #include "filesystem\File.h"
 #include "GUIWindowManager.h"

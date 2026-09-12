@@ -24,7 +24,7 @@
 #include "FileItem.h"
 #include "File.h"
 #include "URL.h"
-#include "network\UPnP.h"
+#include "network\upnp\UPnP.h"
 #include "utils\Log.h"
 #include "video\VideoInfoTag.h"
 

@@ -4,7 +4,7 @@
 #include "EmuFileWrapper.h"
 #include "io.h"
 #include <sys/stat.h>
-#include "utils\Util.h"
+#include "Util.h"
 
 CEmuFileWrapper g_emuFileWrapper;
 

@@ -1,6 +1,6 @@
 #include "include.h"
 #include "GUIStaticItem.h"
-#include "XMLUtils.h"
+#include "utils\XMLUtils.h"
 #include "GUIControlFactory.h"
 #include "utils/StringUtils.h"
 #include "GUIInfoManager.h"

@@ -1,7 +1,7 @@
 #ifndef H_CGUISETTINGS
 #define H_CGUISETTINGS
 
-#include "guilib\tinyxml\tinyxml.h"
+#include "tinyxml\tinyxml.h"
 #include "guilib\GraphicContext.h"
 #include "Settings.h"
 

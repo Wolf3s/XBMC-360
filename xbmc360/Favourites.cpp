@@ -21,7 +21,7 @@
 #include "utils\Log.h"
 #include "filesystem\File.h"
 #include "Favourites.h"
-#include "utils\Util.h"
+#include "Util.h"
 #include "utils\URIUtils.h"
 #include "guilib\Key.h"
 #include "Settings.h"

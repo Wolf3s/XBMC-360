@@ -1,5 +1,5 @@
 #include "GUIWindowVideoFiles.h"
-#include "utils\Util.h"
+#include "Util.h"
 #include "utils\URIUtils.h"
 //#include "pictures/Picture.h"
 //#include "utils/IMDB.h"

@@ -19,7 +19,7 @@
  */
 
 #include "music\tags\Id3Tag.h"
-#include "utils\Util.h"
+#include "Util.h"
 #include "pictures\Picture.h"
 #include "guilib\LocalizeStrings.h"
 #include "utils\CharsetConverter.h"

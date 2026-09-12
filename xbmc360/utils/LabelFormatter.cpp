@@ -207,17 +207,17 @@ CStdString CLabelFormatter::GetMaskContent(const CMaskString &mask, const CFileI
         if (movie->m_streamDetails.GetVideoDuration() > 0)
           nDuration = movie->m_streamDetails.GetVideoDuration();
         else if (!movie->m_strRuntime.IsEmpty())
-          nDuration = StringUtils::TimeStringToSeconds(movie->m_strRuntime);
+          nDuration = CStringUtils::TimeStringToSeconds(movie->m_strRuntime);
       }
       if (nDuration > 0)
-        value = StringUtils::SecondsToTimeString(nDuration);
+        value = CStringUtils::SecondsToTimeString(nDuration);
       else if (item->m_dwSize > 0)
-        value = StringUtils::SizeToString(item->m_dwSize);
+        value = CStringUtils::SizeToString(item->m_dwSize);
     }
     break;
   case 'I': // size
     if( !item->m_bIsFolder || item->m_dwSize != 0 )
-      value = StringUtils::SizeToString(item->m_dwSize);
+      value = CStringUtils::SizeToString(item->m_dwSize);
     break;
   case 'J': // date
     if (item->m_dateTime.IsValid())
@@ -389,7 +389,7 @@ void CLabelFormatter::FillMusicMaskContent(const char mask, const CStdString &va
     tag->SetYear(atol(value.c_str()));
     break;
   case 'D':
-    tag->SetDuration(StringUtils::TimeStringToSeconds(value));
+    tag->SetDuration(CStringUtils::TimeStringToSeconds(value));
     break;
   case 'R': // rating
     tag->SetRating(value[0]);

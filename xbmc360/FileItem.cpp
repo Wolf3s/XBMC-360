@@ -20,7 +20,7 @@
 
 #include "FileItem.h"
 #include "utils\Log.h"
-#include "utils\Util.h"
+#include "Util.h"
 #include "utils\URIUtils.h"
 #include "utils\StringUtils.h"
 #include "utils\Crc32.h"

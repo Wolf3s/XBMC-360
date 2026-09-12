@@ -1,7 +1,7 @@
 #include "HDDirectory.h"
 #include "utils\Stdafx.h"
 #include "utils\URIUtils.h"
-#include "utils\Util.h"
+#include "Util.h"
 #include "utils\CharsetConverter.h"
 #include "URL.h"
 

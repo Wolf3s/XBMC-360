@@ -19,7 +19,7 @@
  */
 
 #include "GUIWindowPictures.h"
-#include "utils/Util.h"
+#include "Util.h"
 #include "utils/URIUtils.h"
 #include "pictures/Picture.h"
 #include "Application.h"

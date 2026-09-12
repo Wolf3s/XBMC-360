@@ -1,5 +1,5 @@
 #include "IDirectory.h"
-#include "utils\Util.h"
+#include "Util.h"
 #include "utils\URIUtils.h"
 
 using namespace XFILE;

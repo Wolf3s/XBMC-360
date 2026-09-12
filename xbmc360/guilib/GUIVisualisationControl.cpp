@@ -6,7 +6,7 @@
 #include "visualizations\Visualisation.h"
 #include "visualizations\VisualisationFactory.h"
 
-#include "utils\Util.h"
+#include "Util.h"
 #include "utils\URIUtils.h"
 #include "utils\CriticalSection.h"
 #include "utils\SingleLock.h"

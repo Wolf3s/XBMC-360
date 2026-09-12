@@ -14,8 +14,8 @@
 #include "GUIInfoManager.h"
 #include "utils/SingleLock.h"
 #include "utils/TimeUtils.h"
-#include "ButtonTranslator.h"
-#include "XMLUtils.h"
+#include "input\ButtonTranslator.h"
+#include "utils\XMLUtils.h"
 
 #include "GUITexture.h" //REMOVE ME
 

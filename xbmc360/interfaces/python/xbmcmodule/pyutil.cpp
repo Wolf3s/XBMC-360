@@ -24,7 +24,7 @@
 #include "ApplicationMessenger.h"
 #include "guilib\GraphicContext.h"
 #include "guilib\SkinInfo.h"
-#include "guilib\tinyxml\tinyxml.h"
+#include "tinyxml\tinyxml.h"
 
 using namespace std;
 

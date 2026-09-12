@@ -1,7 +1,7 @@
 //#include "system.h"
 #include "utils\Log.h"
 #include "GUIMediaWindow.h"
-#include "utils\Util.h"
+#include "Util.h"
 #include "utils\URIUtils.h"
 //#include "storage\DetectDVDType.h"
 #include "PlayListPlayer.h"

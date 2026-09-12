@@ -19,8 +19,8 @@
  */
 
 #include "video\VideoInfoTag.h"
-#include "guilib\XMLUtils.h"
-#include "guilib\tinyxml\tinyxml.h"
+#include "utils\XMLUtils.h"
+#include "tinyxml\tinyxml.h"
 #include "guilib\LocalizeStrings.h"
 #include "AdvancedSettings.h"
 #include "utils\Log.h"

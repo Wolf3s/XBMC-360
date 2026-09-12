@@ -1,7 +1,7 @@
 //#include "system.h" // TODO
 #include "VirtualDirectory.h"
 //#include "DirectoryFactory.h"
-#include "utils\Util.h"
+#include "Util.h"
 //#include "settings\Profile.h" // TODO
 #include "Directory.h"
 //#include "DirectoryCache.h" 

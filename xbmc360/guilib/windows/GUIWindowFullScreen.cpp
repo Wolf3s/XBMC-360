@@ -6,7 +6,7 @@
 #include "guilib\GUIWindowManager.h"
 #include "guilib\AudioContext.h"
 #include "cores\VideoRenderers\RenderManager.h"
-#include "utils\Util.h"
+#include "Util.h"
 #include "guilib\GUILabelControl.h"
 #include "Settings.h"
 #include "AdvancedSettings.h"

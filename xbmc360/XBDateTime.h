@@ -6,7 +6,7 @@
  TIME_FORMAT enum/bitmask used for formatting time strings
  Note the use of bitmasking, e.g.
  TIME_FORMAT_HH_MM_SS = TIME_FORMAT_HH | TIME_FORMAT_MM | TIME_FORMAT_SS
- StringUtils::SecondsToTimeString
+ CStringUtils::SecondsToTimeString
  */
 enum TIME_FORMAT { TIME_FORMAT_GUESS     =  0,
                    TIME_FORMAT_SS        =  1,

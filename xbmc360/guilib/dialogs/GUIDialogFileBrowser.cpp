@@ -1,6 +1,6 @@
 #include "utils\Log.h"
 #include "guilib\dialogs\GUIDialogFileBrowser.h"
-#include "utils\Util.h"
+#include "Util.h"
 #include "utils\URIUtils.h"
 //#include "storage\DetectDVDType.h" // TODO
 #include "guilib\dialogs\GUIDialogNetworkSetup.h"

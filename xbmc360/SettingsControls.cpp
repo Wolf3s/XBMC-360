@@ -2,7 +2,7 @@
 #include "GUISettings.h"
 #include "guilib\GUIImage.h"
 #include "guilib\LocalizeStrings.h"
-#include "utils\Util.h"
+#include "Util.h"
 #include "guilib\dialogs\GUIDialogOK.h"
 
 CBaseSettingControl::CBaseSettingControl(int id, CSetting *pSetting)

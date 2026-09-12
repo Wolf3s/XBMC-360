@@ -1,6 +1,6 @@
 #include "MediaSource.h"
 //#include "settings\AdvancedSettings.h" // TODO
-#include "utils\Util.h"
+#include "Util.h"
 #include "utils\URIUtils.h"
 #include "URL.h"
 #include "FileSystem\MultiPathDirectory.h"

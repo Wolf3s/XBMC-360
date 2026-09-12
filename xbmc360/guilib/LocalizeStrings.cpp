@@ -1,6 +1,6 @@
 #include "include.h"
 #include "LocalizeStrings.h"
-#include "XMLUtils.h"
+#include "utils\XMLUtils.h"
 #include "utils\URIUtils.h"
 #include "filesystem\Directory.h"
 #include "utils\POUtils.h"

@@ -1,7 +1,7 @@
 #include "pictures/GUIWindowSlideShow.h"
 #include "Application.h"
 #include "pictures/Picture.h"
-#include "utils/Util.h"
+#include "Util.h"
 #include "utils/URIUtils.h"
 #include "URL.h"
 #include "guilib/TextureManager.h"

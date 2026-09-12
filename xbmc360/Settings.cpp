@@ -2,7 +2,7 @@
 #include "Application.h"
 #include "utils\Log.h"
 #include "GUISettings.h"
-#include "guilib\XMLUtils.h"
+#include "utils\XMLUtils.h"
 #include "utils\URIUtils.h"
 #include "AdvancedSettings.h"
 #include "URL.h"

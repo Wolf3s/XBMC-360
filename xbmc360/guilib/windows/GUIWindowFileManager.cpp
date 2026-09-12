@@ -21,7 +21,7 @@
 #include "utils\Log.h"
 #include "guilib\windows\GUIWindowFileManager.h"
 #include "Application.h"
-#include "utils\Util.h"
+#include "Util.h"
 #include "utils\URIUtils.h"
 #include "filesystem\Directory.h"
 #include "filesystem\FileDirectoryFactory.h"
@@ -456,7 +456,8 @@ bool CGUIWindowFileManager::Update(int iList, const CStdString &strDirectory)
 	{
 		CFileItemPtr pItem = m_vecItems[iList]->Get(i);
 		CStdString strExtension;
-		URIUtils::GetExtension(pItem->GetPath(), strExtension);
+//		URIUtils::GetExtension(pItem->GetPath(), strExtension);
+		URIUtils::GetExtension(pItem->GetPath()); // TODO
 		if (pItem->IsHD() && strExtension == ".tbn")
 		{
 			pItem->SetThumbnailImage(pItem->GetPath());

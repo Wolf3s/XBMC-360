@@ -1,6 +1,6 @@
 # XBMC-360
 
-This is a port of XBMC4XBOX to XBox 360 using the Microsoft XBox 360 SDK (not using Linux and Kodi).
+This is a port of XBMC4XBOX-4.0 to XBox 360 using the Microsoft XBox 360 SDK (not using Linux).
 
 This is a work in progress, still many features to bring over. Though getting more usable.
 
@@ -30,6 +30,7 @@ https://drive.google.com/file/d/1_9eX5Zqhq0IYpvZffo0vuhAgXd8WAg-L/view
 - libid3tag
 - libmicrohttpd
 - libPython
+- boost
 
 ### Services
 - FTP Server
@@ -40,4 +41,4 @@ https://drive.google.com/file/d/1_9eX5Zqhq0IYpvZffo0vuhAgXd8WAg-L/view
 - XBMC360Tex (XPR skin textures bundle tool)
 
 ### Notes:
-Special thanks to XBMC4XBOX and Kodi.
+Special thanks to XBMC4XBOX, XBMC4XBOX-redux and Kodi.

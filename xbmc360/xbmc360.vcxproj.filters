@@ -51,12 +51,6 @@
     <Filter Include="Source Files\guilib\windows">
       <UniqueIdentifier>{90192d1f-369d-449a-981e-c71e77b5b629}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Header Files\guilib\tinyxml">
-      <UniqueIdentifier>{c875e4c5-a6b1-49e9-9678-f85336c26529}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Source Files\guilib\tinyxml">
-      <UniqueIdentifier>{8365e199-d8b6-46a1-8785-ec6532442eaf}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Header Files\guilib\screensavers">
       <UniqueIdentifier>{9ef4c86b-af94-4aec-b37b-dde720258f61}</UniqueIdentifier>
     </Filter>
@@ -183,12 +177,6 @@
     <Filter Include="Source Files\guilib\info">
       <UniqueIdentifier>{48de35a2-40c0-4dc4-b81b-31be9fc03932}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Header Files\guilib\tinyjson">
-      <UniqueIdentifier>{f3969e67-6dd7-4c2d-931c-02a5fe1f85d7}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Source Files\guilib\tinyjson">
-      <UniqueIdentifier>{07e79c3e-b545-4f20-ae31-fe85efdbd1ca}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Header Files\visualizations">
       <UniqueIdentifier>{de9b218c-bdc3-4eb4-8a66-6f6642876150}</UniqueIdentifier>
     </Filter>
@@ -230,6 +218,42 @@
     </Filter>
     <Filter Include="Source Files\video">
       <UniqueIdentifier>{b2c3d4e5-f6a7-4b8c-9d0e-1f2a3b4c5d6e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\sources">
+      <UniqueIdentifier>{0fc05dc2-ff58-49f5-8383-346e123b5481}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\sources">
+      <UniqueIdentifier>{425c6444-44f4-4c02-abdb-01d80dfdfb9d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\sources\tinyxml">
+      <UniqueIdentifier>{c9347782-d31d-4b82-8bab-5e79f9c7e53f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\sources\tinyxml">
+      <UniqueIdentifier>{436c91fb-b58b-4ebb-918d-fb8c61697ddb}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\sources\tinyjson">
+      <UniqueIdentifier>{29446654-c071-4f95-a621-cfee4dcf5bb5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\sources\tinyjson">
+      <UniqueIdentifier>{b91880aa-7297-44a9-a05e-6625122ebc78}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\network\upnp">
+      <UniqueIdentifier>{0e802ede-f890-49c5-99b9-15ac05778f35}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\network\upnp">
+      <UniqueIdentifier>{755634ae-eb64-4105-8a55-e8e205dac55c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\input">
+      <UniqueIdentifier>{8cdee04b-53a9-4104-acdd-8a6933221941}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\input">
+      <UniqueIdentifier>{96e16e87-009e-4e72-aa3c-4641a1300fee}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\commons">
+      <UniqueIdentifier>{c2183a5a-6e73-4cc6-a382-8369a95b4b1a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\commons">
+      <UniqueIdentifier>{b5117ee2-9f14-435e-b5c0-e5df817ab84b}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -302,16 +326,7 @@
     <ClInclude Include="guilib\GUIControl.h">
       <Filter>Header Files\guilib</Filter>
     </ClInclude>
-    <ClInclude Include="guilib\tinyxml\tinystr.h">
-      <Filter>Header Files\guilib\tinyxml</Filter>
-    </ClInclude>
-    <ClInclude Include="guilib\tinyxml\tinyxml.h">
-      <Filter>Header Files\guilib\tinyxml</Filter>
-    </ClInclude>
     <ClInclude Include="guilib\GUIControlFactory.h">
-      <Filter>Header Files\guilib</Filter>
-    </ClInclude>
-    <ClInclude Include="guilib\XMLUtils.h">
       <Filter>Header Files\guilib</Filter>
     </ClInclude>
     <ClInclude Include="guilib\GUIInfoTypes.h">
@@ -341,7 +356,7 @@
     <ClInclude Include="guilib\GUILabel.h">
       <Filter>Header Files\guilib</Filter>
     </ClInclude>
-    <ClInclude Include="utils\StringUtils.h">
+    <ClInclude Include="utils\CStringUtils.h">
       <Filter>Header Files\utils</Filter>
     </ClInclude>
     <ClInclude Include="guilib\GUIVideoControl.h">
@@ -397,12 +412,6 @@
     </ClInclude>
     <ClInclude Include="guilib\IMsgTargetCallback.h">
       <Filter>Header Files\guilib</Filter>
-    </ClInclude>
-    <ClInclude Include="utils\Util.h">
-      <Filter>Header Files\utils</Filter>
-    </ClInclude>
-    <ClInclude Include="ButtonTranslator.h">
-      <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="guilib\windows\GUIWindowSettings.h">
       <Filter>Header Files\guilib\windows</Filter>
@@ -712,9 +721,6 @@
     </ClInclude>
     <ClInclude Include="filesystem\UPnPDirectory.h">
       <Filter>Header Files\filesystem</Filter>
-    </ClInclude>
-    <ClInclude Include="network\UPnP.h">
-      <Filter>Header Files\network</Filter>
     </ClInclude>
     <ClInclude Include="cores\DVDPlayer\DVDInputStreams\DVDInputStream.h">
       <Filter>Header Files\cores\DVDPlayer\DVDInputStreams</Filter>
@@ -1139,9 +1145,6 @@
     <ClInclude Include="utils\Weather.h">
       <Filter>Header Files\utils</Filter>
     </ClInclude>
-    <ClInclude Include="guilib\tinyjson\tinyjson.h">
-      <Filter>Header Files\guilib\tinyjson</Filter>
-    </ClInclude>
     <ClInclude Include="LangInfo.h">
       <Filter>Header Files</Filter>
     </ClInclude>
@@ -1271,6 +1274,57 @@
     <ClInclude Include="filesystem\ZipFile.h">
       <Filter>Header Files\filesystem</Filter>
     </ClInclude>
+    <ClInclude Include="..\sources\tinyxml\tinyxml.h">
+      <Filter>Header Files\sources\tinyxml</Filter>
+    </ClInclude>
+    <ClInclude Include="..\sources\tinyxml\tinystr.h">
+      <Filter>Header Files\sources\tinyxml</Filter>
+    </ClInclude>
+    <ClInclude Include="..\sources\tinyjson\tinyjson.h">
+      <Filter>Header Files\sources\tinyjson</Filter>
+    </ClInclude>
+    <ClInclude Include="network\upnp\UPnP.h">
+      <Filter>Header Files\network\upnp</Filter>
+    </ClInclude>
+    <ClInclude Include="input\ButtonTranslator.h">
+      <Filter>Header Files\input</Filter>
+    </ClInclude>
+    <ClInclude Include="utils\XMLUtils.h">
+      <Filter>Header Files\utils</Filter>
+    </ClInclude>
+    <ClInclude Include="utils\Utf8Utils.h">
+      <Filter>Header Files\utils</Filter>
+    </ClInclude>
+    <ClInclude Include="utils\params_check_macros.h">
+      <Filter>Header Files\utils</Filter>
+    </ClInclude>
+    <ClInclude Include="xbox\PlatformDefs.h">
+      <Filter>Header Files\xbox</Filter>
+    </ClInclude>
+    <ClInclude Include="Util.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="utils\Random.h">
+      <Filter>Header Files\utils</Filter>
+    </ClInclude>
+    <ClInclude Include="utils\auto_buffer.h">
+      <Filter>Header Files\utils</Filter>
+    </ClInclude>
+    <ClInclude Include="filesystem\IFileTypes.h">
+      <Filter>Header Files\filesystem</Filter>
+    </ClInclude>
+    <ClInclude Include="commons\Buffer.h">
+      <Filter>Header Files\commons</Filter>
+    </ClInclude>
+    <ClInclude Include="commons\Exception.h">
+      <Filter>Header Files\commons</Filter>
+    </ClInclude>
+    <ClInclude Include="commons\ilog.h">
+      <Filter>Header Files\commons</Filter>
+    </ClInclude>
+    <ClInclude Include="commons\typeindex.h">
+      <Filter>Header Files\commons</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Application.cpp">
@@ -1339,22 +1393,7 @@
     <ClCompile Include="guilib\GUIControl.cpp">
       <Filter>Source Files\guilib</Filter>
     </ClCompile>
-    <ClCompile Include="guilib\tinyxml\tinystr.cpp">
-      <Filter>Source Files\guilib\tinyxml</Filter>
-    </ClCompile>
-    <ClCompile Include="guilib\tinyxml\tinyxml.cpp">
-      <Filter>Source Files\guilib\tinyxml</Filter>
-    </ClCompile>
-    <ClCompile Include="guilib\tinyxml\tinyxmlerror.cpp">
-      <Filter>Source Files\guilib\tinyxml</Filter>
-    </ClCompile>
-    <ClCompile Include="guilib\tinyxml\tinyxmlparser.cpp">
-      <Filter>Source Files\guilib\tinyxml</Filter>
-    </ClCompile>
     <ClCompile Include="guilib\GUIControlFactory.cpp">
-      <Filter>Source Files\guilib</Filter>
-    </ClCompile>
-    <ClCompile Include="guilib\XMLUtils.cpp">
       <Filter>Source Files\guilib</Filter>
     </ClCompile>
     <ClCompile Include="guilib\GUIInfoTypes.cpp">
@@ -1383,9 +1422,6 @@
     </ClCompile>
     <ClCompile Include="guilib\GUILabel.cpp">
       <Filter>Source Files\guilib</Filter>
-    </ClCompile>
-    <ClCompile Include="utils\StringUtils.cpp">
-      <Filter>Source Files\utils</Filter>
     </ClCompile>
     <ClCompile Include="guilib\GUIVideoControl.cpp">
       <Filter>Source Files\guilib</Filter>
@@ -1434,12 +1470,6 @@
     </ClCompile>
     <ClCompile Include="xbox\XBKernalExports.cpp">
       <Filter>Source Files\xbox</Filter>
-    </ClCompile>
-    <ClCompile Include="utils\Util.cpp">
-      <Filter>Source Files\utils</Filter>
-    </ClCompile>
-    <ClCompile Include="ButtonTranslator.cpp">
-      <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="guilib\windows\GUIWindowSettings.cpp">
       <Filter>Source Files\guilib\windows</Filter>
@@ -1734,9 +1764,6 @@
     </ClCompile>
     <ClCompile Include="filesystem\UPnPDirectory.cpp">
       <Filter>Source Files\filesystem</Filter>
-    </ClCompile>
-    <ClCompile Include="network\UPnP.cpp">
-      <Filter>Source Files\network</Filter>
     </ClCompile>
     <ClCompile Include="cores\DVDPlayer\DVDInputStreams\DVDInputStream.cpp">
       <Filter>Source Files\cores\DVDPlayer\DVDInputStreams</Filter>
@@ -2155,9 +2182,6 @@
     <ClCompile Include="utils\Weather.cpp">
       <Filter>Source Files\utils</Filter>
     </ClCompile>
-    <ClCompile Include="guilib\tinyjson\tinyjson.cpp">
-      <Filter>Source Files\guilib\tinyjson</Filter>
-    </ClCompile>
     <ClCompile Include="LangInfo.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
@@ -2268,6 +2292,48 @@
     </ClCompile>
     <ClCompile Include="filesystem\ZipFile.cpp">
       <Filter>Source Files\filesystem</Filter>
+    </ClCompile>
+    <ClCompile Include="..\sources\tinyxml\tinystr.cpp">
+      <Filter>Source Files\sources\tinyxml</Filter>
+    </ClCompile>
+    <ClCompile Include="..\sources\tinyxml\tinyxmlparser.cpp">
+      <Filter>Source Files\sources\tinyxml</Filter>
+    </ClCompile>
+    <ClCompile Include="..\sources\tinyxml\tinyxml.cpp">
+      <Filter>Source Files\sources\tinyxml</Filter>
+    </ClCompile>
+    <ClCompile Include="..\sources\tinyxml\tinyxmlerror.cpp">
+      <Filter>Source Files\sources\tinyxml</Filter>
+    </ClCompile>
+    <ClCompile Include="..\sources\tinyjson\tinyjson.cpp">
+      <Filter>Source Files\sources\tinyjson</Filter>
+    </ClCompile>
+    <ClCompile Include="network\upnp\UPnP.cpp">
+      <Filter>Source Files\network\upnp</Filter>
+    </ClCompile>
+    <ClCompile Include="input\ButtonTranslator.cpp">
+      <Filter>Source Files\input</Filter>
+    </ClCompile>
+    <ClCompile Include="utils\XMLUtils.cpp">
+      <Filter>Source Files\utils</Filter>
+    </ClCompile>
+    <ClCompile Include="utils\Utf8Utils.cpp">
+      <Filter>Source Files\utils</Filter>
+    </ClCompile>
+    <ClCompile Include="Util.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="utils\auto_buffer.cpp">
+      <Filter>Source Files\utils</Filter>
+    </ClCompile>
+    <ClCompile Include="commons\Exception.cpp">
+      <Filter>Source Files\commons</Filter>
+    </ClCompile>
+    <ClCompile Include="commons\ilog.cpp">
+      <Filter>Source Files\commons</Filter>
+    </ClCompile>
+    <ClCompile Include="utils\StringUtils.cpp">
+      <Filter>Source Files\utils</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

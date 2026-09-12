@@ -5,7 +5,7 @@
 #include "utils\CharsetConverter.h"
 #include "GUIInfoManager.h"
 #include "utils\TimeUtils.h"
-#include "XMLUtils.h"
+#include "utils\XMLUtils.h"
 #include "SkinInfo.h"
 #include "GUIStaticItem.h"
 #include "..\SortFileItem.h"

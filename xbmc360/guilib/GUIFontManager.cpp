@@ -1,7 +1,7 @@
 #include "GUIFontManager.h"
 #include "utils\Log.h"
 #include "SkinInfo.h"
-#include "XMLUtils.h"
+#include "utils\XMLUtils.h"
 #include "utils\StringUtils.h"
 #include "URL.h"
 #include "utils\URIUtils.h"

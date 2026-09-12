@@ -2,7 +2,7 @@
 #define H_CSETTINGS
 
 #include "utils\StdString.h"
-#include "guilib\tinyxml\tinyxml.h"
+#include "tinyxml\tinyxml.h"
 #include "MediaSource.h"
 #include "VideoSettings.h"
 #include "ViewState.h"
